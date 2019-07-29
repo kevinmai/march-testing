@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `PPC Automated Pages`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
@@ -13,8 +13,19 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: 'mg8wb33w',
+        dataset: 'production', 
+        overlayDrafts: true,
+        watchMode: true,
+        token: 'sktnCRevILcYrRD3kqsDwrmmyfs5i2wSUcLBQNCgtB56huJORRPPbgAc1IGozgfov356BMJDvZh1j76KRwG0J06WtRG6UVm9B85Rad5kRw7K16p8ETmjKMmlRrcR6EO2Bu1vzsDb42OlnkvTLe82rVXoeFkvvcaVuGClqz3T7NXnJzLArVnU'
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
