@@ -8,9 +8,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
 import Header from "./header"
+import PageHeader from "./pageHeader"
+import Form from "./form"
 import "./layout.css"
+import { FaCalendarAlt } from 'react-icons/fa'
+import $ from "jquery"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -20,19 +23,39 @@ const Layout = ({ children }) => {
           title
         }
       }
+      sanityCompanyInfo {
+        primarycolor
+        secondarycolor
+        accentcolor
+      }
     }
   `)
 
+
+  function changeActive() {
+    $(".form").toggleClass("expanded");
+    console.log("click");
+  }
+
   return (
     <>
+    <div className="pagewrapper">
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div>
-        <main>{children}</main>
-        <footer>
-          <div class="container">
-            <p>{data.site.siteMetadata.title} | Marketing by <a href="http://vitalstorm.com/"  target="_blank">Vital Storm Marketing Inc.</a></p> 
-          </div>
-        </footer>
+      <PageHeader />
+      <Form />
+        <div>
+          <main>{children}</main>
+          <div className="scheduleMobile" onClick={changeActive} style={{backgroundColor: "#" + data.sanityCompanyInfo.primarycolor}}>
+              <div className="innerSchedule">
+                <FaCalendarAlt /> <span>Schedule Service</span>
+              </div>
+            </div>
+          <footer>
+            <div className="container">
+              <p>{data.site.siteMetadata.title} | Marketing by <a href="http://vitalstorm.com/" target="_blank" rel="noopener noreferrer">Vital Storm Marketing Inc.</a></p> 
+            </div>
+          </footer>
+        </div>
       </div>
     </>
   )
@@ -41,5 +64,6 @@ const Layout = ({ children }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
+
 
 export default Layout

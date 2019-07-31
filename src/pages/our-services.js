@@ -5,6 +5,8 @@ import { FaPrint } from "react-icons/fa"
 import Image from "gatsby-image"
 import BlockContent from '../components/block-content'
 
+import BackgroundImage from 'gatsby-background-image'
+
 export const query = graphql`
     query ourservicespagesQuery {
         sanityPages(slug: {current: {eq: "our-services"}}) {
@@ -21,8 +23,8 @@ export const query = graphql`
             }
             serviceimage{
                 asset{
-                    fluid(maxWidth:1000){
-                        ...GatsbySanityImageFluid
+                    fluid{
+                        src
                     }
                 }
             }
@@ -41,28 +43,21 @@ const today = days[now.getDay()];
 
 const IndexPage = ({ data }) => (
     <Layout>
-        <div class="pageHeader">
-            <div class="innerLeft">
-                <h1>{data.sanityPages.pagetitle}</h1>
-                <p>Call This <b>{today}</b> for </p>
-                <p class="coupon">{data.sanityPages.coupon.title} {data.sanityPages.coupon.type}</p>
-                <p class="restrictions">*Restrictions may apply</p>
-                <span class="printCoupon"><FaPrint /></span>
-            </div>
-        </div>
-        <div class="container pageContent">
-            <div class="row">
+        <div className="container pageContent">
+            <div className="row">
                 <BlockContent blocks={data.sanityPages._rawFirstcopy} />
             </div>
         </div>
-        <div class="row servicesRow">
-            <div class="leftSection">
-                <Image fluid={data.sanityPages.serviceimage.asset.fluid} />
+        <div className="row servicesRow">
+            <div className="leftSection">
+                <BackgroundImage
+                    style={{ height: "100%" }}
+                    fluid={data.sanityPages.serviceimage.asset.fluid}>
+                </BackgroundImage>
             </div>
-            <div class="rightSection" style={{ backgroundColor: "#" + data.sanityCompanyInfo.secondarycolor }}>
+            <div className="rightSection" style={{ backgroundColor: "#" + data.sanityCompanyInfo.secondarycolor }}>
                 <h2>Our Services</h2>
                 <BlockContent blocks={data.sanityPages._rawServices} />
-                <a href="/our-services" style={{ backgroundColor: "#" + data.sanityCompanyInfo.accentcolor }}>View our Services</a>
             </div>
         </div>
     </Layout>
