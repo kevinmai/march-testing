@@ -1,7 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { FaPrint } from "react-icons/fa"
-import BackgroundImage from 'gatsby-background-image'
+//import BackgroundImage from 'gatsby-background-image'
 
 const now = new Date();
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -47,11 +47,6 @@ export default () => (
 
 render={ data => (
     
-    <BackgroundImage
-        style={{ height: "100%",
-                 backgroundPosition: "center"            
-        }}
-        fluid={data.sanityPages.headerimage.asset.fluid}>
             <div className="pageHeader">
                 <div className="innerLeft">
                     <h1>{data.sanityPages.pagetitle}</h1>
@@ -62,7 +57,6 @@ render={ data => (
                 </div>
  
             </div>
-    </BackgroundImage>
     
     )}
 />

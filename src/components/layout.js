@@ -14,10 +14,11 @@ import Form from "./form"
 import "./layout.css"
 import { FaCalendarAlt } from 'react-icons/fa'
 import $ from "jquery"
+import BackgroundImage from 'gatsby-background-image'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
+    query SiteTitleQuery($slug: String) {
       site {
         siteMetadata {
           title
@@ -28,6 +29,32 @@ const Layout = ({ children }) => {
         secondarycolor
         accentcolor
       }
+      sanityPages(slug: {current: {eq: $slug}}) {
+            pagetitle
+            slug{
+              current
+            }
+            coupon{
+              title
+              type
+            }
+            serviceimage{
+                asset{
+                    fluid(maxWidth: 1920){
+                        ...GatsbySanityImageFluid
+                        src
+                    }
+                }
+            }
+            headerimage{
+                asset{
+                    fluid(maxWidth: 1920){
+                        ...GatsbySanityImageFluid
+                        src
+                    }
+                }
+            }
+        }
     }
   `)
 
@@ -41,7 +68,7 @@ const Layout = ({ children }) => {
     <>
     <div className="pagewrapper">
       <Header siteTitle={data.site.siteMetadata.title} />
-      <PageHeader />
+
       <Form />
         <div>
           <main>{children}</main>
