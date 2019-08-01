@@ -1,11 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from "../components/layout"
-import { FaPrint } from "react-icons/fa"
-import Image from "gatsby-image"
 import BlockContent from '../components/block-content'
-
 import BackgroundImage from 'gatsby-background-image'
+
 
 export const query = graphql`
     query pagesQuery {
@@ -23,7 +21,7 @@ export const query = graphql`
             }
             serviceimage{
                 asset{
-                    fluid(maxWidth:1000){
+                    fluid(maxWidth:1920){
                         ...GatsbySanityImageFluid
                         src
                     }
@@ -37,10 +35,6 @@ export const query = graphql`
         }
     }
 `
-const now = new Date();
-const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-const today = days[now.getDay()];
-
 
 const IndexPage = ( {data }) => (
   <Layout>
@@ -59,7 +53,7 @@ const IndexPage = ( {data }) => (
       <div className="rightSection" style={{ backgroundColor: "#" + data.sanityCompanyInfo.secondarycolor }}>
         <h2>Our Services</h2>
         <BlockContent blocks={data.sanityPages._rawServices} />
-        <a href="/our-services" style={{ backgroundColor: "#" + data.sanityCompanyInfo.accentcolor }}>View our Services</a>
+        <a href="/our-services/" style={{ backgroundColor: "#" + data.sanityCompanyInfo.accentcolor }}>View our Services</a>
       </div>
     </div>
     <div className="container pageContent">

@@ -8,6 +8,7 @@ const path = require('path');
 
 // You can delete this file if you're not using it
 
+
 exports.createPages = async ({ actions, graphql }) => {
     const result = await graphql(`
         query MyQuery {
@@ -24,15 +25,40 @@ exports.createPages = async ({ actions, graphql }) => {
     `);
 
     const projects = result.data.allSanityPages.edges.map(({ node }) => node );
-
     projects.forEach(project => {
-        actions.createPage({
-            path: project.slug.current,
-            component: path.resolve('./src/templates/page.js'),
-            context: {
-                slug: project.slug.current
-            }
-        })
+        if(project.slug.current == "our-services"){
+            actions.createPage({
+                path: project.slug.current,
+                component: path.resolve('./src/templates/ourServices.js'),
+                context: {
+                    slug: project.slug.current
+                }
+            })
+        } else if (project.slug.current == "coupons"){
+                 actions.createPage({
+                    path: project.slug.current,
+                    component: path.resolve('./src/templates/coupons.js'),
+                    context: {
+                        slug: project.slug.current
+                    }
+                })
+        } else if (project.slug.current == "reviews") {
+            actions.createPage({
+                path: project.slug.current,
+                component: path.resolve('./src/templates/reviews.js'),
+                context: {
+                    slug: project.slug.current
+                }
+            })
+        } else {
+            actions.createPage({
+                path: project.slug.current,
+                component: path.resolve('./src/templates/page.js'),
+                context: {
+                    slug: project.slug.current
+                }
+            })
+        }
     })
 }
 

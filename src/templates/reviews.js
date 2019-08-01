@@ -1,18 +1,14 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from "../components/layout"
-import { FaPrint } from "react-icons/fa"
-import Image from "gatsby-image"
+import { FaStar } from "react-icons/fa"
 import BlockContent from '../components/block-content'
 import BackgroundImage from 'gatsby-background-image'
 
 export const query = graphql`
-    query couponsQuery{
-        sanityPages(slug: {current: {eq: "coupons"}}) {
+    query reviewsQuery {
+        sanityPages(slug: {current: {eq: "reviews"}}) {
             pagetitle
-            slug{
-              current
-            }
             _rawFirstcopy
             _rawServices
             _rawSecondcopy
@@ -22,17 +18,9 @@ export const query = graphql`
             }
             serviceimage{
                 asset{
-                    fluid(maxWidth:1000){
+                    fluid(maxWidth:1920){
                         ...GatsbySanityImageFluid
                     }
-                }
-            }
-        }
-        allSanityCoupon{
-            edges{
-                node{
-                    title
-                    type
                 }
             }
         }
@@ -41,34 +29,37 @@ export const query = graphql`
             secondarycolor
             accentcolor
         }
+        allSanityReviews{
+            edges{
+                node{
+                    review
+                    author
+                }
+            }
+        }
     }
-
 `
 
-const now = new Date();
-const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-const today = days[now.getDay()];
+export default ({ data }) => (
 
-const CouponsPage = ({data}) => (
     <Layout>
         <div class="container pageContent">
             <div class="row">
                 <BlockContent blocks={data.sanityPages._rawFirstcopy} />
             </div>
-            <div class="row couponsRow">
-                <ul>
-                    {data.allSanityCoupon.edges.map(({ node: coupon }) => (
-                        <li style={{ backgroundColor: "#" + data.sanityCompanyInfo.secondarycolor }}>
-                            <span class="couponTitle">{coupon.title}</span>
-                            <br />
-                            <span class="couponType">{coupon.type}</span>
-                            <br />
-                            <span class="restrictions">*Restrictions may apply. Call office for details.</span>
-                        </li>
+        </div>
+        <div class="container">
+            <div class="row reviewRow">
+                
+                    {data.allSanityReviews.edges.map(({ node: reviews }) => (
+                        <div class="review">
+                            <FaStar style={{ color: "#" + data.sanityCompanyInfo.secondarycolor }} /><FaStar style={{ color: "#" + data.sanityCompanyInfo.secondarycolor }} /><FaStar style={{ color: "#" + data.sanityCompanyInfo.secondarycolor }} /><FaStar style={{ color: "#" + data.sanityCompanyInfo.secondarycolor }} /><FaStar style={{ color: "#" + data.sanityCompanyInfo.secondarycolor }} />
+                            <p>{reviews.review}</p>
+                            <p class="author"> - {reviews.author}</p>
+                        </div>
                     ))}
-                </ul>
+                
             </div>
-            
         </div>
         <div class="row servicesRow">
             <div class="leftSection">
@@ -82,8 +73,11 @@ const CouponsPage = ({data}) => (
                 <BlockContent blocks={data.sanityPages._rawServices} />
                 <a href="/our-services" style={{ backgroundColor: "#" + data.sanityCompanyInfo.accentcolor }}>View our Services</a>
             </div>
-        </div>           
+        </div>
+        <div class="container pageContent">
+            <div class="row">
+                <BlockContent blocks={data.sanityPages._rawSecondcopy} />
+            </div>
+        </div>
     </Layout>
 )
-
-export default CouponsPage
