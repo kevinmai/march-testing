@@ -9,14 +9,14 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
-import PageHeader from "./pageHeader"
-import Form from "./form"
+import Helmet from 'react-helmet'
+//import Form from "./form"
 import "./layout.css"
 import { FaCalendarAlt } from 'react-icons/fa'
 import $ from "jquery"
-import BackgroundImage from 'gatsby-background-image'
 
 const Layout = ({ children }) => {
+  
   const data = useStaticQuery(graphql`
     query SiteTitleQuery($slug: String) {
       site {
@@ -25,9 +25,23 @@ const Layout = ({ children }) => {
         }
       }
       sanityCompanyInfo {
+        companyname
+        logo{
+          asset{
+            fluid{
+              ...GatsbySanityImageFluid
+              src
+            }
+          }
+        }
         primarycolor
         secondarycolor
         accentcolor
+        analytics{
+          code
+        }
+        marchex
+        clicky
       }
       sanityPages(slug: {current: {eq: $slug}}) {
             pagetitle
@@ -64,26 +78,39 @@ const Layout = ({ children }) => {
     console.log("click");
   }
 
+  
+
+console.log("hello");
+  
   return (
     <>
+    
+    <Helmet>
+        <link rel="icon"
+          type="image/png"
+          href={data.sanityCompanyInfo.logo.asset.fluid.src} />
+        
+        <meta name="robots" content="noindex, nofollow" />
+    </Helmet>
     <div className="pagewrapper">
       <Header siteTitle={data.site.siteMetadata.title} />
-
-      <Form />
-        <div>
-          <main>{children}</main>
-          <div className="scheduleMobile" onClick={changeActive} style={{backgroundColor: "#" + data.sanityCompanyInfo.primarycolor}}>
-              <div className="innerSchedule">
-                <FaCalendarAlt /> <span>Schedule Service</span>
+          <div>
+            <main>{children}</main>
+            <div className="scheduleMobile" onClick={changeActive} style={{backgroundColor: data.sanityCompanyInfo.secondarycolor}}>
+                <div className="innerSchedule">
+                  <FaCalendarAlt /> <span>Schedule Service</span>
+                </div>
               </div>
-            </div>
-          <footer>
-            <div className="container">
-              <p>{data.site.siteMetadata.title} | Marketing by <a href="http://vitalstorm.com/" target="_blank" rel="noopener noreferrer">Vital Storm Marketing Inc.</a></p> 
-            </div>
-          </footer>
+            <footer>
+              <div className="container">
+                <p>{data.site.siteMetadata.title} | Marketing by <a href="http://vitalstorm.com/" target="_blank" rel="noopener noreferrer">Vital Storm Marketing Inc.</a></p> 
+              </div>
+              <script>{` 
+              console.log({data.sanityCompanyInfo.analytics.code});
+              `}  </script>
+            </footer>
+          </div>
         </div>
-      </div>
     </>
   )
 }
@@ -91,6 +118,7 @@ const Layout = ({ children }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
+
 
 
 export default Layout

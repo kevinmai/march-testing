@@ -4,11 +4,15 @@ import Layout from "../components/layout"
 import BlockContent from '../components/block-content'
 import BackgroundImage from 'gatsby-background-image'
 import { FaPrint } from "react-icons/fa"
+import Form from "../components/form"
 
 export const query = graphql`
     query pageQuery($slug: String) {
         sanityPages(slug: {current: {eq: $slug}}) {
             pagetitle
+            pagetype{
+                pagetype
+            }
             slug {
                 current
             }
@@ -42,12 +46,14 @@ export const query = graphql`
     }
 `
 
+
 const now = new Date();
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const today = days[now.getDay()];
 
 export default ({ data }) => (
     <Layout>
+        <Form />
         <BackgroundImage
             style={{
                 height: "100%",
@@ -57,16 +63,21 @@ export default ({ data }) => (
 
             <div className="pageHeader">
                 <div className="innerLeft">
+                    <div className="pgHeaderBackground" style={{
+                        backgroundColor: "#" + data.sanityCompanyInfo.secondarycolor,
+                        opacity: "0.9"
+                    }}></div>
                     <h1>{data.sanityPages.pagetitle}</h1>
                     <p>Call This <b>{today}</b> for </p>
-                    <p className="coupon">{data.sanityPages.coupon.title} {data.sanityPages.coupon.type}</p>
+                    <p className="coupon">{data.sanityPages.coupon.title}</p> 
+                    <p className="couponType">{data.sanityPages.coupon.type}</p>
                     <p className="restrictions">*Restrictions may apply</p>
                     <span className="printCoupon" style={{ backgroundColor: "#" + data.sanityCompanyInfo.accentcolor }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
                 </div>
 
             </div>
         </BackgroundImage>
-        <div className="container pageContent">
+        <div className="container pageContent thispage">
             <div className="row">
                 <BlockContent blocks={data.sanityPages._rawFirstcopy} />
             </div>
@@ -79,7 +90,7 @@ export default ({ data }) => (
                 </BackgroundImage>
                 </div>
             <div className="rightSection" style={{ backgroundColor: "#" + data.sanityCompanyInfo.secondarycolor }}>
-                    <h2>Our Services</h2>
+                <span className="servicesBlockTitle"><h2>Our Services</h2></span>
                 <BlockContent blocks={data.sanityPages._rawServices} />
                 <a href="/our-services/" style={{ backgroundColor: "#" + data.sanityCompanyInfo.accentcolor }}>View our Services</a>
                 </div>

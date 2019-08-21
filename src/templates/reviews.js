@@ -5,6 +5,9 @@ import { FaStar } from "react-icons/fa"
 import BlockContent from '../components/block-content'
 import BackgroundImage from 'gatsby-background-image'
 import { FaPrint } from "react-icons/fa"
+import Form from "../components/form"
+import Helmet from 'react-helmet'
+
 
 export const query = graphql`
     query reviewsQuery {
@@ -36,6 +39,7 @@ export const query = graphql`
             }
         }
         sanityCompanyInfo {
+            companyname
             primarycolor
             secondarycolor
             accentcolor
@@ -57,6 +61,10 @@ const today = days[now.getDay()];
 
 export default ({ data }) => (
     <Layout>
+        <Helmet>
+            <title>{data.sanityCompanyInfo.companyname} | {data.sanityPages.pagetitle}</title>
+        </Helmet>
+        <Form />
         <BackgroundImage
             style={{
                 height: "100%",
@@ -66,49 +74,57 @@ export default ({ data }) => (
 
             <div className="pageHeader">
                 <div className="innerLeft">
-                    <h1>{data.sanityPages.pagetitle}</h1>
-                    <p>Call This <b>{today}</b> for </p>
-                    <p className="coupon">{data.sanityPages.coupon.title} {data.sanityPages.coupon.type}</p>
+                    <div className="pgHeaderBackground" style={{
+                        backgroundColor: data.sanityCompanyInfo.primarycolor,
+                        opacity: "0.9"
+                    }}></div>
+                    <h1 style={{ borderColor: data.sanityCompanyInfo.accentcolor }}>{data.sanityPages.pagetitle}</h1>
+                    <p>Call This <b style={{color: data.sanityCompanyInfo.accentcolor}}>{today}</b> for </p>
+                    <p className="coupon">{data.sanityPages.coupon.title}</p>
+                    <p className="couponType">{data.sanityPages.coupon.type}</p>
                     <p className="restrictions">*Restrictions may apply</p>
-                    <span className="printCoupon" style={{ backgroundColor: "#" + data.sanityCompanyInfo.accentcolor }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
+                    <span className="printCoupon" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
                 </div>
 
             </div>
         </BackgroundImage>
-        <div class="container pageContent">
-            <div class="row">
-                <BlockContent blocks={data.sanityPages._rawFirstcopy} />
+        <div className="reviewsPage">
+            <div className="container pageContent">
+                <div className="row">
+                    <BlockContent blocks={data.sanityPages._rawFirstcopy} />
+                </div>
             </div>
-        </div>
-        <div class="container">
-            <div class="row reviewRow">
-                
-                    {data.allSanityReviews.edges.map(({ node: reviews }) => (
-                        <div class="review">
-                            <FaStar style={{ color: "#" + data.sanityCompanyInfo.secondarycolor }} /><FaStar style={{ color: "#" + data.sanityCompanyInfo.secondarycolor }} /><FaStar style={{ color: "#" + data.sanityCompanyInfo.secondarycolor }} /><FaStar style={{ color: "#" + data.sanityCompanyInfo.secondarycolor }} /><FaStar style={{ color: "#" + data.sanityCompanyInfo.secondarycolor }} />
-                            <p>{reviews.review}</p>
-                            <p class="author"> - {reviews.author}</p>
-                        </div>
-                    ))}
-                
+            <div className="container">
+                <div className="row reviewRow">
+                    
+                        {data.allSanityReviews.edges.map(({ node: reviews }) => (
+                            <div class="review">
+                                <FaStar style={{ color: data.sanityCompanyInfo.primarycolor }} /><FaStar style={{ color: data.sanityCompanyInfo.primarycolor }} /><FaStar style={{ color: data.sanityCompanyInfo.primarycolor }} /><FaStar style={{ color: data.sanityCompanyInfo.primarycolor }} /><FaStar style={{ color: data.sanityCompanyInfo.primarycolor }} />
+                                <p>{reviews.review}</p>
+                                <p className="author"> - {reviews.author}</p>
+                            </div>
+                        ))}
+                    
+                </div>
             </div>
-        </div>
-        <div class="row servicesRow">
-            <div class="leftSection">
-                <BackgroundImage
-                    style={{ height: "100%" }}
-                    fluid={data.sanityPages.serviceimage.asset.fluid}>
-                </BackgroundImage>
+            <div className="row servicesRow">
+                <div className="leftSection">
+                    <BackgroundImage
+                        style={{ height: "100%" }}
+                        fluid={data.sanityPages.serviceimage.asset.fluid}>
+                    </BackgroundImage>
+                </div>
+                <div className="rightSection" style={{ backgroundColor: data.sanityCompanyInfo.primarycolor }}>
+                    <h2>Our Services</h2>
+                    <hr style={{backgroundColor: data.sanityCompanyInfo.accentcolor }} />
+                    <BlockContent blocks={data.sanityPages._rawServices} />
+                    <a href="/our-services" style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor }}>View our Services</a>
+                </div>
             </div>
-            <div class="rightSection" style={{ backgroundColor: "#" + data.sanityCompanyInfo.secondarycolor }}>
-                <h2>Our Services</h2>
-                <BlockContent blocks={data.sanityPages._rawServices} />
-                <a href="/our-services" style={{ backgroundColor: "#" + data.sanityCompanyInfo.accentcolor }}>View our Services</a>
-            </div>
-        </div>
-        <div class="container pageContent">
-            <div class="row">
-                <BlockContent blocks={data.sanityPages._rawSecondcopy} />
+            <div className="container pageContent">
+                <div className="row">
+                    <BlockContent blocks={data.sanityPages._rawSecondcopy} />
+                </div>
             </div>
         </div>
     </Layout>

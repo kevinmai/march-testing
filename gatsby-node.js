@@ -18,6 +18,9 @@ exports.createPages = async ({ actions, graphql }) => {
                         slug {
                         current
                         }
+                        pagetype{
+                            pagetype
+                        }
                     }
                 }
             }
@@ -46,6 +49,14 @@ exports.createPages = async ({ actions, graphql }) => {
             actions.createPage({
                 path: project.slug.current,
                 component: path.resolve('./src/templates/reviews.js'),
+                context: {
+                    slug: project.slug.current
+                }
+            })
+        } else if (project.pagetype.pagetype == "Service Page") {
+            actions.createPage({
+                path: project.slug.current,
+                component: path.resolve('./src/templates/servicepage.js'),
                 context: {
                     slug: project.slug.current
                 }

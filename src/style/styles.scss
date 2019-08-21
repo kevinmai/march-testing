@@ -10,6 +10,14 @@ $primaryOverlay: rgba(25,72,115, .90);
 /**** IMPORTS ****/
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
 
+@import './variables/media_queries.scss';
+
+@import './ourServices.scss';
+@import './servicePage.scss';
+@import './reviews.scss';
+@import './coupons.scss';
+@import './form.scss';
+
 
 /**** MEDIA QUERIES ****/
 @mixin phone-only {
@@ -46,15 +54,19 @@ body{
         font-size: 0.9em !important;
         text-decoration: none;
         font-weight: 500;
+        color: #353535;
         &:hover{
 
         }
     }
+    ul{
+        margin-top: 15px;
+    }
     .container{
-        width: 1100px;
+        max-width: 1100px;
         margin:auto;
         @include desktop{
-            width:900px;
+            width:90%;
         }
         @include tablet-landscape{
             width:700px;
@@ -70,7 +82,7 @@ body{
         padding: 1em 0;
         .header-inner{
             display:flex;
-            justify-content: space-evenly;
+            justify-content: space-around;
             align-items: center;
         }
         .headerbtn{
@@ -87,13 +99,11 @@ body{
             }
         }
         .schedule{
-            background-color: $secondary;
-            border-color: $secondary;
             transition: all ease 0.2s;
             margin-right: 5px;
             cursor:pointer;
             &:hover{
-                background-color: #f9f9f9;
+                background-color: #f9f9f9 !important;
                 color: #353535;
                 transition: all ease 0.2s;
             }
@@ -102,11 +112,9 @@ body{
             }
         }
         .phone{
-            background-color: $accent;
-            border-color: $accent;
             transition: all ease 0.2s;
             &:hover{
-                background-color: #f9f9f9;
+                background-color: #f9f9f9 !important;
                 color: #353535;
                 transition: all ease 0.2s;
             }
@@ -126,35 +134,62 @@ body{
         
         .innerLeft{
             width:50%;
-            background-color: $primaryOverlay; 
+            //background-color: $primaryOverlay; 
             height: 100%;
             padding: 4em;
             position: relative;
+            
             @include tablet-portrait{
                 width:100%;
                 padding: 2em;
             }
+            .pgHeaderBackground{
+                position: absolute;
+                top:0;
+                left:0;
+                right:0;
+                bottom:0;
+                display:block;
+            }
             h1{
                 color: #fff;
                 font-size: 1.5em;
-                border-bottom: 2px solid $accent;
                 font-weight: 600;
                 display:inline-block;
                 padding-bottom: 5px;
+                position: relative;
+                border-bottom: 2px solid;
             }
             p{
                 text-align: center;
                 color: #fff;
                 font-size: 0.9em;
                 margin-bottom: 20px;
+                position: relative;
             }
             b{
-                color: $accent;
+                position: relative;
             }
             .coupon{
                 font-size: 3em !important;
                 font-style: italic;
                 font-weight: 600;
+                line-height: 115%;
+                margin-bottom: 0;
+                position: relative;
+                @include desktop(){
+                    font-size: 2.5em !important;
+                    line-height:115%;
+                }
+                @include tablet-landscape(){
+                    font-size: 2.4em !important;
+                    line-height: 115%;
+                }
+            }
+            .couponType{
+                font-size: 1.2em !important;
+                font-weight: 600;
+                position: relative;
                 @include tablet-landscape(){
                     font-size: 2.4em !important;
                     line-height: 115%;
@@ -216,13 +251,19 @@ body{
             }
             
             position: relative;
-            h2{
-                color:#fff;
+            .servicesBlockTitle{
                 text-align: center;
-                font-weight: 400;
-                border-bottom: 2px solid $accent;
-                display:inline-block;
-                padding-bottom: 10px;
+                h2{
+                    color:#fff;
+                    font-weight: 400;
+                    margin-bottom: 0;
+                }
+            }
+            hr{
+                height:2px;
+                border:0;
+                width: 150px;
+                margin: 20px auto;
             }
             p{
                 color: #fff;
@@ -238,7 +279,6 @@ body{
                 text-transform: uppercase;
                 transition: all ease 0.2s;
                 &:hover{
-                    background-color: $secondary;
                     transition: all ease 0.2s;
                 }
                 @include tablet-portrait(){
@@ -343,82 +383,25 @@ footer{
     }
 }
 
-.form{
-    position: absolute;
-    width:700px;
-    height: 40vh;
-    padding: 30px 50px;
-    background-color: #dbdbdb;
-    top:111px;
-    right:-700px;
-    transition: all ease 0.3s;
-    z-index: 99;
-    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
-    @include tablet-portrait(){
-        width:auto;
-        height: auto;
-        position: fixed;
+
+
+@media print{
+    .phone {
+        visibility: hidden;
     }
-    @include phone-only(){
-        width:auto;
-    }
-    .closeForm{
-        position: absolute;
-        right:20px;
-        top:20px;
-        transform: scale(1.4);
-        svg{
-            fill:$primary;
+    .innerLeft{
+        padding:1em;
+        .coupon, .couponType, .restrictions{
+            visibility: visible;
         }
     }
-    h2{
-        color: $primary;
-        font-weight: 500;
+    .pageHeader{
+        height:10vh;
     }
-    form{
-        display:flex;
-        flex-direction: column;
-        input[type="text"],input[type="email"],input[type="tel"], textarea {
-            margin-bottom: 10px;
-            font-size: 0.8em;
-            padding-left: 10px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            border:0;
-            font-weight: 500;
-            border-bottom: 2px solid #fff;
-            outline:none;
-            -webkit-appearance: none;
-            transition: all ease 0.2s;
-            &:focus{
-                border-color: $secondary;
-                transition: all ease 0.2s;
-            }
-        }
-        input[type="submit"]{
-            background-color: $secondary;
-            color:#fff;
-            display: inline-block;
-            position: absolute;
-            right:20px;
-            bottom:20px;
-            border:0;
-            text-align: right;
-            text-transform: uppercase;
-            font-size: 0.9em;
-            padding: 5px 30px;
-            font-weight: 600;
-            @include tablet-portrait(){
-                position: initial;
-                text-align: center;
-            }
-        }
+    .header-inner{
+        justify-content: center;
     }
-    &.expanded{
-        right:0;
-        transition: all ease 0.3s;
-        @include tablet-portrait(){
-            left:0;
-        }
+    .headerBtns{
+        display:none;
     }
 }

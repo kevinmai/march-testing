@@ -1,0 +1,22 @@
+.ourServicesPage{
+    .servicesRow{
+        min-height:320px;
+        .leftSection{
+
+        }
+        .rightSection{
+            .rightSectionTitle{
+                text-align: center;
+                h2{
+                    color: #fff;
+                }
+                hr{
+                    height: 2px;
+                    position: relative;
+                    border:0;
+                    width: 100px;
+                }
+            }
+        }
+    }
+}
