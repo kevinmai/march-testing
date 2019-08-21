@@ -36,7 +36,7 @@ export default () => (
             <div className="serviceRightSide" style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor }}>
                 <div className="innerWrapper" style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor }}>
                     <div className="companyPhone">
-                        <a style={{backgroundColor: data.sanityCompanyInfo.primarycolor }}href={ "tel:" + data.sanityCompanyInfo.phone }><FaPhone /> {data.sanityCompanyInfo.phone} </a>
+                        <a style={{backgroundColor: data.sanityCompanyInfo.secondarycolor }}href={ "tel:" + data.sanityCompanyInfo.phone }><FaPhone /> {data.sanityCompanyInfo.phone} </a>
                     </div>
                     <div className="serviceCoupon">
                         <span className="date">Call This <b>{today}</b> for </span>
@@ -44,7 +44,7 @@ export default () => (
                         <span className="couponType">{data.sanityPages.coupon.type}</span>
                         <span className="bottomwrapper">
                             <span className="restrictions">*Restrictions may apply</span>
-                            <span onClick={printCoupon} className="printCoupon" style={{ backgroundColor: data.sanityCompanyInfo.primarycolor }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
+                            <span onClick={printCoupon} className="printCoupon" style={{ backgroundColor: data.sanityCompanyInfo.secondarycolor }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
                             </span>
                     </div>
                     <div className="form serviceForm">

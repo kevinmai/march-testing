@@ -51,6 +51,10 @@ const now = new Date();
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const today = days[now.getDay()];
 
+function printCoupon() {
+    window.print();
+  }
+
 export default ({ data }) => (
     <Layout>
         <Form />
@@ -63,8 +67,8 @@ export default ({ data }) => (
 
             <div className="pageHeader">
                 <div className="innerLeft">
-                    <div className="pgHeaderBackground" style={{
-                        backgroundColor: "#" + data.sanityCompanyInfo.secondarycolor,
+                <div className="pgHeaderBackground" style={{
+                        backgroundColor: data.sanityCompanyInfo.primarycolor,
                         opacity: "0.9"
                     }}></div>
                     <h1>{data.sanityPages.pagetitle}</h1>
@@ -72,7 +76,7 @@ export default ({ data }) => (
                     <p className="coupon">{data.sanityPages.coupon.title}</p> 
                     <p className="couponType">{data.sanityPages.coupon.type}</p>
                     <p className="restrictions">*Restrictions may apply</p>
-                    <span className="printCoupon" style={{ backgroundColor: "#" + data.sanityCompanyInfo.accentcolor }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
+                    <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
                 </div>
 
             </div>
@@ -89,10 +93,10 @@ export default ({ data }) => (
                     fluid={data.sanityPages.serviceimage.asset.fluid}>
                 </BackgroundImage>
                 </div>
-            <div className="rightSection" style={{ backgroundColor: "#" + data.sanityCompanyInfo.secondarycolor }}>
+            <div className="rightSection" style={{ backgroundColor: data.sanityCompanyInfo.primarycolor }}>
                 <span className="servicesBlockTitle"><h2>Our Services</h2></span>
                 <BlockContent blocks={data.sanityPages._rawServices} />
-                <a href="/our-services/" style={{ backgroundColor: "#" + data.sanityCompanyInfo.accentcolor }}>View our Services</a>
+                <a href="/our-services/" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor }}>View our Services</a>
                 </div>
             </div>
         <div className="container pageContent">    

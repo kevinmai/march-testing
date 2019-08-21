@@ -58,6 +58,10 @@ const now = new Date();
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const today = days[now.getDay()];
 
+function printCoupon() {
+    window.print();
+  }
+
 const CouponsPage = ({ data }) => (
     <Layout>
         <Helmet>
@@ -82,7 +86,7 @@ const CouponsPage = ({ data }) => (
                     <p className="coupon">{data.sanityPages.coupon.title}</p>
                     <p className="couponType">{data.sanityPages.coupon.type}</p>
                     <p className="restrictions">*Restrictions may apply</p>
-                    <span className="printCoupon" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
+                    <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
                 </div>
 
             </div>
