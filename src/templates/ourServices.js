@@ -77,7 +77,9 @@ const today = days[now.getDay()];
 
 /***** FUNCTION TO PRINT OUT COUPONS *****/
 function printCoupon() {
-    window.print();
+    if(typeof window !== 'undefined'){
+        window.print();
+    }
 }
 /***** FUNCTION TO GET THE CITY PARAMETER FROM URL *****/
 function getUrlVars(){

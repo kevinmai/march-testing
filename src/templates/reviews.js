@@ -65,7 +65,9 @@ const now = new Date();
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const today = days[now.getDay()];
 function printCoupon() {
-    window.print();
+    if(typeof window !== 'undefined'){
+        window.print();
+    }
   }
 
 export default ({ data }) => (

@@ -65,7 +65,9 @@ const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 
 const today = days[now.getDay()];
 
 function printCoupon() {
-    window.print();
+    if(typeof window !== 'undefined'){
+        window.print();
+    }
   }
 
 /* ADD CITY TO OUR SERVICES LINK */
