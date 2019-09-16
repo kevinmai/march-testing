@@ -76,21 +76,19 @@ const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 
 const today = days[now.getDay()];
 
 
-/***** FUNCTION TO PRINT OUT COUPONS *****/
-function printCoupon() {
-    if(typeof window !== 'undefined'){
+if(typeof window !== 'undefined'){
+    /***** FUNCTION TO PRINT OUT COUPONS *****/
+    function printCoupon() {
         window.print();
     }
-}
-/***** FUNCTION TO GET THE CITY PARAMETER FROM URL *****/
-function getUrlVars(){
-    var vars = {};
-    if(typeof window !== 'undefined'){
-            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    /***** FUNCTION TO GET THE CITY PARAMETER FROM URL *****/
+    function getUrlVars(){
+        var vars = {};
+        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
             vars[key] = value;
         });
+        return vars;
     }
-    return vars;
 }
 const city = getUrlVars()["city"];
 
