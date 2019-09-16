@@ -9,7 +9,7 @@ import BackgroundImage from 'gatsby-background-image'
 import { FaPrint } from "react-icons/fa"
 import Form from "../components/form"
 import PortableText from '@sanity/block-content-to-react'
-import jQuery from 'jquery'
+import $ from 'jquery'
 
 /**** GRAPHQL QUERY *****/
 export const query = graphql`
@@ -97,7 +97,7 @@ const city = getUrlVars()["city"];
 /***** ADD CITY TO URLS IN PAGE *****/
 
 function addCity(){
-    jQuery('div.pageContent a').attr('href', function(i, href){
+    $('div.pageContent a').attr('href', function(i, href){
         return href + '?city=' + city; 
     });
 }
@@ -107,7 +107,7 @@ const serializers = {
     marks: {
         internalLink: ({mark, children}) => {
             const {slug = {}} = mark
-            const href = `/${slug.current}?city=${city}`
+            const href = `/{slug.current}?city={city}`
             return <Link to={href }>{children}</Link>
           }
       }
