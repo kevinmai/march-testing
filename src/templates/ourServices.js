@@ -70,9 +70,8 @@ export const query = graphql`
     }
 `
 
-if(typeof window !== 'undefined'){
-    window.$ = require('jquery')(window);
-}
+var jsdom = require('jsdom');
+jQuery = require('jquery')(new jsdom.JSDOM().window);
 
 /***** GET CURRENT DAY *****/
 const now = new Date();
