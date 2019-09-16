@@ -10,7 +10,6 @@ import { FaPrint } from "react-icons/fa"
 import Form from "../components/form"
 import PortableText from '@sanity/block-content-to-react'
 import jQuery from 'jquery'
-import jsdom from 'jsdom'
 
 /**** GRAPHQL QUERY *****/
 export const query = graphql`
