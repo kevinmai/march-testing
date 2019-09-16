@@ -127,7 +127,7 @@ const Layout = ({ children }) => {
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
 
-              gtag('config', '${data.sanityCompanyInfo.remarketing}');
+              gtag('config', ${data.sanityCompanyInfo.remarketing});
             `}
           </script>
 
@@ -136,7 +136,7 @@ const Layout = ({ children }) => {
           {data.sanityCompanyInfo.remarketing ? (
               <script>{`
               gtag('event', 'page_view', {
-                'send_to': '${data.sanityCompanyInfo.remarketing}',
+                'send_to': ${data.sanityCompanyInfo.remarketing},
                 'user_id': 'replace with value'
               });
               `}
