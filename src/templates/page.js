@@ -72,6 +72,7 @@ function printCoupon() {
             vars[key] = value;
         });
     }
+    console.log(vars)
     return vars;
 }
   const city = getUrlVars()["city"];

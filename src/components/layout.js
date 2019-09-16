@@ -157,11 +157,11 @@ const Layout = ({ children }) => {
                 <p>{data.sanityCompanyInfo.companyname} | Marketing by <a href="http://vitalstorm.com/" target="_blank" rel="noopener noreferrer">VitalStorm</a></p> 
               </div>
               <script type="text/javascript">
-                {`var SETUP_VS_LP = function(){
+                {/*`var SETUP_VS_LP = function(){
                     INIT_VS_LP({
                         env: 'prod'
                     });
-                };`}
+                };`*/}
 					    </script>
 					    {/* <script src="https://s3.amazonaws.com/vs.static-files/vs_lp_conv_bundle.js"  async defer onLoad={`SETUP_VS_LP`}></script> */}
               

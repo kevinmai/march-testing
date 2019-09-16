@@ -79,8 +79,7 @@ const ourServices = "/our-services?city=" + city;
 const IndexPage = ( {data }) => (
   <Layout>
     <Helmet>
-      {//<title>{data.sanityCompanyInfo.companyname} | {data.sanityPages.pagetitle}</title>
-      }
+      <title>{data.sanityCompanyInfo.companyname} | {data.sanityPages.pagetitle}</title>
     </Helmet>
     <Form />
     <BackgroundImage

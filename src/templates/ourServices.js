@@ -95,7 +95,6 @@ function getUrlVars(){
 const city = getUrlVars()["city"];
 
 /***** ADD CITY TO URLS IN PAGE *****/
-
 function addCity(){
     if(typeof window !== 'undefined'){
         $('div.pageContent a').attr('href', function(i, href){
