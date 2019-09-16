@@ -12,7 +12,7 @@ import PortableText from '@sanity/block-content-to-react'
 import jQuery from 'jquery'
 import jsdom from 'jsdom'
 
-var jQuery = require('jquery')(require("jsdom").jsdom().parentWindow);
+const jQuery = require('jquery')(require("jsdom").jsdom().parentWindow);
 
 /**** GRAPHQL QUERY *****/
 export const query = graphql`
