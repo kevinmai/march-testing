@@ -7,6 +7,13 @@
             display:block;
         }
     }
+    .header-inner{
+        width: 70%;
+        justify-content: center;
+        @include tablet-landscape{
+            width: 100%;
+        }
+    }
     
     .flexWrapper {
         display: flex;
@@ -75,6 +82,10 @@
                     color: #fff;
                     padding: 20px 30px; 
                     margin-top: 20px;
+                    &:hover{
+                        background-color: #fff !important;
+                        color: #353535;
+                    }
                 }
             }
         }
@@ -111,6 +122,13 @@
 
                 .printCoupon {
                     padding: 15px 25px;
+                    cursor:pointer;
+                    transition: all ease 0.3s;
+                    &:hover{
+                        background-color: #fff !important;
+                        color: #353535;
+                        transition: all ease 0.3s;
+                    }
 
                     .mobileCouponText {
                         display: none;
@@ -136,6 +154,13 @@
                 input[type="submit"] {
                     bottom: -40px;
                     right: 0;
+                    transition: all ease 0.3s;
+                    cursor: pointer;
+                    &:hover{
+                        background-color: #fff !important;
+                        color: #353535;
+                        transition: all ease 0.3s;
+                    }
                 }
             }
 
@@ -147,35 +172,48 @@
 /*=== COUPON PRINT CODE ===*/
 
 @media print{
-    body *{
-        visibility: hidden;
+    @page 
+    {
+        size:  auto;   /* auto is the initial value */
+        margin: 0mm;  /* this affects the margin in the printer settings */
     }
-
-    .flexWrapper{
-        display:block !important;
-    }
-    .serviceRightSide{
-        width:100% !important;
-    }
-    .innerWrapper{
-        width:100% !important;
-    }
-    .serviceCoupon *, .serviceCoupon{
-        visibility: visible;
-    }
-    .header-inner *{
-        visibility: visible;
+    .servicePage{
+        .serviceRightSide{
+            width:100% !important;
+            display:block !important;
+            .innerWrapper{
+                position: initial !important;
+                width:100% !important;
+                .companyPhone{
+                    display:none;
+                }
+            }
+        }
+        .flexWrapper{
+            display:block !important;
+            width:100% !important;
+        }
     }
     .serviceCoupon{
-        position: absolute;
-        left:0;
-        top:80px;
-        .date, b{
-            visibility: hidden;
+        display:flex !important;
+        flex-direction: column !important;
+
+        .date{
+            display:none;
+        }
+
+        *{
+            color: #353535 !important;
         }
         .bottomwrapper{
-            margin-top: 1em !important;
-            width:100% !important;
+            justify-content: center !important;
+            width: 100% !important;
+            .restrictions{
+                text-align: center;
+            }
+            .printCoupon{
+                display:none !important;
+            }
         }
     }
 

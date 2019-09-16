@@ -15,6 +15,7 @@ import "./layout.css"
 import { FaCalendarAlt } from 'react-icons/fa'
 import $ from "jquery"
 
+
 const Layout = ({ children }) => {
   
   const data = useStaticQuery(graphql`
@@ -34,14 +35,27 @@ const Layout = ({ children }) => {
             }
           }
         }
-        primarycolor
-        secondarycolor
-        accentcolor
-        analytics{
-          code
+        favicon{
+          asset{
+            fluid{
+              ...GatsbySanityImageFluid
+              src
+            }
+          }
         }
+        primarycolor{
+          hex
+      }
+      secondarycolor{
+          hex
+      }
+      accentcolor{
+          hex
+      }
+        analytics
         marchex
         clicky
+        remarketing
       }
       sanityPages(slug: {current: {eq: $slug}}) {
             pagetitle
@@ -75,40 +89,93 @@ const Layout = ({ children }) => {
 
   function changeActive() {
     $(".form").toggleClass("expanded");
-    console.log("click");
-  }
+  }  
 
-  
-
-console.log("hello");
-  
   return (
     <>
     
     <Helmet>
-        <link rel="icon"
+          <link rel="icon"
           type="image/png"
-          href={data.sanityCompanyInfo.logo.asset.fluid.src} />
+          href={data.sanityCompanyInfo.favicon.asset.fluid.src} defer="false" />
         
         <meta name="robots" content="noindex, nofollow" />
+
+        {data.sanityCompanyInfo.analytics ? (
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${data.sanityCompanyInfo.analytics}`}/> 
+          
+          ) : null}
+        
+        {data.sanityCompanyInfo.analytics ? (
+                    <script>
+                      {`window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+              
+                gtag('config', '${data.sanityCompanyInfo.analytics}');
+              `}
+            </script>
+          ) : null}
+
+
+          {data.sanityCompanyInfo.remarketing ? (
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${data.sanityCompanyInfo.remarketing}`}/> ) : null}
+
+          {data.sanityCompanyInfo.remarketing ? (
+            <script>{`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', '${data.sanityCompanyInfo.remarketing}');
+            `}
+          </script>
+
+          ) : null}
+          
+          {data.sanityCompanyInfo.remarketing ? (
+              <script>{`
+              gtag('event', 'page_view', {
+                'send_to': '${data.sanityCompanyInfo.remarketing}',
+                'user_id': 'replace with value'
+              });
+              `}
+              </script>
+          ) : null}
     </Helmet>
     <div className="pagewrapper">
       <Header siteTitle={data.site.siteMetadata.title} />
           <div>
             <main>{children}</main>
-            <div className="scheduleMobile" onClick={changeActive} style={{backgroundColor: data.sanityCompanyInfo.secondarycolor}}>
+            <div className="scheduleMobile" onClick={changeActive} style={{backgroundColor: data.sanityCompanyInfo.secondarycolor.hex}}>
                 <div className="innerSchedule">
                   <FaCalendarAlt /> <span>Schedule Service</span>
                 </div>
               </div>
-            <footer>
+            <footer className="footer">
               <div className="container">
-                <p>{data.site.siteMetadata.title} | Marketing by <a href="http://vitalstorm.com/" target="_blank" rel="noopener noreferrer">Vital Storm Marketing Inc.</a></p> 
+                <p>{data.sanityCompanyInfo.companyname} | Marketing by <a href="http://vitalstorm.com/" target="_blank" rel="noopener noreferrer">VitalStorm</a></p> 
               </div>
-              <script>{` 
-              console.log({data.sanityCompanyInfo.analytics.code});
-              `}  </script>
-            </footer>
+              <script type="text/javascript">
+                {`var SETUP_VS_LP = function(){
+                    INIT_VS_LP({
+                        env: 'prod'
+                    });
+                };`}
+					    </script>
+					    {/* <script src="https://s3.amazonaws.com/vs.static-files/vs_lp_conv_bundle.js"  async defer onLoad={`SETUP_VS_LP`}></script> */}
+              
+              
+              <script type="text/javascript">{`
+                vs_account_id      = "${data.sanityCompanyInfo.marchex}";
+              `}</script>
+              <script type="text/javascript" src="https://rw1.calls.net/euinc/number-changer.js">
+              </script>
+
+              <script>{`var clicky_site_ids = clicky_site_ids || []; clicky_site_ids.push(${data.sanityCompanyInfo.clicky});`}</script>
+              <script async src="//static.getclicky.com/js"></script>
+
+          </footer>
           </div>
         </div>
     </>

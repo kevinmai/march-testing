@@ -1,9 +1,10 @@
-/**** VARIABLES ****/
-$primary: #194873;
-$secondary: #42b2cc;
-$accent: #ffb060;
+/**************************************
 
-$primaryOverlay: rgba(25,72,115, .90);
+*********** MAIN STYLESHEET ***********
+
+***MADE BY VITALSTORM MARKETING INC***
+
+**************************************/
 
 
 
@@ -12,6 +13,9 @@ $primaryOverlay: rgba(25,72,115, .90);
 
 @import './variables/media_queries.scss';
 
+/**** COMPONENTS ****/
+@import './components/pageHeader.scss';
+/**** PAGES ****/
 @import './ourServices.scss';
 @import './servicePage.scss';
 @import './reviews.scss';
@@ -40,6 +44,9 @@ body{
     background: #f9f9f9;
     font-family: "Montserrat" !important;
     
+    h1, h2, h3, h4, h5, h6{
+        font-family: "Montserrat";
+    }
     .pagewrapper{
         width:100%;
         overflow: hidden;
@@ -53,10 +60,12 @@ body{
     a{
         font-size: 0.9em !important;
         text-decoration: none;
-        font-weight: 500;
-        color: #353535;
+        font-weight: 600;
+        transition: all ease 0.3s;
+        color: #424242;
         &:hover{
-
+            color: #547ea5;
+            transition: all ease 0.3s;
         }
     }
     ul{
@@ -129,106 +138,7 @@ body{
 .pageHeaderbg{
     background-position: center;
 }
-    .pageHeader{
-        height:40vh;
-        
-        .innerLeft{
-            width:50%;
-            //background-color: $primaryOverlay; 
-            height: 100%;
-            padding: 4em;
-            position: relative;
-            
-            @include tablet-portrait{
-                width:100%;
-                padding: 2em;
-            }
-            .pgHeaderBackground{
-                position: absolute;
-                top:0;
-                left:0;
-                right:0;
-                bottom:0;
-                display:block;
-            }
-            h1{
-                color: #fff;
-                font-size: 1.5em;
-                font-weight: 600;
-                display:inline-block;
-                padding-bottom: 5px;
-                position: relative;
-                border-bottom: 2px solid;
-            }
-            p{
-                text-align: center;
-                color: #fff;
-                font-size: 0.9em;
-                margin-bottom: 20px;
-                position: relative;
-            }
-            b{
-                position: relative;
-            }
-            .coupon{
-                font-size: 3em !important;
-                font-style: italic;
-                font-weight: 600;
-                line-height: 115%;
-                margin-bottom: 0;
-                position: relative;
-                @include desktop(){
-                    font-size: 2.5em !important;
-                    line-height:115%;
-                }
-                @include tablet-landscape(){
-                    font-size: 2.4em !important;
-                    line-height: 115%;
-                }
-            }
-            .couponType{
-                font-size: 1.2em !important;
-                font-weight: 600;
-                position: relative;
-                @include tablet-landscape(){
-                    font-size: 2.4em !important;
-                    line-height: 115%;
-                }
-            }
-            .restrictions{
-                position: absolute;
-                bottom: 10px;
-                font-size: 0.8em;
-                left:50%;
-                transform: translateX(-50%);
-                @include tablet-portrait(){
-                    position: relative;
-                }
-            }
-            .printCoupon{
-                padding: 15px 25px;
-                position: absolute;
-                right:0;
-                bottom:0;
-                @include tablet-portrait(){
-                    left:0;
-                    text-align: center;
-                }
-                svg{
-                    fill: #fff;
-                }
-                .mobileCouponText{
-                    display:none;
-                    color: #fff;
-                    text-transform: uppercase;
-                    font-weight: 500;
-                    @include tablet-portrait(){
-                        display:initial;
-                    }
-                }
-            }
-        }
-    }
+    
     .pageContent{
         .row{
             padding: 60px 0; 
@@ -245,7 +155,7 @@ body{
         }
         .rightSection{
             width:50%;
-            padding: 3em;
+            padding: 3.5em;
             @include tablet-portrait(){
                 width:100%;
             }
@@ -280,6 +190,8 @@ body{
                 transition: all ease 0.2s;
                 &:hover{
                     transition: all ease 0.2s;
+                    background-color: #f9f9f9 !important;
+                    color: #353535;
                 }
                 @include tablet-portrait(){
                     position: relative;
@@ -368,7 +280,7 @@ body{
     }
 }
 footer{
-    padding: 30px 0 80px;
+    padding: 2em 0 2em;
     
     background-color: #dbdbdb;
     p{
@@ -379,29 +291,6 @@ footer{
     a{
         text-decoration: none;
         font-weight: 600;
-        color: $primary;
-    }
-}
-
-
-
-@media print{
-    .phone {
-        visibility: hidden;
-    }
-    .innerLeft{
-        padding:1em;
-        .coupon, .couponType, .restrictions{
-            visibility: visible;
-        }
-    }
-    .pageHeader{
-        height:10vh;
-    }
-    .header-inner{
-        justify-content: center;
-    }
-    .headerBtns{
-        display:none;
+        color: #353535;
     }
 }

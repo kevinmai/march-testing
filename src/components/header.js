@@ -10,14 +10,21 @@ function changeActive(){
   $(".form").toggleClass("expanded");
 }
 
+
 export default () => (
   <StaticQuery query={ graphql`
           query CompanyQuery {
             sanityCompanyInfo {
               phone
-              primarycolor
-              secondarycolor
-              accentcolor
+              primarycolor{
+                hex
+            }
+            secondarycolor{
+                hex
+            }
+            accentcolor{
+                hex
+            }
               logo {
                 asset {
                   fluid(maxWidth: 700) {
@@ -33,7 +40,7 @@ export default () => (
         render={data => (
           <header>
               <div className="header-inner">
-                <Image
+                <Image location="/"
                   fluid={data.sanityCompanyInfo.logo.asset.fluid}
                   style={{ height: "auto", width: "200px" }}
                   className="align-center"
@@ -41,12 +48,14 @@ export default () => (
                 />
                 <div className="headerBtns">
                   <span className="headerbtn schedule" onClick={changeActive} 
-                  style={{ backgroundColor: data.sanityCompanyInfo.secondarycolor, borderColor: data.sanityCompanyInfo.secondarycolor }}
+                  style={{ backgroundColor: data.sanityCompanyInfo.secondarycolor.hex, borderColor: data.sanityCompanyInfo.secondarycolor.hex }}
                   > <FaCalendarAlt /> Schedule</span>
-                  <a className="headerbtn phone" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor, borderColor: data.sanityCompanyInfo.accentcolor}} href={"tel:" + data.sanityCompanyInfo.phone}><FaPhone /> {data.sanityCompanyInfo.phone}</a>
+                  <a className="headerbtn phone" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex, borderColor: data.sanityCompanyInfo.accentcolor.hex}} href={"tel:" + data.sanityCompanyInfo.phone}><FaPhone /> {data.sanityCompanyInfo.phone}</a>
                 </div>
               </div>
+              
           </header>
+          
         )}
   />
 )

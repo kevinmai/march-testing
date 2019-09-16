@@ -37,9 +37,16 @@ export default () => (
             }
         }
         sanityCompanyInfo {
-            primarycolor
-            secondarycolor
-            accentcolor
+            primarycolor{
+                hex
+            }
+            secondarycolor{
+                hex
+            }
+            accentcolor{
+                hex
+            }
+            cities
         }
     }
 `}
@@ -49,11 +56,11 @@ render={ data => (
     
             <div className="pageHeader">
                 <div className="innerLeft">
-                    <h1>{data.sanityPages.pagetitle}</h1>
-                    <p>Call This <b>{today}</b> for </p>
+                    <h1>{data.sanityPages.pagetitle} in {data.sanityCompanyInfo.cities}</h1>
+                    <p className="day">Call This <b>{today}</b> for </p>
                     <p className="coupon">{data.sanityPages.coupon.title} {data.sanityPages.coupon.type}</p>
                     <p className="restrictions">*Restrictions may apply</p>
-                    <span className="printCoupon" style={{backgroundColor: "#" + data.sanityCompanyInfo.accentcolor}}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
+                    <span className="printCoupon" style={{backgroundColor: "#" + data.sanityCompanyInfo.accentcolor.hex}}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
                 </div>
  
             </div>

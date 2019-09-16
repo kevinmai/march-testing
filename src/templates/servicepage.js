@@ -4,7 +4,6 @@ import Layout from "../components/layout"
 import BlockContent from '../components/block-content'
 import BackgroundImage from 'gatsby-background-image'
 import Helmet from 'react-helmet'
-
 import ServiceForm from "../components/serviceForm"
 import Form from "../components/form"
 
@@ -44,15 +43,35 @@ export const query = graphql`
     }
         sanityCompanyInfo {
             companyname
-            primarycolor
-            secondarycolor
-            accentcolor
+            primarycolor{
+                hex
+            }
+            secondarycolor{
+                hex
+            }
+            accentcolor{
+                hex
+            }
+            cities
         }
     }
 `
 
+function getUrlVars() {
+    var vars = {};
+    // eslint-disable-next-line
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+const city = getUrlVars()["city"];
+
+const ourServices = "/our-services?city=" + city;
 
 export default ({ data }) => (
+
 <div className="servicePage">
 
 
@@ -76,12 +95,12 @@ export default ({ data }) => (
 
                     <div className="pageHeader">
                         <div className="overlay" style={{
-                                backgroundColor: data.sanityCompanyInfo.primarycolor,
+                                backgroundColor: data.sanityCompanyInfo.primarycolor.hex,
                                 opacity: "0.7"
                         }}>
                         </div>
-                            <h1>{data.sanityPages.pagetitle}</h1>
-                            <hr style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor }} />
+                            <h1>{data.sanityPages.pagetitle} Services in {city}</h1>
+                            <hr style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor.hex }} />
 
                     </div>
                 </BackgroundImage>
@@ -98,11 +117,11 @@ export default ({ data }) => (
                                 fluid={data.sanityPages.serviceimage.asset.fluid}>
                             </BackgroundImage>
                         </div>
-                        <div className="rightSection" style={{ backgroundColor:  data.sanityCompanyInfo.primarycolor }}>
+                        <div className="rightSection" style={{ backgroundColor:  data.sanityCompanyInfo.primarycolor.hex }}>
                             <h2>Our Services</h2>
-                            <hr style={{ backgroundColor: data.sanityCompanyInfo.accentcolor }} />
+                            <hr style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }} />
                             <BlockContent blocks={data.sanityPages._rawServices} />
-                            <a href="/our-services/" style={{ backgroundColor:data.sanityCompanyInfo.accentcolor }}>View our Services</a>
+                            <a href={ourServices} style={{ backgroundColor:data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
                         </div>
                     </div>
                     <div className="container pageContent">
@@ -115,3 +134,4 @@ export default ({ data }) => (
     </Layout>
 </div>
 )
+

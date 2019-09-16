@@ -44,13 +44,14 @@
         transform: scale(1.4);
 
         svg {
-            fill: $primary;
+            fill: #353535;
         }
     }
 
     h2 {
-        color: $primary;
+        color: #353535;
         font-weight: 500;
+        margin-bottom: 0.5em;
     }
 
     form {

@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql, StaticQuery } from 'gatsby'
-import $ from "jquery"
 import { FaPrint } from "react-icons/fa"
 import { FaPhone } from 'react-icons/fa'
 
@@ -24,19 +23,25 @@ export default () => (
         }
         sanityCompanyInfo {
             phone
-            primarycolor
-            secondarycolor
-            accentcolor
+            primarycolor{
+                hex
+            }
+            secondarycolor{
+                hex
+            }
+            accentcolor{
+                hex
+            }
         }
     }
 `}
 
         render={data => (
             <>
-            <div className="serviceRightSide" style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor }}>
-                <div className="innerWrapper" style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor }}>
+            <div className="serviceRightSide" style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor.hex }}>
+                <div className="innerWrapper" style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor.hex }}>
                     <div className="companyPhone">
-                        <a style={{backgroundColor: data.sanityCompanyInfo.secondarycolor }}href={ "tel:" + data.sanityCompanyInfo.phone }><FaPhone /> {data.sanityCompanyInfo.phone} </a>
+                        <a style={{backgroundColor: data.sanityCompanyInfo.secondarycolor.hex }}href={ "tel:" + data.sanityCompanyInfo.phone }><FaPhone /> {data.sanityCompanyInfo.phone} </a>
                     </div>
                     <div className="serviceCoupon">
                         <span className="date">Call This <b>{today}</b> for </span>
@@ -44,7 +49,7 @@ export default () => (
                         <span className="couponType">{data.sanityPages.coupon.type}</span>
                         <span className="bottomwrapper">
                             <span className="restrictions">*Restrictions may apply</span>
-                            <span onClick={printCoupon} className="printCoupon" style={{ backgroundColor: data.sanityCompanyInfo.secondarycolor }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
+                            <span onClick={printCoupon} className="printCoupon" style={{ backgroundColor: data.sanityCompanyInfo.secondarycolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
                             </span>
                     </div>
                     <div className="form serviceForm">
@@ -54,7 +59,7 @@ export default () => (
                             <input type="email" name="email" placeholder="Email Address*" required />
                             <input type="tel" name="phone" placeholder="Phone Number" />
                             <textarea name="serviceneeded" placeholder="Service Needed*" required />
-                            <input type="submit" value="Submit" style={{backgroundColor: data.sanityCompanyInfo.secondarycolor }}/>
+                            <input type="submit" value="Submit" style={{backgroundColor: data.sanityCompanyInfo.secondarycolor.hex }}/>
                         </form>
                     </div>
                 </div>

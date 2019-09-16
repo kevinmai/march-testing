@@ -1,0 +1,150 @@
+.pageHeader{
+    height:40vh;
+    
+    .innerLeft{
+        width:50%;
+        //background-color: $primaryOverlay; 
+        height: 100%;
+        padding: 4em;
+        position: relative;
+        
+        @include tablet-portrait{
+            width:100%;
+            padding: 2em;
+        }
+        .pgHeaderBackground{
+            position: absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            display:block;
+        }
+        h1{
+            color: #fff;
+            font-size: 1.5em;
+            font-weight: 600;
+            display:inline-block;
+            padding-bottom: 5px;
+            position: relative;
+            border-bottom: 2px solid;
+        }
+        p{
+            text-align: center;
+            color: #fff;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        b{
+            position: relative;
+        }
+        .coupon{
+            font-size: 3em !important;
+            font-style: italic;
+            font-weight: 600;
+            line-height: 115%;
+            margin-bottom: 0;
+            position: relative;
+            @include desktop(){
+                font-size: 2.5em !important;
+                line-height:115%;
+            }
+            @include tablet-landscape(){
+                font-size: 2.4em !important;
+                line-height: 115%;
+            }
+        }
+        .couponType{
+            font-size: 1.2em !important;
+            font-weight: 600;
+            position: relative;
+            @include tablet-landscape(){
+                font-size: 2.4em !important;
+                line-height: 115%;
+            }
+        }
+        .restrictions{
+            position: absolute;
+            bottom: 10px;
+            font-size: 0.8em;
+            left:50%;
+            transform: translateX(-50%);
+            @include tablet-portrait(){
+                position: relative;
+            }
+        }
+        .printCoupon{
+            padding: 15px 25px;
+            position: absolute;
+            right:0;
+            bottom:0;
+            cursor:pointer;
+            transition: background-color ease 0.3s;
+            @include tablet-portrait(){
+                left:0;
+                text-align: center;
+            }
+            svg{
+                fill: #fff;
+                transition: fill ease 0.3s;
+            }
+            &:hover{
+                background-color: #fff !important;
+                transition: background-color ease 0.3s;
+                svg{
+                    fill: #353535;
+                    transition: fill ease 0.3s;
+                }               
+            }
+            .mobileCouponText{
+                display:none;
+                color: #fff;
+                text-transform: uppercase;
+                font-weight: 500;
+                @include tablet-portrait(){
+                    display:initial;
+                }
+            }
+        }
+    }
+}
+
+@media print{
+    @page 
+    {
+        size:  auto;   /* auto is the initial value */
+        margin: 0mm;  /* this affects the margin in the printer settings */
+    }
+    .headerBtns{
+        display:none !important;
+    }
+    .headerInner{
+        justify-content: center !important;
+    }
+    .pageHeader{
+        .innerLeft{
+            padding:1em;
+            .coupon, .couponType, .restrictions{
+                visibility: visible !important;
+            }
+            .date{
+                display:none !important;
+            }
+        }
+    }
+    .pageHeader h1{
+            display:none !important;
+    }
+    .pageContent, .servicesRow, footer, .printCoupon, .form, .scheduleMobile{
+        display:none !important;
+    }
+
+    .serviceCoupon{
+        display:block !important;
+    }
+    .servicePage *{
+        color: #333333 !important;
+
+    }
+}

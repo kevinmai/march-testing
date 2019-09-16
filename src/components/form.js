@@ -14,9 +14,15 @@ export default () => (
         graphql`
     query queryForm{
         sanityCompanyInfo {
-            primarycolor
-            secondarycolor
-            accentcolor
+            primarycolor{
+                hex
+            }
+            secondarycolor{
+                hex
+            }
+            accentcolor{
+                hex
+            }
         }
     }
 `}
@@ -24,13 +30,13 @@ export default () => (
             <>
     <div className="form">
         <h2>Schedule Service</h2>
-        <span className="closeForm" onClick={changeActive}><FaTimesCircle style={{fill: data.sanityCompanyInfo.primarycolor }} /></span>
+        <span className="closeForm" onClick={changeActive}><FaTimesCircle style={{fill: data.sanityCompanyInfo.primarycolor.hex }} /></span>
         <form>
             <input type="text" name="name" placeholder="Name*" required />
             <input type="email" name="email" placeholder="Email Address*" required />
             <input type="tel" name="phone" placeholder="Phone Number" />
             <textarea name="serviceneeded" placeholder="Service Needed*" required />
-            <input type="submit" value="Submit" style={{backgroundColor: data.sanityCompanyInfo.secondarycolor }} />
+            <input type="submit" value="Submit" style={{backgroundColor: data.sanityCompanyInfo.secondarycolor.hex }} />
         </form>
     </div>
 

@@ -1,5 +1,6 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+/*** IMPORTS  ****/
+import  React from 'react'
+import { graphql } from 'gatsby'
 import Layout from "../components/layout"
 import Helmet from 'react-helmet'
 import { Link } from "gatsby"
@@ -7,10 +8,10 @@ import BlockContent from '../components/block-content'
 import BackgroundImage from 'gatsby-background-image'
 import { FaPrint } from "react-icons/fa"
 import Form from "../components/form"
-
 import PortableText from '@sanity/block-content-to-react'
+import jQuery from 'jquery'
 
-
+/**** GRAPHQL QUERY *****/
 export const query = graphql`
     query ourservicespageQuery {
         sanityPages(slug: {current: {eq: "our-services"}}) {
@@ -36,6 +37,7 @@ export const query = graphql`
             coupon {
                 title
                 type
+                printable
             }
             headerimage {
                 asset {
@@ -54,38 +56,63 @@ export const query = graphql`
         }
         sanityCompanyInfo {
             companyname
-            primarycolor
-            secondarycolor
-            accentcolor
+            primarycolor{
+                hex
+            }
+            secondarycolor{
+                hex
+            }
+            accentcolor{
+                hex
+            }
+            cities
         }
     }
 `
-
+/***** GET CURRENT DAY *****/
 const now = new Date();
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const today = days[now.getDay()];
 
+
+/***** FUNCTION TO PRINT OUT COUPONS *****/
 function printCoupon() {
     window.print();
+}
+/***** FUNCTION TO GET THE CITY PARAMETER FROM URL *****/
+function getUrlVars(){
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+const city = getUrlVars()["city"];
+
+/***** ADD CITY TO URLS IN PAGE *****/
+function addCity(){
+    jQuery('div.pageContent a').attr('href', function(i, href){
+        return href + '?city=' + city; 
+    });
+}
+
+/***** FUNCTION FOR BLOCK CONTENT LINKS *****/
+const serializers = {
+    marks: {
+        internalLink: ({mark, children}) => {
+            const {slug = {}} = mark
+            const href = `/${slug.current}?city=${city}`
+            return <Link to={href }>{children}</Link>
+          }
+      }
   }
 
-
-const serializers = {
-  marks: {
-      internalLink: ({mark, children}) => {
-          const {slug = {}} = mark
-          const href = `/${slug.current}`
-          return <Link to={href}>{children}</Link>
-        }
-    }
-}
-console.log(serializers);
 export default ({ data }) => (
     <Layout>
         <Helmet>
             <title>{data.sanityCompanyInfo.companyname} | {data.sanityPages.pagetitle}</title>
         </Helmet>
-        <Form />
+        <Form /> 
         
         <BackgroundImage
             style={{
@@ -97,37 +124,43 @@ export default ({ data }) => (
             <div className="pageHeader">
                 <div className="innerLeft" >
                     <div className="pgHeaderBackground" style={{
-                        backgroundColor: data.sanityCompanyInfo.primarycolor,
+                        backgroundColor: data.sanityCompanyInfo.primarycolor.hex,
                         opacity: "0.9"
                     }}></div>
 
-                    <h1 style={{ borderColor: data.sanityCompanyInfo.accentcolor }}>{data.sanityPages.pagetitle}</h1>
-                    <p>Call This <b style={{color: data.sanityCompanyInfo.accentcolor}}>{today}</b> for </p>
+                    <h1 style={{ borderColor: data.sanityCompanyInfo.accentcolor.hex }}>{data.sanityPages.pagetitle} in {city}</h1>
+                    <p className="date">Call This <b style={{color: data.sanityCompanyInfo.accentcolor.hex}}>{today}</b> for </p>
                     <p className="coupon">{data.sanityPages.coupon.title}</p>
                     <p className="couponType">{data.sanityPages.coupon.type}</p>
                     <p className="restrictions">*Restrictions may apply</p>
-                    <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
+
+                    {
+                        // IF COUPON IS PRINTABLE -> SHOW PRINT BUTTON
+                        //data.sanityPages.coupon.printable  && <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span> }
+                    }
+
+                    <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
                 </div>
 
             </div>
         </BackgroundImage>
         <Form />
         <div className="ourServicesPage">
-            <div className="container pageContent ">
+            <div className="container pageContent" >
                 <div className="row">
-                    <PortableText blocks={data.sanityPages._rawFirstcopy} serializers={serializers} />
+                        <PortableText blocks={data.sanityPages._rawFirstcopy} serializers={serializers}  />
                 </div>
             </div>
             <div className="row servicesRow">
                 <div className="leftSection">
                     <BackgroundImage
                         style={{ height: "100%" }}
-                        fluid={data.sanityPages.serviceimage.asset.fluid}>
+                        fluid={data.sanityPages.serviceimage.asset.fluid} onClick={addCity()}>
                     </BackgroundImage>
                 </div>
-                <div className="rightSection" style={{ backgroundColor: data.sanityCompanyInfo.primarycolor }}>
+                <div className="rightSection" style={{ backgroundColor: data.sanityCompanyInfo.primarycolor.hex }}>
                     <span className="rightSectionTitle"><h2>Our Services</h2></span>
-                    <hr style={{ backgroundColor: data.sanityCompanyInfo.accentcolor }} />
+                    <hr style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }} />
                     <BlockContent blocks={data.sanityPages._rawServices} />
                 </div>
             </div>

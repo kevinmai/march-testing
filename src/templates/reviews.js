@@ -40,9 +40,15 @@ export const query = graphql`
         }
         sanityCompanyInfo {
             companyname
-            primarycolor
-            secondarycolor
-            accentcolor
+            primarycolor{
+                hex
+            }
+            secondarycolor{
+                hex
+            }
+            accentcolor{
+                hex
+            }
         }
         allSanityReviews{
             edges{
@@ -78,15 +84,15 @@ export default ({ data }) => (
             <div className="pageHeader">
                 <div className="innerLeft">
                     <div className="pgHeaderBackground" style={{
-                        backgroundColor: data.sanityCompanyInfo.primarycolor,
+                        backgroundColor: data.sanityCompanyInfo.primarycolor.hex,
                         opacity: "0.9"
                     }}></div>
-                    <h1 style={{ borderColor: data.sanityCompanyInfo.accentcolor }}>{data.sanityPages.pagetitle}</h1>
-                    <p>Call This <b style={{color: data.sanityCompanyInfo.accentcolor}}>{today}</b> for </p>
+                    <h1 style={{ borderColor: data.sanityCompanyInfo.accentcolor.hex }}>{data.sanityPages.pagetitle}</h1>
+                    <p>Call This <b style={{color: data.sanityCompanyInfo.accentcolor.hex}}>{today}</b> for </p>
                     <p className="coupon">{data.sanityPages.coupon.title}</p>
                     <p className="couponType">{data.sanityPages.coupon.type}</p>
                     <p className="restrictions">*Restrictions may apply</p>
-                    <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
+                    <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
                 </div>
 
             </div>
@@ -102,7 +108,7 @@ export default ({ data }) => (
                     
                         {data.allSanityReviews.edges.map(({ node: reviews }) => (
                             <div class="review">
-                                <FaStar style={{ color: data.sanityCompanyInfo.primarycolor }} /><FaStar style={{ color: data.sanityCompanyInfo.primarycolor }} /><FaStar style={{ color: data.sanityCompanyInfo.primarycolor }} /><FaStar style={{ color: data.sanityCompanyInfo.primarycolor }} /><FaStar style={{ color: data.sanityCompanyInfo.primarycolor }} />
+                                <FaStar style={{ color: data.sanityCompanyInfo.primarycolor.hex }} /><FaStar style={{ color: data.sanityCompanyInfo.primarycolor.hex }} /><FaStar style={{ color: data.sanityCompanyInfo.primarycolor.hex }} /><FaStar style={{ color: data.sanityCompanyInfo.primarycolor.hex }} /><FaStar style={{ color: data.sanityCompanyInfo.primarycolor.hex }} />
                                 <p>{reviews.review}</p>
                                 <p className="author"> - {reviews.author}</p>
                             </div>
@@ -117,11 +123,11 @@ export default ({ data }) => (
                         fluid={data.sanityPages.serviceimage.asset.fluid}>
                     </BackgroundImage>
                 </div>
-                <div className="rightSection" style={{ backgroundColor: data.sanityCompanyInfo.primarycolor }}>
+                <div className="rightSection" style={{ backgroundColor: data.sanityCompanyInfo.primarycolor.hex }}>
                     <h2>Our Services</h2>
-                    <hr style={{backgroundColor: data.sanityCompanyInfo.accentcolor }} />
+                    <hr style={{backgroundColor: data.sanityCompanyInfo.accentcolor.hex }} />
                     <BlockContent blocks={data.sanityPages._rawServices} />
-                    <a href="/our-services" style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor }}>View our Services</a>
+                    <a href="/our-services" style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
                 </div>
             </div>
             <div className="container pageContent">
