@@ -10,7 +10,7 @@ import { FaPrint } from "react-icons/fa"
 import Form from "../components/form"
 import PortableText from '@sanity/block-content-to-react'
 import jQuery from 'jquery'
-import jsdom from 'jquery'
+import jsdom from 'jsdom'
 
 var jQuery = require('jquery')(require("jsdom").jsdom().parentWindow);
 
