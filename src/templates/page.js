@@ -63,11 +63,13 @@ function printCoupon() {
     window.print();
   }
 
-  function getUrlVars() {
+  function getUrlVars(){
     var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-        vars[key] = value;
-    });
+    if(typeof window !== 'undefined'){
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+            vars[key] = value;
+        });
+    }
     return vars;
 }
   const city = getUrlVars()["city"];

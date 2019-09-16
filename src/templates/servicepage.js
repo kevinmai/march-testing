@@ -57,12 +57,13 @@ export const query = graphql`
     }
 `
 
-function getUrlVars() {
+function getUrlVars(){
     var vars = {};
-    // eslint-disable-next-line
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-        vars[key] = value;
-    });
+    if(typeof window !== 'undefined'){
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+            vars[key] = value;
+        });
+    }
     return vars;
 }
 
