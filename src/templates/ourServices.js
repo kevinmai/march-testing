@@ -97,9 +97,11 @@ const city = getUrlVars()["city"];
 /***** ADD CITY TO URLS IN PAGE *****/
 
 function addCity(){
-    $('div.pageContent a').attr('href', function(i, href){
-        return href + '?city=' + city; 
-    });
+    if(typeof window !== 'undefined'){
+        $('div.pageContent a').attr('href', function(i, href){
+            return href + '?city=' + city; 
+        });
+    }  
 }
 
 /***** FUNCTION FOR BLOCK CONTENT LINKS *****/
