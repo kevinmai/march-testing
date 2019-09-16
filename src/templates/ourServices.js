@@ -69,6 +69,8 @@ export const query = graphql`
         }
     }
 `
+
+
 /***** GET CURRENT DAY *****/
 const now = new Date();
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -94,7 +96,7 @@ function getUrlVars(){
 const city = getUrlVars()["city"];
 
 /***** ADD CITY TO URLS IN PAGE *****/
-window.$ = require('jquery')(window);
+
 function addCity(){
     jQuery('div.pageContent a').attr('href', function(i, href){
         return href + '?city=' + city; 
