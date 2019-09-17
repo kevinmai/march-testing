@@ -77,7 +77,7 @@ function getUrlVars(){
   const city = '' + getUrlVars('city');
   const cityToString = city.toString();
   const titleCity = cityToString.replace('city=', '');
-  const ourServices = "/our-services?city=" + titleCity;
+  const ourServices = "/our-services?" + city;
 
 export default ({ data }) => (
 
