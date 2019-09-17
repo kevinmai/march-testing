@@ -10,7 +10,6 @@ function changeActive(){
   $(".form").toggleClass("expanded");
 }
 
-
 export default () => (
   <StaticQuery query={ graphql`
           query CompanyQuery {
@@ -53,9 +52,7 @@ export default () => (
                   <a className="headerbtn phone" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex, borderColor: data.sanityCompanyInfo.accentcolor.hex}} href={"tel:" + data.sanityCompanyInfo.phone}><FaPhone /> {data.sanityCompanyInfo.phone}</a>
                 </div>
               </div>
-              
           </header>
-          
         )}
   />
 )
