@@ -102,7 +102,10 @@ function getUrlVars(){
     return urlParams;
   }
   const city = getUrlVars('city');
+  const cityToString = city.toString();
+  const titleCity = cityToString.replace('city=', '');
 
+  
 /***** ADD CITY TO URLS IN PAGE *****/
 function addCity(){
     if(typeof window !== 'undefined'){
@@ -144,7 +147,7 @@ export default ({ data }) => (
                         opacity: "0.9"
                     }}></div>
 
-                    <h1 style={{ borderColor: data.sanityCompanyInfo.accentcolor.hex }}>{data.sanityPages.pagetitle} in {city}</h1>
+                    <h1 style={{ borderColor: data.sanityCompanyInfo.accentcolor.hex }}>{data.sanityPages.pagetitle} in {titleCity}</h1>
                     <p className="date">Call This <b style={{color: data.sanityCompanyInfo.accentcolor.hex}}>{today}</b> for </p>
                     <p className="coupon">{data.sanityPages.coupon.title}</p>
                     <p className="couponType">{data.sanityPages.coupon.type}</p>
