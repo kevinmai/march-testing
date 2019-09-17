@@ -94,8 +94,13 @@ function printCoupon() {
 }
 const city = getUrlVars()["city"];*/
 
-const urlParams = new URLSearchParams(window.location.search);
-const city = urlParams.get('city');
+function getUrlVars(){
+    if(typeof window !== 'undefined'){
+        var urlParams = new URLSearchParams(window.location.search);
+    }
+    return urlParams;
+  }
+  const city = getUrlVars('city');
 
 /***** ADD CITY TO URLS IN PAGE *****/
 function addCity(){

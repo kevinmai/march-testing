@@ -76,9 +76,14 @@ function printCoupon() {
 //     return vars;
 // }
 //   const city = getUrlVars()["city"];
-const urlParams = new URLSearchParams(window.location.search);
-const city = urlParams.get('city');
-  const ourServices = "/our-services?city=" + city;
+function getUrlVars(){
+    if(typeof window !== 'undefined'){
+        var urlParams = new URLSearchParams(window.location.search);
+    }
+    return urlParams;
+  }
+  const city = getUrlVars('city');
+  const ourServices = "/our-services?" + city;
 
 
 export default ({ data }) => (
