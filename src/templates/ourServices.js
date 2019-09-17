@@ -101,11 +101,11 @@ function getUrlVars(){
     }
     return urlParams;
   }
-  const city = getUrlVars('city');
+  const city = '' + getUrlVars('city');
   const cityToString = city.toString();
   const titleCity = cityToString.replace('city=', '');
 
-  
+
 /***** ADD CITY TO URLS IN PAGE *****/
 function addCity(){
     if(typeof window !== 'undefined'){
