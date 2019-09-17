@@ -76,7 +76,9 @@ function printCoupon() {
     }
     return urlParams;
   }
-  const city = getUrlVars('city');
+  const city = '' + getUrlVars('city');
+  const cityToString = city.toString();
+  const titleCity = cityToString.replace('city=', '');
   const ourServices = "/our-services?" + city;
 
 

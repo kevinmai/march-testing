@@ -74,7 +74,9 @@ function getUrlVars(){
     }
     return urlParams;
   }
-  const city = getUrlVars('city');
+  const city = '' + getUrlVars('city');
+  const cityToString = city.toString();
+  const titleCity = cityToString.replace('city=', '');
   const ourServices = "/our-services?" + city;
 
 export default ({ data }) => (
@@ -106,7 +108,7 @@ export default ({ data }) => (
                                 opacity: "0.7"
                         }}>
                         </div>
-                            <h1>{data.sanityPages.pagetitle} Services in {city}</h1>
+                            <h1>{data.sanityPages.pagetitle} Services in {titleCity}</h1>
                             <hr style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor.hex }} />
 
                     </div>
