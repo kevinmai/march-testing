@@ -94,6 +94,7 @@ function printCoupon() {
 }
 const city = getUrlVars()["city"];*/
 
+
 function getUrlVars(){
     if(typeof window !== 'undefined'){
         var urlParams = new URLSearchParams(window.location.search);
@@ -106,7 +107,7 @@ function getUrlVars(){
 function addCity(){
     if(typeof window !== 'undefined'){
         $('div.pageContent a').attr('href', function(i, href){
-            return href + '?city=' + city; 
+            return href + "?" +  city; 
         });
     }  
 }
