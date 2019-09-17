@@ -63,17 +63,19 @@ function printCoupon() {
 }
 }
 
-function getUrlVars(){
-  var vars = {};
-  if(typeof window !== 'undefined'){
-          var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-          vars[key] = value;
-      });
-  }
-  return vars;
-}
+// function getUrlVars(){
+//   var vars = {};
+//   if(typeof window !== 'undefined'){
+//           var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+//           vars[key] = value;
+//       });
+//   }
+//   return vars;
+// }
 
-const city = getUrlVars()["city"];
+// const city = getUrlVars()["city"];
+const urlParams = new URLSearchParams(window.location.search);
+const city = urlParams.get('city');
 const ourServices = "/our-services?city=" + city;
 
 const IndexPage = ( {data }) => (

@@ -70,6 +70,11 @@ function printCoupon() {
     }
   }
 
+const urlParams = new URLSearchParams(window.location.search);
+const city = urlParams.get('city');
+const ourServices = "/our-services?city=" + city;
+
+
 export default ({ data }) => (
     <Layout>
         <Helmet>
@@ -129,7 +134,7 @@ export default ({ data }) => (
                     <h2>Our Services</h2>
                     <hr style={{backgroundColor: data.sanityCompanyInfo.accentcolor.hex }} />
                     <BlockContent blocks={data.sanityPages._rawServices} />
-                    <a href="/our-services" style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
+                    <a href={ourServices} style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
                 </div>
             </div>
             <div className="container pageContent">

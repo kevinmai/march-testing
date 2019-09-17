@@ -83,7 +83,7 @@ function printCoupon() {
     }
 }
 /***** FUNCTION TO GET THE CITY PARAMETER FROM URL *****/
-function getUrlVars(){
+/*function getUrlVars(){
     var vars = {};
     if(typeof window !== 'undefined'){
             var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
@@ -92,7 +92,10 @@ function getUrlVars(){
     }
     return vars;
 }
-const city = getUrlVars()["city"];
+const city = getUrlVars()["city"];*/
+
+const urlParams = new URLSearchParams(window.location.search);
+const city = urlParams.get('city');
 
 /***** ADD CITY TO URLS IN PAGE *****/
 function addCity(){
