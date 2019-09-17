@@ -75,7 +75,7 @@ function getUrlVars(){
 
 const city = getUrlVars()["city"];
 
-const ourServices = "/our-services?=city" + city;
+const ourServices = "/our-services?city=" + city;
 
 const IndexPage = ( {data }) => (
   <Layout>
