@@ -83,7 +83,7 @@ function printCoupon() {
     }
 }
 /***** FUNCTION TO GET THE CITY PARAMETER FROM URL *****/
-/*function getUrlVars(){
+function getUrlVars(){
     var vars = {};
     if(typeof window !== 'undefined'){
             var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
@@ -92,25 +92,14 @@ function printCoupon() {
     }
     return vars;
 }
-const city = getUrlVars()["city"];*/
-
-
-function getUrlVars(){
-    if(typeof window !== 'undefined'){
-        var urlParams = new URLSearchParams(window.location.search);
-    }
-    return urlParams;
-  }
-  const city = '' + getUrlVars('city');
-  const cityToString = city.toString();
-  const titleCity = cityToString.replace('city=', '');
+const city = getUrlVars()["city"];
 
 
 /***** ADD CITY TO URLS IN PAGE *****/
 function addCity(){
     if(typeof window !== 'undefined'){
         $('div.pageContent a').attr('href', function(i, href){
-            return href + "?" +  city; 
+            return href + "?city=" +  city; 
         });
     }  
 }
@@ -147,7 +136,7 @@ export default ({ data }) => (
                         opacity: "0.9"
                     }}></div>
 
-                    <h1 style={{ borderColor: data.sanityCompanyInfo.accentcolor.hex }}>{data.sanityPages.pagetitle} in {titleCity}</h1>
+                    <h1 style={{ borderColor: data.sanityCompanyInfo.accentcolor.hex }}>{data.sanityPages.pagetitle} in {city}</h1>
                     <p className="date">Call This <b style={{color: data.sanityCompanyInfo.accentcolor.hex}}>{today}</b> for </p>
                     <p className="coupon">{data.sanityPages.coupon.title}</p>
                     <p className="couponType">{data.sanityPages.coupon.type}</p>

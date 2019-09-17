@@ -71,27 +71,18 @@ function printCoupon() {
   }
 
 /* ADD CITY TO OUR SERVICES LINK */
-// function getUrlVars(){
-//     var vars = {};
-//     if(typeof window !== 'undefined'){
-//             var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-//             vars[key] = value;
-//         });
-//     }
-//     return vars;
-// }
-// const city = getUrlVars()["city"];
-
 function getUrlVars(){
+    var vars = {};
     if(typeof window !== 'undefined'){
-        var urlParams = new URLSearchParams(window.location.search);
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+            vars[key] = value;
+        });
     }
-    return urlParams;
-  }
-  const city = '' + getUrlVars('city');
-  const cityToString = city.toString();
-  const titleCity = cityToString.replace('city=', '');
-  const ourServices = "/our-services?" + city;
+    return vars;
+}
+const city = getUrlVars()["city"];
+
+  const ourServices = "/our-services?city=" + city;
 
 
 const CouponsPage = ({ data }) => (

@@ -57,27 +57,19 @@ export const query = graphql`
     }
 `
 
-// function getUrlVars(){
-//     var vars = {};
-//     if(typeof window !== 'undefined'){
-//             var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-//             vars[key] = value;
-//         });
-//     }
-//     return vars;
-// }
-
-// const city = getUrlVars()["city"];
 function getUrlVars(){
+    var vars = {};
     if(typeof window !== 'undefined'){
-        var urlParams = new URLSearchParams(window.location.search);
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+            vars[key] = value;
+        });
     }
-    return urlParams;
-  }
-  const city = '' + getUrlVars('city');
-  const cityToString = city.toString();
-  const titleCity = cityToString.replace('city=', '');
-  const ourServices = "/our-services?" + city;
+    return vars;
+}
+
+const city = getUrlVars()["city"];
+const ourServices = "/our-services?city=" + city;
+
 
 export default ({ data }) => (
 
@@ -108,7 +100,7 @@ export default ({ data }) => (
                                 opacity: "0.7"
                         }}>
                         </div>
-                            <h1>{data.sanityPages.pagetitle} Services in {titleCity}</h1>
+                            <h1>{data.sanityPages.pagetitle} Services in {city}</h1>
                             <hr style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor.hex }} />
 
                     </div>
