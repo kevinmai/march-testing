@@ -66,15 +66,18 @@ function printCoupon() {
   }
 
   function getUrlVars(){
-    var vars = {};
+    var vars = [], hash;
     if(typeof window !== 'undefined'){
-            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-            vars[key] = value;
-        });
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for(var i = 0; i < hashes.length; i++)
+        {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
     }
-    console.log(vars)
     return vars;
-}
+  }
   const city = getUrlVars()["city"];
   const ourServices = "/our-services?city=" + city;
 
