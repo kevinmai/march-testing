@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Layout from "../components/layout"
 import BlockContent from '../components/block-content'
 import BackgroundImage from 'gatsby-background-image'
@@ -79,8 +79,6 @@ console.log("city: " + city);
 export default ({ data }) => (
 
 <div className="servicePage">
-
-
         <Helmet>
             <title>{data.sanityCompanyInfo.companyname} | {data.sanityPages.pagetitle}</title>
             <meta name="keywords" content={ data.sanityPages.metatags }  />
@@ -128,7 +126,7 @@ export default ({ data }) => (
                             <hr style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }} />
                             <BlockContent blocks={data.sanityPages._rawServices} />
                             {ourServices}
-                            <a href={ourServices} style={{ backgroundColor:data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
+                            <Link href={ourServices} style={{ backgroundColor:data.sanityCompanyInfo.accentcolor.hex }}>View our Services</Link>
                         </div>
                     </div>
                     <div className="container pageContent">

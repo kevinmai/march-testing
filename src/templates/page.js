@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Layout from "../components/layout"
 import BlockContent from '../components/block-content'
 import BackgroundImage from 'gatsby-background-image'
@@ -125,7 +125,7 @@ export default ({ data }) => (
             <div className="rightSection" style={{ backgroundColor: data.sanityCompanyInfo.primarycolor.hex }}>
                 <span className="servicesBlockTitle"><h2>Our Services</h2></span>
                 <BlockContent blocks={data.sanityPages._rawServices} />
-                <a href={ourServices} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
+                <Link to={ourServices} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</Link>
                 </div>
             </div>
         <div className="container pageContent">    
