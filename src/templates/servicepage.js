@@ -127,6 +127,7 @@ export default ({ data }) => (
                             <h2>Our Services</h2>
                             <hr style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }} />
                             <BlockContent blocks={data.sanityPages._rawServices} />
+                            {ourServices}
                             <a href={ourServices} style={{ backgroundColor:data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
                         </div>
                     </div>
