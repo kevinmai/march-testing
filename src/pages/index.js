@@ -79,7 +79,7 @@ function getUrlVars(){
 
 const city = getUrlVars()["city"];
 console.log(city);
-let ourServices = "/our-services?city=" + city;
+const ourServices = "/our-services?city=" + city;
 
 const IndexPage = ( {data }) => (
   <Layout>
