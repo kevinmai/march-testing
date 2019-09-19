@@ -76,7 +76,9 @@ const ourServices = "/our-services?city=" + city;
 console.log("ourServices: " + ourServices);
 console.log("city: " + city);
 
-$(".ourServices").attr('href', ourServices);
+if(typeof window !== 'undefined'){
+    $(".ourServices").attr('href', ourServices);
+}
 
 
 export default ({ data }) => (
