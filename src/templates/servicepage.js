@@ -6,6 +6,7 @@ import BackgroundImage from 'gatsby-background-image'
 import Helmet from 'react-helmet'
 import ServiceForm from "../components/serviceForm"
 import Form from "../components/form"
+import $ from "jquery"
 
 export const query = graphql`
     query servicepageQuery($slug: String) {
@@ -71,9 +72,11 @@ function getUrlVars(){
   }
 
 const city = getUrlVars()["city"];
-const ourServices = "/our-services?city=`${city}`";
+const ourServices = "/our-services?city=" + city;
 console.log("ourServices: " + ourServices);
 console.log("city: " + city);
+
+$(".ourServices").attr('href', ourServices);
 
 
 export default ({ data }) => (
@@ -125,7 +128,7 @@ export default ({ data }) => (
                             <h2>Our Services</h2>
                             <hr style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }} />
                             <BlockContent blocks={data.sanityPages._rawServices} />
-                            <a href={ourServices} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
+                            <a class="ourServices" href="" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
                         </div>
                     </div>
                     <div className="container pageContent">
