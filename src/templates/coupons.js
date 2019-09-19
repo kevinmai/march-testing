@@ -86,7 +86,11 @@ function getUrlVars(){
   }
 const city = getUrlVars()["city"];
 
-  const ourServices = "/our-services?city=" + city;
+const ourServices = "/our-services?city=" + city;
+
+  if(typeof window !== 'undefined'){
+    $(".ourServices").attr('href', ourServices);
+}
 
 
 const CouponsPage = ({ data }) => (
@@ -148,7 +152,7 @@ const CouponsPage = ({ data }) => (
                 <div className="rightSection" style={{ backgroundColor: data.sanityCompanyInfo.primarycolor.hex }}>
                     <h2>Our Services</h2>
                     <BlockContent blocks={data.sanityPages._rawServices} />
-                    <a href={"/our-services?city=" + city} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
+                    <a class="ourServices" href="" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
                 </div>
             </div>
         </div>
