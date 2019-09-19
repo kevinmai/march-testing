@@ -7,6 +7,7 @@ import BackgroundImage from 'gatsby-background-image'
 import { FaPrint } from "react-icons/fa"
 import Form from "../components/form"
 import Helmet from 'react-helmet'
+import $ from 'jquery'
 
 
 export const query = graphql`

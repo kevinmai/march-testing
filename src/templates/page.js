@@ -6,6 +6,7 @@ import BackgroundImage from 'gatsby-background-image'
 import { FaPrint } from "react-icons/fa"
 import Form from "../components/form"
 import Helmet from 'react-helmet'
+import $ from 'jquery'
 
 
 export const query = graphql`
@@ -80,6 +81,10 @@ function printCoupon() {
   }
   const city = getUrlVars()["city"];
   const ourServices = "/our-services?city=" + city;
+
+  if(typeof window !== 'undefined'){
+    $(".ourServices").attr('href', ourServices);
+  }
 
 export default ({ data }) => (
     <Layout>

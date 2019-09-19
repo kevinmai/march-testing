@@ -7,6 +7,7 @@ import { FaPrint } from "react-icons/fa"
 import Form from "../components/form"
 import Helmet from 'react-helmet'
 import PortableText from '@sanity/block-content-to-react'
+import $ from 'jquery'
 
 
 export const query = graphql`
