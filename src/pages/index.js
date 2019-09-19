@@ -126,7 +126,7 @@ const IndexPage = ( {data }) => (
         <span className="servicesBlockTitle"><h2>Our Services</h2></span>
         <hr style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }} />
         <PortableText blocks={data.sanityPages._rawServices} />
-        <Link to={"/our-services?city=" + city} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</Link>
+        <a href={"/our-services?city=" + city} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
       </div>
     </div>
     <div className="container pageContent">
@@ -136,5 +136,5 @@ const IndexPage = ( {data }) => (
     </div>
   </Layout>
 )
-
+ 
 export default IndexPage

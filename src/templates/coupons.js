@@ -148,7 +148,7 @@ const CouponsPage = ({ data }) => (
                 <div className="rightSection" style={{ backgroundColor: data.sanityCompanyInfo.primarycolor.hex }}>
                     <h2>Our Services</h2>
                     <BlockContent blocks={data.sanityPages._rawServices} />
-                    <Link to={"/our-services?city=" + city} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</Link>
+                    <a href={"/our-services?city=" + city} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
                 </div>
             </div>
         </div>
