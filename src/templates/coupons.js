@@ -85,13 +85,32 @@ function getUrlVars(){
     }
     return vars;
   }
-const city = getUrlVars()["city"];
+var city = getUrlVars()["city"];
 
 const ourServices = "/our-services?city=" + city;
 
-  if(typeof window !== 'undefined'){
-    $(".ourServices").attr('href', ourServices);
-}
+if(city === null) {
+    city = "";
+    if(typeof window !== 'undefined'){
+        $(".ourServices").attr('href', "/our-services/");
+    }
+} else if(city === ""){
+    city = "";
+    if(typeof window !== 'undefined'){
+        $(".ourServices").attr('href', "/our-services/");
+    }
+} else if(city !== undefined){
+    city = " in " + city;
+    if(typeof window !== 'undefined'){
+        $(".ourServices").attr('href', ourServices);
+    }
+} 
+
+
+
+//   if(typeof window !== 'undefined'){
+//     $(".ourServices").attr('href', ourServices);
+// }
 
 
 const CouponsPage = ({ data }) => (
@@ -131,12 +150,12 @@ const CouponsPage = ({ data }) => (
                 <div className="row couponsRow">
                     <ul>
                         {data.allSanityCoupon.edges.map(({ node: coupon }) => (
-                            <li style={{ backgroundColor: data.sanityCompanyInfo.primarycolor.hex }}>
-                                <span className="couponTitle">{coupon.title}</span>
+                            <li key={coupon.title} style={{ backgroundColor: data.sanityCompanyInfo.primarycolor.hex }}>
+                                <span key={coupon.title} className="couponTitle">{coupon.title}</span>
                                 <br />
-                                <span className="couponType">{coupon.type}</span>
+                                <span key={coupon.type} className="couponType">{coupon.type}</span>
                                 <br />
-                                <span className="restrictions">*Restrictions may apply. Call office for details.</span>
+                                <span key={coupon.slug} className="restrictions">*Restrictions may apply. Call office for details.</span>
                             </li>
                         ))}
                     </ul>
@@ -153,7 +172,7 @@ const CouponsPage = ({ data }) => (
                 <div className="rightSection" style={{ backgroundColor: data.sanityCompanyInfo.primarycolor.hex }}>
                     <h2>Our Services</h2>
                     <BlockContent blocks={data.sanityPages._rawServices} />
-                    <a class="ourServices" href="" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
+                    <a className="ourServices" href="" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
                 </div>
             </div>
         </div>

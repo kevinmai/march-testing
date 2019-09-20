@@ -96,7 +96,17 @@ function getUrlVars(){
     }
     return vars;
   }
-const city = getUrlVars()["city"];
+var city = getUrlVars()["city"];
+console.log(city);
+
+if(city === null) {
+    city = "";
+} else if(city === ""){
+    city = "";
+} else if(city !== undefined){
+    city = " in " + city;
+} 
+ 
 
 
 /***** ADD CITY TO URLS IN PAGE *****/
@@ -140,7 +150,7 @@ export default ({ data }) => (
                         opacity: "0.9"
                     }}></div>
 
-                    <h1 style={{ borderColor: data.sanityCompanyInfo.accentcolor.hex }}>{data.sanityPages.pagetitle} in {city}</h1>
+                    <h1 style={{ borderColor: data.sanityCompanyInfo.accentcolor.hex }}>{data.sanityPages.pagetitle} {city}</h1>
                     <p className="date">Call This <b style={{color: data.sanityCompanyInfo.accentcolor.hex}}>{today}</b> for </p>
                     <p className="coupon">{data.sanityPages.coupon.title}</p>
                     <p className="couponType">{data.sanityPages.coupon.type}</p>
@@ -148,7 +158,7 @@ export default ({ data }) => (
 
                     {
                         // IF COUPON IS PRINTABLE -> SHOW PRINT BUTTON
-                        //data.sanityPages.coupon.printable  && <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span> }
+                        // data.sanityPages.coupon.printable  && <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span> }
                     }
 
                     <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>

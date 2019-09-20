@@ -78,13 +78,28 @@ function getUrlVars(){
   return vars;
 }
 
-const city = getUrlVars()["city"];
-console.log(city);
+var city = getUrlVars()["city"];
 const ourServices = "/our-services?city=" + city;
 
-if(typeof window !== 'undefined'){
-  $(".ourServices").attr('href', ourServices);
-}
+if(city === null) {
+  city = "";
+  if(typeof window !== 'undefined'){
+      $(".ourServices").attr('href', "/our-services/");
+  }
+} else if(city === ""){
+  city = "";
+  if(typeof window !== 'undefined'){
+      $(".ourServices").attr('href', "/our-services/");
+  }
+} else if(city !== undefined){
+  city = " in " + city;
+  if(typeof window !== 'undefined'){
+      $(".ourServices").attr('href', ourServices);
+  }
+} 
+// if(typeof window !== 'undefined'){
+//   $(".ourServices").attr('href', ourServices);
+// }
 
 const IndexPage = ( {data }) => (
   <Layout>
@@ -131,7 +146,7 @@ const IndexPage = ( {data }) => (
         <span className="servicesBlockTitle"><h2>Our Services</h2></span>
         <hr style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }} />
         <PortableText blocks={data.sanityPages._rawServices} />
-        <a class="ourServices" href="" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
+        <a className="ourServices" href="" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
       </div>
     </div>
     <div className="container pageContent">
