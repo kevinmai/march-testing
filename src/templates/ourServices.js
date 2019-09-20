@@ -118,6 +118,12 @@ function addCity(){
         });
     }  
 }
+function replaceCompanyName(){
+    if(typeof window !== 'undefined'){
+        var companyname = $('.ourServicesPage .pageContent div p').text();
+        $(companyname).text(companyname.replace('companyname', 'hello'));
+    }  
+}
 
 /***** FUNCTION FOR BLOCK CONTENT LINKS *****/
 const serializers = {
@@ -178,7 +184,7 @@ export default ({ data }) => (
                 <div className="leftSection">
                     <BackgroundImage
                         style={{ height: "100%" }}
-                        fluid={data.sanityPages.serviceimage.asset.fluid} onClick={addCity()}>
+                        fluid={data.sanityPages.serviceimage.asset.fluid}>
                     </BackgroundImage>
                 </div>
                 <div className="rightSection" style={{ backgroundColor: data.sanityCompanyInfo.primarycolor.hex }}>
