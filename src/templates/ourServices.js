@@ -118,12 +118,7 @@ function addCity(){
         });
     }  
 }
-function replaceCompanyName(){
-    if(typeof window !== 'undefined'){
-        var companyname = $('.ourServicesPage .pageContent div p').text();
-        $(companyname).text(companyname.replace('companyname', 'hello'));
-    }  
-}
+
 
 /***** FUNCTION FOR BLOCK CONTENT LINKS *****/
 const serializers = {
@@ -136,13 +131,27 @@ const serializers = {
       }
   }
 
+
+
 export default ({ data }) => (
     <Layout>
         <Helmet>
             <title>{data.sanityCompanyInfo.companyname} | {data.sanityPages.pagetitle}</title>
+
+            {data.sanityCompanyInfo.companyname ? (
+                <script type='text/javascript'>
+                {`if(typeof window !== 'undefined'){
+                    $('.ourServicesPage .pageContent .firstCopy p').text(function(){
+                        return $(this).text().replace("companyname", "${data.sanityCompanyInfo.companyname}");
+                        
+                    });
+                }  
+                console.log("${data.sanityCompanyInfo.companyname}");`}
+        </script>
+            ): null}
+
         </Helmet>
         <Form /> 
-        
         <BackgroundImage
             style={{
                 height: "100%",
@@ -176,7 +185,7 @@ export default ({ data }) => (
         <Form />
         <div className="ourServicesPage">
             <div className="container pageContent" >
-                <div className="row">
+                <div className="row firstCopy">
                         <PortableText blocks={data.sanityPages._rawFirstcopy} serializers={serializers}  />
                 </div>
             </div>

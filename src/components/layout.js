@@ -105,18 +105,17 @@ const Layout = ({ children }) => {
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${data.sanityCompanyInfo.analytics}`}/> 
           
           ) : null}
-        
-        {data.sanityCompanyInfo.analytics ? (
-                    <script>
-                      {`window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-              
-                gtag('config', '${data.sanityCompanyInfo.analytics}');
-              `}
-            </script>
-          ) : null}
 
+          {data.sanityCompanyInfo.analytics ? (
+              <script>
+                {`window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                        
+                  gtag('config', '${data.sanityCompanyInfo.analytics}');
+                `}
+              </script>
+            ) : null}
 
           {data.sanityCompanyInfo.remarketing ? (
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${data.sanityCompanyInfo.remarketing}`}/> ) : null}
