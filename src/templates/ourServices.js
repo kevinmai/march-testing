@@ -138,18 +138,6 @@ export default ({ data }) => (
         <Helmet>
             <title>{data.sanityCompanyInfo.companyname} | {data.sanityPages.pagetitle}</title>
 
-            {data.sanityCompanyInfo.companyname ? (
-                <script type='text/javascript'>
-                {`if(typeof window !== 'undefined'){
-                    $('.ourServicesPage .pageContent .firstCopy p').text(function(){
-                        return $(this).text().replace("companyname", "${data.sanityCompanyInfo.companyname}");
-                        
-                    });
-                }  
-                console.log("${data.sanityCompanyInfo.companyname}");`}
-        </script>
-            ): null}
-
         </Helmet>
         <Form /> 
         <BackgroundImage
