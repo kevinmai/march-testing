@@ -81,22 +81,25 @@ function getUrlVars(){
 var city = getUrlVars()["city"];
 const ourServices = "/our-services?city=" + city;
 
-if(city === null) {
-  city = "";
-  if(typeof window !== 'undefined'){
-      $(".ourServices").attr('href', "/our-services/");
-  }
-} else if(city === ""){
-  city = "";
-  if(typeof window !== 'undefined'){
-      $(".ourServices").attr('href', "/our-services/");
-  }
-} else if(city !== undefined){
-  city = " in " + city;
-  if(typeof window !== 'undefined'){
-      $(".ourServices").attr('href', ourServices);
-  }
-} 
+
+function servicesURL(){
+  if(city === null) {
+    city = "";
+    if(typeof window !== 'undefined'){
+        $(".ourServices").attr('href', "/our-services/");
+    }
+  } else if(city === ""){
+    city = "";
+    if(typeof window !== 'undefined'){
+        $(".ourServices").attr('href', "/our-services/");
+    }
+  } else if(city !== undefined){
+    city = " in " + city;
+    if(typeof window !== 'undefined'){
+        $(".ourServices").attr('href', ourServices);
+    }
+  } 
+}
 // if(typeof window !== 'undefined'){
 //   $(".ourServices").attr('href', ourServices);
 // }
@@ -146,7 +149,7 @@ const IndexPage = ( {data }) => (
         <span className="servicesBlockTitle"><h2>Our Services</h2></span>
         <hr style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }} />
         <PortableText blocks={data.sanityPages._rawServices} />
-        <a className="ourServices" href="" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
+        <a className="ourServices" href="" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }} onClick={servicesURL()}>View our Services</a>
       </div>
     </div>
     <div className="container pageContent">
