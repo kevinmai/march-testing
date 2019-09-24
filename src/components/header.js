@@ -1,4 +1,4 @@
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 import React from "react"
 import { FaCalendarAlt } from 'react-icons/fa'
@@ -39,12 +39,12 @@ export default () => (
         render={data => (
           <header>
               <div className="header-inner">
-                <Image location="/"
+                <Link to="/"><Image location="/"
                   fluid={data.sanityCompanyInfo.logo.asset.fluid}
                   style={{ height: "auto", width: "200px" }}
                   className="align-center"
                   alt="Plumbit Logo"
-                />
+                /></Link>
                 <div className="headerBtns">
                   <span className="headerbtn schedule" onClick={changeActive} 
                   style={{ backgroundColor: data.sanityCompanyInfo.secondarycolor.hex, borderColor: data.sanityCompanyInfo.secondarycolor.hex }}

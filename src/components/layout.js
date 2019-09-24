@@ -14,6 +14,7 @@ import Helmet from 'react-helmet'
 import "./layout.css"
 import { FaCalendarAlt } from 'react-icons/fa'
 import $ from "jquery"
+import jQuery from 'jquery'
 
 
 const Layout = ({ children }) => {
@@ -98,9 +99,10 @@ const Layout = ({ children }) => {
           <link rel="icon"
           type="image/png"
           href={data.sanityCompanyInfo.favicon.asset.fluid.src} defer="false" />
-        
+         <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossOrigin="anonymous" />
         <meta name="robots" content="noindex, nofollow" />
-
+    
         {data.sanityCompanyInfo.analytics ? (
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${data.sanityCompanyInfo.analytics}`}/> 
           
@@ -141,6 +143,19 @@ const Layout = ({ children }) => {
               `}
               </script>
           ) : null}
+
+          {data.sanityCompanyInfo.companyname ? (
+              <script>
+              {`
+                $(".firstCopy p").each(function(){
+                  console.log($(this).text());
+                  var text = $(this).text().replace('companyname', '${data.sanityCompanyInfo.companyname}');
+                  $(this).text(text);
+              });
+              `}
+              </script>
+          ) : null}
+          
     </Helmet>
     <div className="pagewrapper">
       <Header siteTitle={data.site.siteMetadata.title} />

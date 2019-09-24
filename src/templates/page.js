@@ -93,6 +93,8 @@ function printCoupon() {
       }
   }
 
+  console.log(city);
+
 
 //   if(typeof window !== 'undefined'){
 //     $(".ourServices").attr('href', ourServices);

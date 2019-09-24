@@ -53,17 +53,19 @@ export const query = graphql`
         }
     }
 `
-
+/* Get CURRENT DAY */
 const now = new Date();
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const today = days[now.getDay()];
 
+/* PRINT COUPON */
 function printCoupon() {
   if(typeof window !== 'undefined'){
     window.print();
 }
 }
 
+/* GET THE CURRENT URL */
 function getUrlVars(){
   var vars = [], hash;
   if(typeof window !== 'undefined'){
@@ -77,12 +79,10 @@ function getUrlVars(){
   }
   return vars;
 }
-
 var city = getUrlVars()["city"];
 const ourServices = "/our-services?city=" + city;
 
 
-function servicesURL(){
   if(city === null) {
     city = "";
     if(typeof window !== 'undefined'){
@@ -99,10 +99,6 @@ function servicesURL(){
         $(".ourServices").attr('href', ourServices);
     }
   } 
-}
-// if(typeof window !== 'undefined'){
-//   $(".ourServices").attr('href', ourServices);
-// }
 
 const IndexPage = ( {data }) => (
   <Layout>
@@ -130,7 +126,6 @@ const IndexPage = ( {data }) => (
           <p className="restrictions">*Restrictions may apply</p>
           <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
         </div>
-
       </div>
     </BackgroundImage>
     <div className="container pageContent homepage">
@@ -149,7 +144,7 @@ const IndexPage = ( {data }) => (
         <span className="servicesBlockTitle"><h2>Our Services</h2></span>
         <hr style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }} />
         <PortableText blocks={data.sanityPages._rawServices} />
-        <a className="ourServices" href="" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }} onClick={servicesURL()}>View our Services</a>
+        <a className="ourServices" href="" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
       </div>
     </div>
     <div className="container pageContent">

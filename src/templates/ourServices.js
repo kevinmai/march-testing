@@ -97,7 +97,6 @@ function getUrlVars(){
     return vars;
   }
 var city = getUrlVars()["city"];
-console.log(city);
 
 if(city === null) {
     city = "";
@@ -126,18 +125,18 @@ const serializers = {
         internalLink: ({mark, children}) => {
             const {slug = {}} = mark
             const href = `/{slug.current}?city={city}`
-            return <Link to={href }>{children}</Link>
+            return <Link to={href}>{children}</Link>
           }
       }
   }
 
 
+/* REPLACE COMPANYNAME IN COPY */
 
 export default ({ data }) => (
     <Layout>
         <Helmet>
             <title>{data.sanityCompanyInfo.companyname} | {data.sanityPages.pagetitle}</title>
-
         </Helmet>
         <Form /> 
         <BackgroundImage
