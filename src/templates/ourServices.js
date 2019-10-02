@@ -143,6 +143,7 @@ export default ({ data }) => (
                             var text = $(this).text();
                             text = text.replace("companyname", "${data.sanityCompanyInfo.companyname}");
                             $(this).text(text);
+                            console.log(text);
                         });
                     });
                 }
