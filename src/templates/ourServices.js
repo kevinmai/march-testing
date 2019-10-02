@@ -144,7 +144,7 @@ export default ({ data }) => (
                     $(document).ready(function(){
                         $(".firstCopy p").each(function(){
                             var text = $(this).text();
-                            text = text.replace("companyname", ${data.sanityCompanyInfo.companyname});
+                            text = text.replace("companyname", "${data.sanityCompanyInfo.companyname}");
                             $(this).text(text);
                         });
                     });
