@@ -145,7 +145,7 @@ export default ({ data }) => (
                                     text = text.replace("companyname", "${data.sanityCompanyInfo.companyname}");
                                     $(this).text(text);
                                 });
-                            });
+                            })
                         ,1000)
                 }
             `}</script>
