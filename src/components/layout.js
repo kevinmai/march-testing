@@ -143,18 +143,6 @@ const Layout = ({ children }) => {
               `}
               </script>
           ) : null}
-
-          {data.sanityCompanyInfo.companyname ? (
-              <script>
-              {`
-                $(".firstCopy p").each(function(){
-                  console.log($(this).text());
-                  var text = $(this).text().replace('companyname', '${data.sanityCompanyInfo.companyname}');
-                  $(this).text(text);
-              });
-              `}
-              </script>
-          ) : null}
           
     </Helmet>
     <div className="pagewrapper">
