@@ -188,6 +188,19 @@ const Layout = ({ children }) => {
 
               <script>{`var clicky_site_ids = clicky_site_ids || []; clicky_site_ids.push(${data.sanityCompanyInfo.clicky});`}</script>
               <script async src="//static.getclicky.com/js"></script>
+              <script>{`
+                /* REPLACE COMPANYNAME IN COPY */
+                if(typeof window !== 'undefined'){
+                    $(function(){
+                        $(".firstCopy p").each(function(){
+                            var text = $(this).text();
+                            text = text.replace("companyname", "${data.sanityCompanyInfo.companyname}");
+                            $(this).text(text);
+                            console.log(text);
+                        });
+                    });
+                }
+            `}</script>
 
           </footer>
           </div>
