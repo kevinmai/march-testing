@@ -133,7 +133,7 @@ const serializers = {
 
 /* REPLACE COMPANYNAME IN COPY */
 if(typeof window !== 'undefined'){
-    $(".copy p").each(function(){
+    $(".firstCopy p").each(function(){
         var text = $(this).text();
         text = text.replace("companyname", "THIS IS A TEST");
         $(this).text(text);
