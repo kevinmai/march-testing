@@ -138,13 +138,15 @@ export default ({ data }) => (
             <script>{`
                 /* REPLACE COMPANYNAME IN COPY */
                 if(typeof window !== 'undefined'){
-                    $(function(){
-                        $(".firstCopy p").each(function(){
-                            var text = $(this).text();
-                            text = text.replace("companyname", "${data.sanityCompanyInfo.companyname}");
-                            $(this).text(text);
-                        });
-                    });
+                    setTimeout(
+                            $(function(){
+                                $(".firstCopy p").each(function(){
+                                    var text = $(this).text();
+                                    text = text.replace("companyname", "${data.sanityCompanyInfo.companyname}");
+                                    $(this).text(text);
+                                });
+                            });
+                        ,1000)
                 }
             `}</script>
         </Helmet>
