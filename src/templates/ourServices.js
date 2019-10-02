@@ -131,22 +131,25 @@ const serializers = {
   }
 
 
-/* REPLACE COMPANYNAME IN COPY */
-if(typeof window !== 'undefined'){
-    $(document).ready(function(){
-        $(".firstCopy p").each(function(){
-            var text = $(this).text();
-            text = text.replace("companyname", "THIS IS A TEST");
-            $(this).text(text);
-        });
-    });
-}
+
 
 
 export default ({ data }) => (
     <Layout>
         <Helmet>
             <title>{data.sanityCompanyInfo.companyname} | {data.sanityPages.pagetitle}</title>
+            <script>{`
+                /* REPLACE COMPANYNAME IN COPY */
+                if(typeof window !== 'undefined'){
+                    $(document).ready(function(){
+                        $(".firstCopy p").each(function(){
+                            var text = $(this).text();
+                            text = text.replace("companyname", ${data.sanityCompanyInfo.companyname});
+                            $(this).text(text);
+                        });
+                    });
+                }
+            `}</script>
         </Helmet>
         <Form /> 
         <BackgroundImage
