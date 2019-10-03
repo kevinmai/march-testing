@@ -146,7 +146,7 @@ const Layout = ({ children }) => {
               <script>{`
                 /* REPLACE COMPANYNAME IN COPY */
                 if(typeof window !== 'undefined'){
-                    $(window).load(function(){
+                    $(function(){
                         $(".firstCopy p").each(function(){
                             var text = $(this).text();
                             text = text.replace("companyname", "${data.sanityCompanyInfo.companyname}");
