@@ -152,12 +152,11 @@ const Layout = ({ children }) => {
                             text = text.replace("companyname", "${data.sanityCompanyInfo.companyname}");
                             $(this).text(text);
                             console.log(text);
-                            alert("window has loaded");
+                            //alert("window has loaded");
                         });
                     });
                 }
             `}</script>
-          
     </Helmet>
     <div className="pagewrapper">
       <Header siteTitle={data.site.siteMetadata.title} />
