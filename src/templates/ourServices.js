@@ -2,7 +2,7 @@
 import  React from 'react'
 import { graphql } from 'gatsby'
 import Layout from "../components/layout"
-import Helmet from 'react-helmet'
+import Helmet from 'react-helmet-async'
 import { Link } from "gatsby"
 import BlockContent from '../components/block-content'
 import BackgroundImage from 'gatsby-background-image'
