@@ -165,11 +165,11 @@ const Layout = ({ children }) => {
                     $(window).on('load', function(){
                         $(".firstCopy p").each(function(){
                             var text = $(this).text();
-                            var citytext = $(this).text();
+                            //var citytext = $(this).text();
                             text = text.replace("companyname", "${data.sanityCompanyInfo.companyname}");
-                            citytext = citytext.replace("city", city );
+                            //citytext = citytext.replace("city", city );
                             $(this).text(text);
-                            $(this).text(citytext);
+                            //$(this).text(citytext);
                             console.log(text);
                             //alert("window has loaded");
                         });
