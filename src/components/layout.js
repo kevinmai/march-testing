@@ -92,6 +92,8 @@ const Layout = ({ children }) => {
     $(".form").toggleClass("expanded");
   }  
 
+
+
   return (
     <>
     
@@ -143,14 +145,31 @@ const Layout = ({ children }) => {
               `}
               </script>
           ) : null}
+
+          <script>
+            {`
+              /***** ADD CITY TO URLS IN PAGE *****/
+              function addCity(){
+                if(typeof window !== 'undefined'){
+                    $('div.pageContent a').attr('href', function(i, href){
+                        city= getUrlVars()['city'];
+                        return href + "?city=" +  city; 
+                    });
+                }  
+              }
+            `}
+          </script>
               <script>{`
                 /* REPLACE COMPANYNAME IN COPY */
                 if(typeof window !== 'undefined'){
                     $(window).on('load', function(){
                         $(".firstCopy p").each(function(){
                             var text = $(this).text();
+                            var citytext = $(this).text();
                             text = text.replace("companyname", "${data.sanityCompanyInfo.companyname}");
+                            citytext = citytext.replace("city", city );
                             $(this).text(text);
+                            $(this).text(citytext);
                             console.log(text);
                             //alert("window has loaded");
                         });
