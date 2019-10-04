@@ -159,19 +159,19 @@ const Layout = ({ children }) => {
               }
             `}
           </script>
-              <script>{`
+          <script>{`
                 /* REPLACE COMPANYNAME IN COPY */
                 if(typeof window !== 'undefined'){
                     $(window).on('load', function(){
                         $(".firstCopy p").each(function(){
                             var text = $(this).text();
-                            text = text.replace("companyname", "${data.sanityCompanyInfo.companyname}");
+                            text = text.replace("companyname", "${data.sanityCompanyInfo.companyname}").replace("city", city);
                             $(this).text(text);
                             console.log(text);
                         });
                     });
                 }
-            `}</script>
+          `}</script>
     </Helmet>
     <div className="pagewrapper">
       <Header siteTitle={data.site.siteMetadata.title} />
