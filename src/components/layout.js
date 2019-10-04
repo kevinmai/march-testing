@@ -165,13 +165,18 @@ const Layout = ({ children }) => {
                     $(window).on('load', function(){
                         $(".firstCopy p").each(function(){
                             var text = $(this).text();
-                            //var citytext = $(this).text();
                             text = text.replace("companyname", "${data.sanityCompanyInfo.companyname}");
-                            //citytext = citytext.replace("city", city );
                             $(this).text(text);
-                            //$(this).text(citytext);
                             console.log(text);
-                            //alert("window has loaded");
+
+
+                            $('div.pageContent a').attr('href', function(i, href){
+                              city= getUrlVars()['city'];
+                              return href + "?city=" +  city; 
+                          });
+                          var citytext - $(this).text();
+                          citytext = citytext.replace("city", city);
+                          $(this).text.(citytext);
                         });
                     });
                 }
