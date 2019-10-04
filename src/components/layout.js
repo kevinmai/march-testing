@@ -168,15 +168,6 @@ const Layout = ({ children }) => {
                             text = text.replace("companyname", "${data.sanityCompanyInfo.companyname}");
                             $(this).text(text);
                             console.log(text);
-
-
-                            $('div.pageContent a').attr('href', function(i, href){
-                              city= getUrlVars()['city'];
-                              return href + "?city=" +  city; 
-                          });
-                          var citytext - $(this).text();
-                          citytext = citytext.replace("city", city);
-                          $(this).text.(citytext);
                         });
                     });
                 }
