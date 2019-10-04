@@ -163,6 +163,10 @@ const Layout = ({ children }) => {
                 /* REPLACE COMPANYNAME IN COPY */
                 if(typeof window !== 'undefined'){
                     $(window).on('load', function(){
+                      $('div.pageContent a').attr('href', function(i, href){
+                        city= getUrlVars()['city'];
+                        return href + "?city=" +  city; 
+                    });
                         $(".firstCopy p").each(function(){
                             var text = $(this).text();
                             text = text.replace("companyname", "${data.sanityCompanyInfo.companyname}").replace("city", city);
