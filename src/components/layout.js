@@ -178,7 +178,6 @@ const Layout = ({ children }) => {
                     $(window).on('load', function(){
                       $('div.pageContent a').attr('href', function(i, href){
                         city= getUrlVars()['city'];
-                        return href + "?city=" +  city; 
                     });
                         $(".firstCopy p").each(function(){
                             var text = $(this).text();
