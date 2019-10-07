@@ -179,7 +179,7 @@ const Layout = ({ children }) => {
                       $('div.pageContent a').attr('href', function(i, href){
                         city= getUrlVars()['city'];
                     });
-                        $(".firstCopy p").each(function(){
+                        $("p").each(function(){
                             var text = $(this).text();
                             text = text.replace("companyname", "${data.sanityCompanyInfo.companyname}").replace("city", city);
                             $(this).text(text);
