@@ -177,7 +177,7 @@ const Layout = ({ children }) => {
                 if(typeof window !== 'undefined'){
                     $(window).on('load', function(){
                       $('div.pageContent a').attr('href', function(i, href){
-                        var city= getUrlVars()['city'];
+                        city= getUrlVars()['city'];
                     });
                         $("p").each(function(){
                             var text = $(this).text();
