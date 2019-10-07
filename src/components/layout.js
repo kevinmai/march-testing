@@ -177,11 +177,11 @@ const Layout = ({ children }) => {
                 if(typeof window !== 'undefined'){
                     $(window).on('load', function(){
                       $('div.pageContent a').attr('href', function(i, href){
-                        city= getUrlVars()['city'];
+                        var city= getUrlVars()['city'];
                     });
                         $("p").each(function(){
                             var text = $(this).text();
-                            text = text.replace("companyname", "${data.sanityCompanyInfo.companyname}").replace("city", "city");
+                            text = text.replace("companyname", "${data.sanityCompanyInfo.companyname}").replace("city", city);
                             $(this).text(text);
                             console.log(text);
                         });
