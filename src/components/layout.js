@@ -94,6 +94,7 @@ const Layout = ({ children }) => {
 
 
 
+
   return (
     <>
     
@@ -189,6 +190,26 @@ const Layout = ({ children }) => {
                     });
                 }
           `}</script>
+
+          <script>{`
+            /* SINGLE COUPON PRINT */
+            $(".coupon").each(function(){
+              $(this).click(function(){
+                  if(typeof window !== 'undefined'){
+                      var printContents = $(this).wrap('<p/>').parent().html();
+                      var originalContents = document.body.innerHTML;
+                      document.body.innerHTML = ${data.sanityCompanyInfo.logo.asset.src};
+                      document.body.innerHTML = printContents;
+            
+                      window.print();
+                      document.body.innerHTML = originalContents;
+                  }
+                  console.log(printContents);
+                  console.log(originalContents);
+              });
+            });
+          `}</script>
+          
     </Helmet>
     <div className="pagewrapper">
       <Header siteTitle={data.site.siteMetadata.title} />

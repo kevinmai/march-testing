@@ -108,11 +108,6 @@ if(city === null) {
 
 
 
-//   if(typeof window !== 'undefined'){
-//     $(".ourServices").attr('href', ourServices);
-// }
-
-
 const CouponsPage = ({ data }) => (
     <Layout>
         <Helmet>
@@ -150,7 +145,7 @@ const CouponsPage = ({ data }) => (
                 <div className="row couponsRow">
                     <ul>
                         {data.allSanityCoupon.edges.map(({ node: coupon }) => (
-                            <li key={coupon.title} style={{ backgroundColor: data.sanityCompanyInfo.primarycolor.hex }}>
+                            <li className="coupon" key={coupon.title} style={{ backgroundColor: data.sanityCompanyInfo.primarycolor.hex }}>
                                 <span key={coupon.title} className="couponTitle">{coupon.title}</span>
                                 <br />
                                 <span key={coupon.type} className="couponType">{coupon.type}</span>
