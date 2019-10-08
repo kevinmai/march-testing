@@ -198,7 +198,7 @@ const Layout = ({ children }) => {
                   if(typeof window !== 'undefined'){
                       var printContents = $(this).wrap('<p/>').parent().html();
                       var originalContents = document.body.innerHTML;
-                      document.body.innerHTML = ${data.sanityCompanyInfo.logo.asset.fluid.src};
+                      document.body.innerHTML = "${data.sanityCompanyInfo.logo.asset.fluid.src}";
                       document.body.innerHTML = printContents;
             
                       window.print();
