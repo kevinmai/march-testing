@@ -193,8 +193,7 @@ const Layout = ({ children }) => {
 
           <script>{`
             /* SINGLE COUPON PRINT */
-            $(".couponsRow .coupon").each(function(){
-              $(this).click(function(){
+            $(".couponsRow .coupon").each().on("click", function(){
                   if(typeof window !== 'undefined'){
                       var printContents = $(this).wrap('<p/>').parent().html();
                       var originalContents = document.body.innerHTML;
@@ -206,7 +205,6 @@ const Layout = ({ children }) => {
                   }
                   console.log(printContents);
                   console.log(originalContents);
-              });
             });
           `}</script>
 
