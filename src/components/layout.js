@@ -184,8 +184,7 @@ const Layout = ({ children }) => {
                         $("p").each(function(){
                             var text = $(this).text();
                             text = text.replace("companyname", "${data.sanityCompanyInfo.companyname}").replace("city", city);
-                            $(this).text(text);
-                            console.log(text);
+                            $(this).text(text); 
                         });
                     });
                 }
@@ -193,7 +192,8 @@ const Layout = ({ children }) => {
 
           <script>{`
             /* SINGLE COUPON PRINT */
-            $(".couponsRow .coupon").each().on("click", function(){
+            $(".couponsRow .coupon").each(function(){
+              $(this).click(function(){
                   if(typeof window !== 'undefined'){
                       var printContents = $(this).wrap('<p/>').parent().html();
                       var originalContents = document.body.innerHTML;
@@ -203,11 +203,9 @@ const Layout = ({ children }) => {
                       window.print();
                       document.body.innerHTML = originalContents;
                   }
-                  console.log(printContents);
-                  console.log(originalContents);
+              });
             });
           `}</script>
-
     </Helmet>
     <div className="pagewrapper">
       <Header siteTitle={data.site.siteMetadata.title} />
