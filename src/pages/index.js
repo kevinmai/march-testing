@@ -83,7 +83,7 @@ var city = getUrlVars()["city"];
 const ourServices = "/our-services?city=" + city;
 
 
-function ourServicesLink(){
+
   if (city === undefined) {
       city = "";
       if (typeof window !== 'undefined') {
@@ -100,7 +100,6 @@ function ourServicesLink(){
           $(".ourServices").attr('href', ourServices);
       }
   }
-}
 
 const IndexPage = ( {data }) => (
   <Layout>
