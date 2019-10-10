@@ -89,6 +89,9 @@ function printCoupon() {
     }
   } else if (city === "") {
       city = "";
+      if (typeof window !== 'undefined') {
+        $(".ourServices").attr('href', "/our-services/");
+    }
   } else if (city !== undefined) {
       city = " in " + city;
       if (typeof window !== 'undefined') {
