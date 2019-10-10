@@ -83,22 +83,24 @@ var city = getUrlVars()["city"];
 const ourServices = "/our-services?city=" + city;
 
 
-  if(city === null) {
-    city = "";
-    if(typeof window !== 'undefined'){
+function ourServicesLink(){
+  if (city === undefined) {
+      city = "";
+      if (typeof window !== 'undefined') {
         $(".ourServices").attr('href', "/our-services/");
     }
-  } else if(city === ""){
-    city = "";
-    if(typeof window !== 'undefined'){
+  } else if (city === "") {
+      city = "";
+      if (typeof window !== 'undefined') {
         $(".ourServices").attr('href', "/our-services/");
     }
-  } else if(city !== undefined){
-    city = " in " + city;
-    if(typeof window !== 'undefined'){
-        $(".ourServices").attr('href', ourServices);
-    }
-  } 
+  } else if (city !== undefined) {
+      city = " in " + city;
+      if (typeof window !== 'undefined') {
+          $(".ourServices").attr('href', ourServices);
+      }
+  }
+}
 
 const IndexPage = ( {data }) => (
   <Layout>
@@ -130,6 +132,7 @@ const IndexPage = ( {data }) => (
     </BackgroundImage>
     <div className="container pageContent homepage">
       <div className="row">
+        HELLO THIS IS INDEX
         <PortableText blocks={data.sanityPages._rawFirstcopy} />
       </div>
     </div>
