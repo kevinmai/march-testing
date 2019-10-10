@@ -82,25 +82,22 @@ function printCoupon() {
   var city = getUrlVars()["city"];
   var ourServices = "/our-services?city=" + city;
 
-
-  function ourServicesLink(){
-      if (city === undefined) {
-          city = "";
-          if (typeof window !== 'undefined') {
-            $(".ourServices").attr('href', "/our-services/");
+    if (city === undefined) {
+        city = "";
+        if (typeof window !== 'undefined') {
+        $(".ourServices").attr('href', "/our-services/");
+    }
+    } else if (city === "") {
+        city = "";
+        if (typeof window !== 'undefined') {
+        $(".ourServices").attr('href', "/our-services/");
+    }
+    } else if (city !== undefined) {
+        city = " in " + city;
+        if (typeof window !== 'undefined') {
+            $(".ourServices").attr('href', ourServices);
         }
-      } else if (city === "") {
-          city = "";
-          if (typeof window !== 'undefined') {
-            $(".ourServices").attr('href', "/our-services/");
-        }
-      } else if (city !== undefined) {
-          city = " in " + city;
-          if (typeof window !== 'undefined') {
-              $(".ourServices").attr('href', ourServices);
-          }
-      }
-  }
+    }
 
 export default ({ data }) => (
     <Layout>
@@ -145,8 +142,9 @@ export default ({ data }) => (
                 </div>
             <div className="rightSection" style={{ backgroundColor: data.sanityCompanyInfo.primarycolor.hex }}>
                 <span className="servicesBlockTitle"><h2>Our Services</h2></span>
+                This is page
                 <BlockContent blocks={data.sanityPages._rawServices} />
-                <a className="ourServices" href="" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
+                <a className="ourServices" href={{ourServices}} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
                 </div>
             </div>
         <div className="container pageContent">    

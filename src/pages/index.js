@@ -147,7 +147,7 @@ const IndexPage = ( {data }) => (
         <span className="servicesBlockTitle"><h2>Our Services</h2></span>
         <hr style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }} />
         <PortableText blocks={data.sanityPages._rawServices} />
-        <a className="ourServices" href="" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
+        <a className="ourServices" href={{ourServices}} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
       </div>
     </div>
     <div className="container pageContent">
