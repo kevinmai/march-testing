@@ -92,9 +92,6 @@ const Layout = ({ children }) => {
     $(".form").toggleClass("expanded");
   }  
 
-
-
-
   return (
     <>
     
@@ -203,6 +200,7 @@ const Layout = ({ children }) => {
                       window.print();
                       document.body.innerHTML = originalContents;
                   }
+
               });
             });
           `}</script>

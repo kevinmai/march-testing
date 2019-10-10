@@ -80,10 +80,13 @@ function printCoupon() {
     return vars;
   }
   var city = getUrlVars()["city"];
-  const ourServices = "/our-services?city=" + city;
+  var ourServices = "/our-services?city=" + city;
 
-  if (city === null) {
+  if (city === undefined) {
       city = "";
+      if (typeof window !== 'undefined') {
+        $(".ourServices").attr('href', "/our-services/");
+    }
   } else if (city === "") {
       city = "";
   } else if (city !== undefined) {
