@@ -110,7 +110,7 @@ if(city === null) {
 
 /***** ADD CITY TO URLS IN PAGE *****/
 function addCity(){
-    if(typeof window !== 'undefined'){
+    if(typeof window !== 'undefined' && city !== undefined){
         $('div.pageContent a').attr('href', function(i, href){
             city= getUrlVars()['city'];
             return href + "?city=" +  city; 
