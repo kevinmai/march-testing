@@ -233,8 +233,7 @@ const Layout = ({ children }) => {
               <script type="text/javascript">{`
                 vs_account_id      = "${data.sanityCompanyInfo.marchex}";
               `}</script>
-              <script type="text/javascript" src="https://rw1.calls.net/euinc/number-changer.js">
-              </script>
+              {/*<script type="text/javascript" src="https://rw1.calls.net/euinc/number-changer.js"></script>*/}
 
               <script>{`var clicky_site_ids = clicky_site_ids || []; clicky_site_ids.push(${data.sanityCompanyInfo.clicky});`}</script>
               <script async src="//static.getclicky.com/js"></script>
