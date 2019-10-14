@@ -131,7 +131,6 @@ const IndexPage = ( {data }) => (
     </BackgroundImage>
     <div className="container pageContent homepage">
       <div className="row">
-        HELLO THIS IS INDEX
         <PortableText blocks={data.sanityPages._rawFirstcopy} />
       </div>
     </div>
