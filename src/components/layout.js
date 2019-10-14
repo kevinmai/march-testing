@@ -205,7 +205,7 @@ const Layout = ({ children }) => {
               });
             });
           `}</script>
-          <meta name="theme-color" content={data.sanityCompanyInfo.secondarycolor}>
+          <meta name="theme-color" content={data.sanityCompanyInfo.secondarycolor} />
     </Helmet>
     <div className="pagewrapper">
       <Header siteTitle={data.site.siteMetadata.title} />
