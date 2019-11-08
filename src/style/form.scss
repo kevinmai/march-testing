@@ -18,7 +18,7 @@
 .form {
     position: absolute;
     width: 700px;
-    height: 40vh;
+    height:50vh;
     padding: 30px 50px;
     background-color: #dbdbdb;
     top: 120px;
@@ -75,12 +75,15 @@
             transition: all ease 0.2s;
 
             &:focus {
-                //border-color: $secondary;
+                border-color: #353535;
                 transition: all ease 0.2s;
             }
         }
+        #mail-honey{
+            display:none;
+        }
 
-        input[type="submit"] {
+        button{
             //background-color: $secondary;
             color: #fff;
             display: inline-block;
