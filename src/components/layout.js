@@ -206,21 +206,7 @@ const Layout = ({ children }) => {
             });
           `}</script>
           <meta name="theme-color" content={data.sanityCompanyInfo.secondarycolor.hex} />
-    </Helmet>
-    <div className="pagewrapper">
-      <Header siteTitle={data.site.siteMetadata.title} />
-          <div>
-            <main>{children}</main>
-            <div className="scheduleMobile" onClick={changeActive} style={{backgroundColor: data.sanityCompanyInfo.secondarycolor.hex}}>
-                <div className="innerSchedule">
-                  <FaCalendarAlt /> <span>Schedule Service</span>
-                </div>
-              </div>
-            <footer className="footer">
-              <div className="container">
-                <p>{data.sanityCompanyInfo.companyname} | Marketing by <a href="http://vitalstorm.com/" target="_blank" rel="noopener noreferrer">VitalStorm</a></p> 
-              </div>
-              <script type="text/javascript">
+          <script type="text/javascript">
                 {`var SETUP_VS_LP = function(){
                     INIT_VS_LP({
                         env: 'prod'
@@ -237,6 +223,20 @@ const Layout = ({ children }) => {
 
               <script>{`var clicky_site_ids = clicky_site_ids || []; clicky_site_ids.push(${data.sanityCompanyInfo.clicky});`}</script>
               <script async src="//static.getclicky.com/js"></script>
+    </Helmet>
+    <div className="pagewrapper">
+      <Header siteTitle={data.site.siteMetadata.title} />
+          <div>
+            <main>{children}</main>
+            <div className="scheduleMobile" onClick={changeActive} style={{backgroundColor: data.sanityCompanyInfo.secondarycolor.hex}}>
+                <div className="innerSchedule">
+                  <FaCalendarAlt /> <span>Schedule Service</span>
+                </div>
+              </div>
+            <footer className="footer">
+              <div className="container">
+                <p>{data.sanityCompanyInfo.companyname} | Marketing by <a href="http://vitalstorm.com/" target="_blank" rel="noopener noreferrer">VitalStorm</a></p> 
+              </div>
           </footer>
           </div>
         </div>
