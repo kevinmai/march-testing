@@ -2,6 +2,7 @@ import React from "react"
 import { FaTimesCircle } from 'react-icons/fa'
 import $ from "jquery"
 import { graphql, StaticQuery } from 'gatsby'
+import Helmet from 'react-helmet'
 
 function changeActive() {
     $(".form").toggleClass("expanded");
@@ -28,7 +29,8 @@ export default () => (
 `}
         render={data => (
             <>
-                <script>{`
+            <Helmet>
+            <script>{`
                 $(document).ready(function() {
                     $('input[name="mail-submit"]').click(function() {
                     })
@@ -119,6 +121,8 @@ export default () => (
             });
             `}
             </script>
+            </Helmet>
+                
             <div className="form">
                 <h2 style={{color: data.sanityCompanyInfo.primarycolor.hex}}>Schedule Service</h2>
                 <span className="closeForm" onClick={changeActive}><FaTimesCircle style={{fill: data.sanityCompanyInfo.primarycolor.hex }} /></span>
