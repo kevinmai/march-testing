@@ -23,12 +23,11 @@ export default class ContactForm extends React.Component {
     $(".form").toggleClass("expanded");
   }
 
-  handleSubmit = event => {
-    event.preventDefault()
-    $(".form-message").text('Thank you for your submission, we will be with you shortly.').css('display', 'block');
-    $('.inputfield').val("");
-
-  }
+  // handleSubmit = event => {
+  //   event.preventDefault()
+  //   $(".form-message").text('Thank you for your submission, we will be with you shortly.').css('display', 'block');
+  //   $('.inputfield').val("");
+  // }
   
    render() {
        
