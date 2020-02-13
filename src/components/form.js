@@ -37,6 +37,7 @@ export default class ContactForm extends React.Component {
         <h2>Schedule Service</h2>  
         <span className="closeForm" onClick={this.changeActive}><FaTimesCircle /></span>
       <form id="form-metrics" validate onSubmit={this.handleSubmit} action="https://metrics.vitalstorm.com/email_form_submission/MGYyZmE4Zjc2N2UwNTY2NzNkMzEwYzYyMjU4NTFkNTk/" method="POST" netlify>
+        HALLO TEST
         <input id="mail-name" className="inputfield" type="text" name="name" placeholder="Enter your full name" required />
         <input id="mail-email" className="inputfield" type="text" name="honeypot" placeholder="Email address" minLength="3" maxLength="64" required />
         <input id="mail-honey" className="inputfield" type="text" name="email" />
