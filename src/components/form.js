@@ -35,7 +35,7 @@ export default class ContactForm extends React.Component {
       <div className="form">
         <h2>Schedule Service</h2>  
         <span className="closeForm" onClick={this.changeActive}><FaTimesCircle /></span>
-      <form id="form-metrics" onSubmit={this.handleSubmit} action="https://metrics.vitalstorm.com/email_form_submission/MGYyZmE4Zjc2N2UwNTY2NzNkMzEwYzYyMjU4NTFkNTk/" method="post">
+      <form id="form-metrics" validate onSubmit={this.handleSubmit} action="https://metrics.vitalstorm.com/email_form_submission/MGYyZmE4Zjc2N2UwNTY2NzNkMzEwYzYyMjU4NTFkNTk/" method="post">
         <input id="mail-name" className="inputfield" type="text" name="name" placeholder="Enter your full name" required />
         <input id="mail-email" className="inputfield" type="text" name="honeypot" placeholder="Email address" minlength="3" maxlength="64" required />
         <input id="mail-honey" className="inputfield" type="text" name="email" />
