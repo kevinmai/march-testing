@@ -170,7 +170,7 @@ export default ({ data }) => (
 
             </div>
         </BackgroundImage>
-        <Form />
+
         <div className="ourServicesPage">
             <div className="container pageContent" >
                 <div className="row firstCopy">
