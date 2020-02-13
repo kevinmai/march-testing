@@ -1,42 +1,42 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "vitalscript",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Automated PPC Landing Pages",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "VitalStorm <vsadmin@vitalstorm.net>",
   "dependencies": {
-    "@sanity/block-content-to-react": "^2.0.6",
+    "@sanity/block-content-to-react": "^2.0.7",
     "@types/react-helmet-async": "0.0.3",
-    "babel-plugin-styled-components": "^1.10.6",
+    "babel-plugin-styled-components": "^1.10.7",
     "browser-sync": "^2.26.7",
     "classnames": "^2.2.6",
-    "gatsby": "^2.15.5",
-    "gatsby-background-image": "^0.8.2",
-    "gatsby-image": "^2.2.6",
-    "gatsby-plugin-google-analytics": "^2.1.12",
-    "gatsby-plugin-manifest": "^2.2.4",
-    "gatsby-plugin-netlify": "^2.1.13",
+    "gatsby": "^2.19.16",
+    "gatsby-background-image": "^0.8.19",
+    "gatsby-image": "^2.2.40",
+    "gatsby-plugin-google-analytics": "^2.1.35",
+    "gatsby-plugin-manifest": "^2.2.41",
+    "gatsby-plugin-netlify": "^2.1.32",
     "gatsby-plugin-offline": "^2.2.10",
-    "gatsby-plugin-react-helmet": "^3.1.2",
-    "gatsby-plugin-sass": "^2.1.3",
-    "gatsby-plugin-sharp": "^2.2.7",
-    "gatsby-plugin-styled-components": "^3.1.4",
-    "gatsby-source-filesystem": "^2.1.5",
-    "gatsby-source-sanity": "^5.0.1",
-    "gatsby-transformer-sharp": "^2.2.3",
+    "gatsby-plugin-react-helmet": "^3.1.22",
+    "gatsby-plugin-sass": "^2.1.28",
+    "gatsby-plugin-sharp": "^2.4.5",
+    "gatsby-plugin-styled-components": "^3.1.19",
+    "gatsby-source-filesystem": "^2.1.48",
+    "gatsby-source-sanity": "^5.0.5",
+    "gatsby-transformer-sharp": "^2.3.14",
     "jquery": "^3.4.1",
-    "jsdom": "^15.1.1",
-    "node-sass": "^4.12.0",
+    "jsdom": "^15.2.1",
+    "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
-    "react-fontawesome": "^1.6.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-fontawesome": "^1.7.1",
     "react-helmet": "^5.2.1",
-    "react-icons": "^3.7.0",
-    "styled-components": "^4.3.2"
+    "react-icons": "^3.9.0",
+    "styled-components": "^4.4.1"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "prettier": "^1.19.1"
   },
   "keywords": [
     "gatsby"
@@ -52,9 +52,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/itsPieter/AutomatedLP-Gatsby"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/itsPieter/AutomatedLP-Gatsby/issues"
   }
 }

@@ -42,9 +42,17 @@
         right: 20px;
         top: 20px;
         transform: scale(1.4);
+        cursor: pointer;
 
         svg {
             fill: #353535;
+            transition: $transition;
+        }
+        &:hover{
+            svg{
+                fill: #656565;
+                transition: $transition;
+            }
         }
     }
 
@@ -83,12 +91,13 @@
             display:none;
         }
         .error-border{
-            border-color: #c52626;
+            border-color: #c52626 !important;
+            background-color: rgba(228, 67, 67, 0.3);
         }
 
         button{
             //background-color: $secondary;
-            color: #fff;
+            color: #353535;
             display: inline-block;
             position: absolute;
             right: 20px;
@@ -99,6 +108,14 @@
             font-size: 0.9em;
             padding: 5px 30px;
             font-weight: 600;
+            cursor: pointer;
+            transition: $transition;
+
+            &:hover{
+                background-color: #656566;
+                color: #fff;
+                transition: $transition;
+            }
 
             @include tablet-portrait() {
                 position: initial;
@@ -114,5 +131,14 @@
         @include tablet-portrait() {
             left: 0;
         }
+    }
+    .form-message{
+        display:none;
+        background-color: #4fb14f;
+        padding: 15px;
+        text-transform: uppercase;
+        font-size: 0.7em !important;
+        font-weight: 700;
+        color: #fff;
     }
 }
