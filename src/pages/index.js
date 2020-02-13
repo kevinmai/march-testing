@@ -106,7 +106,6 @@ const IndexPage = ( {data }) => (
     <Helmet>
       <title>{data.sanityCompanyInfo.companyname} | {data.sanityPages.pagetitle}</title>
     </Helmet>
-    <Form />
     <BackgroundImage
       style={{
         height: "100%",
