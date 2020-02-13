@@ -39,7 +39,7 @@ export default class ContactForm extends React.Component {
         <input id="mail-name" className="inputfield" type="text" name="name" placeholder="Enter your full name" required />
         <input id="mail-email" className="inputfield" type="text" name="honeypot" placeholder="Email address" minlength="3" maxlength="64" required />
         <input id="mail-honey" className="inputfield" type="text" name="email" />
-        <input id="mail-tel" className="inputfield" name="tel" type="tel" placeholder="(123) 456-7890" pattern=".{0}|.{14,}" required title="Must have 14 characters" />
+        <input id="mail-tel" className="inputfield" name="tel" type="tel" placeholder="(123) 456-7890" required />
         <input id="mail-message" className="inputfield" type="text" name="message" placeholder="Request a service" required />
         <input type="hidden" name="gclid" value="" />
         <input type="hidden" name="vsref" value="" />
