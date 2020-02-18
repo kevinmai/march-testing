@@ -121,7 +121,7 @@ const IndexPage = ( {data }) => (
               opacity: "0.9"
           }}></div>
           <h1 style={{ borderColor: data.sanityCompanyInfo.accentcolor.hex }}>{data.sanityPages.pagetitle}</h1>
-          <p>Call This <b style={{color: data.sanityCompanyInfo.accentcolor.hex}}>{today}</b> for </p>
+          <p className="day">Call This <b style={{color: data.sanityCompanyInfo.accentcolor.hex}}>{today}</b> for </p>
           <p className="coupon">{data.sanityPages.coupon.title}</p>
           <p className="couponType">{data.sanityPages.coupon.type}</p>
           <p className="restrictions">*Restrictions may apply</p>

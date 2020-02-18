@@ -116,7 +116,7 @@
         size:  auto;   /* auto is the initial value */
         margin: 0mm;  /* this affects the margin in the printer settings */
     }
-    .headerBtns{
+    .headerBtns, .day{
         display:none !important;
     }
     .headerInner{

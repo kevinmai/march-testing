@@ -235,7 +235,7 @@ const Layout = ({ children }) => {
               </div>
             <footer className="footer">
               <div className="container">
-                <p>{data.sanityCompanyInfo.companyname} | Marketing by <a href="http://vitalstorm.com/" target="_blank" rel="noopener noreferrer">VitalStorm</a></p> 
+                <p>&copy; {data.sanityCompanyInfo.companyname} | Marketing by <a href="http://vitalstorm.com/" target="_blank" rel="noopener noreferrer">VitalStorm Marketing Inc.</a></p> 
               </div>
           </footer>
           </div>

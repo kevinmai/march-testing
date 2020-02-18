@@ -15,7 +15,7 @@ const Footer = () => {
   return (
     <footer className="footer">
         <div className="container">
-          <p>{site.sanityCompanyInfo.companyname} | Marketing by <a href="http://vitalstorm.com/" target="_blank" rel="noopener noreferrer">VitalStorm</a></p> 
+          <p>&copy; {site.sanityCompanyInfo.companyname} | Marketing by <a href="http://vitalstorm.com/" target="_blank" rel="noopener noreferrer">VitalStorm Marketing Inc.</a></p> 
         </div>
         <script type="text/javascript">
           {`var SETUP_VS_LP = function(){
