@@ -142,7 +142,6 @@ export default ({ data }) => (
                 </div>
             <div className="rightSection" style={{ backgroundColor: data.sanityCompanyInfo.primarycolor.hex }}>
                 <span className="servicesBlockTitle"><h2>Our Services</h2></span>
-                This is page
                 <BlockContent blocks={data.sanityPages._rawServices} />
                 <a className="ourServices" href={{ourServices}} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
                 </div>

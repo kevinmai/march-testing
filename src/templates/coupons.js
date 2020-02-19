@@ -85,26 +85,25 @@ function getUrlVars(){
     }
     return vars;
   }
-var city = getUrlVars()["city"];
-
-const ourServices = "/our-services?city=" + city;
-
-if(city === null) {
-    city = "";
-    if(typeof window !== 'undefined'){
-        $(".ourServices").attr('href', "/our-services/");
+  var city = getUrlVars()["city"];
+  const ourServices = "/our-services?city=" + city;
+  
+    if (city === undefined) {
+        city = "";
+        if (typeof window !== 'undefined') {
+          $(".ourServices").attr('href', "/our-services/");
+      }
+    } else if (city === "") {
+        city = "";
+        if (typeof window !== 'undefined') {
+          $(".ourServices").attr('href', "/our-services/");
+      }
+    } else if (city !== undefined) {
+        city = " in " + city;
+        if (typeof window !== 'undefined') {
+            $(".ourServices").attr('href', ourServices);
+        }
     }
-} else if(city === ""){
-    city = "";
-    if(typeof window !== 'undefined'){
-        $(".ourServices").attr('href', "/our-services/");
-    }
-} else if(city !== undefined){
-    city = " in " + city;
-    if(typeof window !== 'undefined'){
-        $(".ourServices").attr('href', ourServices);
-    }
-} 
 
 
 

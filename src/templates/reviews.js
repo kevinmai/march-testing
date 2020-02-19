@@ -85,13 +85,25 @@ function getUrlVars(){
     }
     return vars;
   }
-const city = getUrlVars()["city"];
-
+  var city = getUrlVars()["city"];
   const ourServices = "/our-services?city=" + city;
-
-  if(typeof window !== 'undefined'){
-    $(".ourServices").attr('href', ourServices);
-}
+  
+    if (city === undefined) {
+        city = "";
+        if (typeof window !== 'undefined') {
+          $(".ourServices").attr('href', "/our-services/");
+      }
+    } else if (city === "") {
+        city = "";
+        if (typeof window !== 'undefined') {
+          $(".ourServices").attr('href', "/our-services/");
+      }
+    } else if (city !== undefined) {
+        city = " in " + city;
+        if (typeof window !== 'undefined') {
+            $(".ourServices").attr('href', ourServices);
+        }
+    }
 
 export default ({ data }) => (
     <Layout>
