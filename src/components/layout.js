@@ -102,7 +102,7 @@ const Layout = ({ children }) => {
          <script
     src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossOrigin="anonymous" />
         <meta name="robots" content="noindex, nofollow" />
-    
+        <div dangerouslySetInnerHTML={{ __html: '<!-- ANALYTICS CODE -->' }} />
         {data.sanityCompanyInfo.analytics ? (
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${data.sanityCompanyInfo.analytics}`}/> 
           
@@ -118,6 +118,7 @@ const Layout = ({ children }) => {
                 `}
               </script>
             ) : null}
+        <div dangerouslySetInnerHTML={{ __html: '<!-- REMARKETING CODE -->' }} />
 
           {data.sanityCompanyInfo.remarketing ? (
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${data.sanityCompanyInfo.remarketing}`}/> ) : null}
