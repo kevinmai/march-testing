@@ -17,6 +17,7 @@ import $ from "jquery"
 import jQuery from 'jquery'
 
 
+
 const Layout = ({ children }) => {
   
   const data = useStaticQuery(graphql`
@@ -102,9 +103,9 @@ const Layout = ({ children }) => {
          <script
     src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossOrigin="anonymous" />
         <meta name="robots" content="noindex, nofollow" />
-        <div dangerouslySetInnerHTML={{ __html: '<!-- ANALYTICS CODE -->' }} />
+        {`<!-- Analytics code --> `}
         {data.sanityCompanyInfo.analytics ? (
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${data.sanityCompanyInfo.analytics}`}/> 
+          <script async className="AnalyticsCode" src={`https://www.googletagmanager.com/gtag/js?id=${data.sanityCompanyInfo.analytics}`}/> 
           
           ) : null}
 
@@ -118,10 +119,9 @@ const Layout = ({ children }) => {
                 `}
               </script>
             ) : null}
-        <div dangerouslySetInnerHTML={{ __html: '<!-- REMARKETING CODE -->' }} />
 
           {data.sanityCompanyInfo.remarketing ? (
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${data.sanityCompanyInfo.remarketing}`}/> ) : null}
+          <script async className="RemarketingCode" src={`https://www.googletagmanager.com/gtag/js?id=${data.sanityCompanyInfo.remarketing}`}/> ) : null}
 
           {data.sanityCompanyInfo.remarketing ? (
             <script>{`
