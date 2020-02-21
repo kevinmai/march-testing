@@ -103,7 +103,7 @@ const Layout = ({ children }) => {
          <script
     src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossOrigin="anonymous" />
         <meta name="robots" content="noindex, nofollow" />
-        {`<!-- Analytics code --> `}
+        <meta property="og:image" content={data.sanityPages.headerimage.asset.fluid.src} />
         {data.sanityCompanyInfo.analytics ? (
           <script async className="AnalyticsCode" src={`https://www.googletagmanager.com/gtag/js?id=${data.sanityCompanyInfo.analytics}`}/> 
           
