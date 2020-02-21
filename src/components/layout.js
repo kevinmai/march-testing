@@ -106,7 +106,7 @@ const Layout = ({ children }) => {
         <meta name="twitter:card" content="summary" />
 
         <meta property="og:image" content={data.sanityPages.headerimage.asset.fluid.src} />
-        <meta property="og:title" content={data.site.siteMetadata.title} />
+        <meta property="og:title" content={data.sanityCompanyInfo.companyname + "|" + data.sanityPages.pagetitle} />
 
         {data.sanityCompanyInfo.analytics ? (
           <script async className="AnalyticsCode" src={`https://www.googletagmanager.com/gtag/js?id=${data.sanityCompanyInfo.analytics}`}/> 
