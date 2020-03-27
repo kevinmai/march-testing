@@ -92,6 +92,11 @@ if(city === null) {
         $(".ourServices").attr('href', ourServices);
     }
 } 
+else if(city === undefined){
+    if(typeof window !== 'undefined'){
+        $(".ourServices").attr('href', "/our-services/");
+    }
+} 
 
 // if(typeof window !== 'undefined'){
 //     $(".ourServices").attr('href', ourServices);
