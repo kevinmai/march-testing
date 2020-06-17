@@ -7,6 +7,10 @@ const now = new Date();
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const today = days[now.getDay()];
 
+function changeActive(){
+    $(".form").toggleClass("expanded");
+  }
+
 export default () => (
 <StaticQuery query={ graphql`
     query pageheaderquery($slug: String) {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import Image from "gatsby-image"
 import Layout from "../components/layout"
 import { FaStar } from "react-icons/fa"
 import BlockContent from '../components/block-content'
@@ -56,6 +57,17 @@ export const query = graphql`
                 node{
                     review
                     author
+                    review_source {
+                        review_source
+                        logo {
+                          asset {
+                            fluid {
+                                ...GatsbySanityImageFluid
+                              src
+                            }
+                          }
+                        }
+                      }
                 }
             }
         }
@@ -70,7 +82,6 @@ function printCoupon() {
         window.print();
     }
   }
-
 /* ADD CITY TO OUR SERVICES LINK */
 function getUrlVars(){
     var vars = [], hash;
@@ -104,6 +115,11 @@ function getUrlVars(){
             $(".ourServices").attr('href', ourServices);
         }
     }
+    function changeActive(){
+        $(".form").toggleClass("expanded");
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        return false;
+      }
 
 export default ({ data }) => (
     <Layout>
@@ -124,12 +140,18 @@ export default ({ data }) => (
                         backgroundColor: data.sanityCompanyInfo.primarycolor.hex,
                         opacity: "0.9"
                     }}></div>
-                    <h1 style={{ borderColor: data.sanityCompanyInfo.accentcolor.hex }}>{data.sanityPages.pagetitle}</h1>
-                    <p>Call This <b style={{color: data.sanityCompanyInfo.accentcolor.hex}}>{today}</b> for </p>
+                    <p className="date">Call This <b style={{color: data.sanityCompanyInfo.accentcolor.hex}}>{today}</b> for </p>
                     <p className="coupon">{data.sanityPages.coupon.title}</p>
                     <p className="couponType">{data.sanityPages.coupon.type}</p>
-                    <p className="restrictions">*Restrictions may apply</p>
-                    <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
+                    <div className="schedulebtn-container">
+                        <span className="schedulebtn" 
+                        style={{
+                            backgroundColor: data.sanityCompanyInfo.accentcolor.hex,
+                        }}
+                        onClick={changeActive}>Schedule Now</span>
+                    </div>
+                    {/* <p className="restrictions">*Restrictions may apply</p> */}
+                    {/* <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span> */}
                 </div>
 
             </div>
@@ -145,9 +167,21 @@ export default ({ data }) => (
                     
                         {data.allSanityReviews.edges.map(({ node: reviews }) => (
                             <div className="review">
-                                <FaStar style={{ color: data.sanityCompanyInfo.primarycolor.hex }} /><FaStar style={{ color: data.sanityCompanyInfo.primarycolor.hex }} /><FaStar style={{ color: data.sanityCompanyInfo.primarycolor.hex }} /><FaStar style={{ color: data.sanityCompanyInfo.primarycolor.hex }} /><FaStar style={{ color: data.sanityCompanyInfo.primarycolor.hex }} />
-                                <p>{reviews.review}</p>
-                                <p className="author"> - {reviews.author}</p>
+                                <p className="reviewText">{reviews.review}</p>
+                                <div className="review-meta">
+                                    <Image className="review-logo" location=""
+                                    fluid={reviews.review_source.logo.asset.fluid}
+                                    style={{ height: "40px", width: "40px" }}
+                                    className="align-center"
+                                    alt="Company Logo"
+                                    />
+                                    <div className="right-column">
+                                        <p className="author">{reviews.author}</p>
+                                        <div className="stars"><FaStar style={{ color: '#fcba03' }} /><FaStar style={{ color: '#fcba03' }} /><FaStar style={{ color: '#fcba03' }} /><FaStar style={{ color: '#fcba03' }} /><FaStar style={{ color: '#fcba03' }} /></div>
+                                    
+                                        
+                                    </div>
+                                </div>
                             </div>
                         ))}
                     
@@ -167,7 +201,7 @@ export default ({ data }) => (
                     <a className="ourServices" href="" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View our Services</a>
                 </div>
             </div>
-            <div className="container pageContent">
+            <div className="container pageContent bottomContent">
                 <div className="row">
                     <BlockContent blocks={data.sanityPages._rawSecondcopy} />
                 </div>

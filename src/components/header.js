@@ -15,6 +15,7 @@ export default () => (
           query CompanyQuery {
             sanityCompanyInfo {
               phone
+              companyTagline
               primarycolor{
                 hex
             }
@@ -46,10 +47,13 @@ export default () => (
                   alt="Plumbit Logo"
                 />
                 <div className="headerBtns">
-                  <span className="headerbtn schedule" onClick={changeActive} 
-                  style={{ backgroundColor: data.sanityCompanyInfo.secondarycolor.hex, borderColor: data.sanityCompanyInfo.secondarycolor.hex }}
-                  > <FaCalendarAlt /> Schedule</span>
-                  <a className="headerbtn phone" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex, borderColor: data.sanityCompanyInfo.accentcolor.hex}} href={"tel:" + data.sanityCompanyInfo.phone}><FaPhone /> {data.sanityCompanyInfo.phone}</a>
+                  <span className="companyTagline" style={{color: data.sanityCompanyInfo.secondarycolor.hex}}>{data.sanityCompanyInfo.companyTagline}</span>
+                  <div className="btns-wrap">
+                    <span className="headerbtn schedule" onClick={changeActive} 
+                    style={{ backgroundColor: data.sanityCompanyInfo.secondarycolor.hex, borderColor: data.sanityCompanyInfo.secondarycolor.hex }}
+                    > <FaCalendarAlt /> Schedule</span>
+                    <a className="headerbtn phone" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex, borderColor: data.sanityCompanyInfo.accentcolor.hex}} href={"tel:" + data.sanityCompanyInfo.phone}><FaPhone /> {data.sanityCompanyInfo.phone}</a>
+                  </div>
                 </div>
               </div>
           </header>

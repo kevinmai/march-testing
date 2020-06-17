@@ -1,0 +1,136 @@
+.floatingButtons{
+    display:flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    .scheduleMobile{
+        display:none;
+        cursor:pointer;
+        flex: 50%;
+        position: relative;
+        &:before{
+            content:'';
+            position: absolute;
+            display: block;
+            top: 0;
+            right: 0;
+            bottom:0;
+            left:0;
+            background-color: rgba(0,0,0,0.1);
+        }
+        @include tablet-portrait(){
+            display:block;
+        }
+        .innerSchedule{
+            text-align: center;
+            padding: 20px 0;
+            svg{
+                fill:#fff;
+                position: relative;
+
+            }
+            span{
+                color: #fff;
+                text-transform: uppercase;
+                font-weight: 500;
+                position: relative;
+
+            }
+        }
+    }
+    .phoneMobile{
+        flex: 50%;
+        display:none;
+        cursor:pointer;
+        position: relative;
+        @include tablet-portrait(){
+            display:block;
+        }
+        &:before{
+            content:'';
+            position: absolute;
+            display: block;
+            top: 0;
+            right: 0;
+            bottom:0;
+            left:0;
+            background-color: rgba(0,0,0,0.1);
+        }
+
+        .innerPhone{
+            text-align: center;
+            padding: 20px 0;
+            svg{
+                fill:#fff;
+                position: relative;
+
+            }
+            span{
+                color: #fff;
+                text-transform: uppercase;
+                font-weight: 500;
+                position: relative;
+
+            }
+        }
+    }
+}
+footer{
+    padding: 2em 0 2em;
+    
+    background-color: #dbdbdb;
+    @include phone-only{
+        padding: 2em 0 5em;
+    }
+    .badgeBanner{
+        .badges{
+            display:flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 2em 20em;
+            @include desktop(){
+                margin: 2em 20em;
+            }
+            @include tablet-landscape(){
+                margin: 2em 15em;
+            }
+            @include tablet-portrait(){
+                margin: 2em 8em;
+            }
+            @include phone-only(){
+                margin: 1em 4em;
+            }
+            @include small-phone(){
+                margin: 1em 2em;
+            }
+            .gatsby-image-wrapper{
+                display: flex;
+                justify-content: center;
+                align-items:center;
+                flex-direction: column;
+                width: 150px;
+                min-height: 200px;
+                margin: 0.4em;
+                img{
+                    height: auto !important;
+                    width: 100px !important;
+                    position: relative !important;
+                    top: initial !important;
+                    left: initial !important;
+                }
+            }
+        }
+    }
+    p{
+        font-weight: 500;
+        font-size: 0.7em;
+        text-align: center;
+    }
+    a{
+        text-decoration: none;
+        font-weight: 600;
+        color: #353535;
+    }
+}

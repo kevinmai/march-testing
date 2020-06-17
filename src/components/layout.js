@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Helmet from 'react-helmet'
+import Image from "gatsby-image"
 //import Form from "./form"
 import "./layout.css"
 import { FaCalendarAlt } from 'react-icons/fa'
@@ -58,6 +59,20 @@ const Layout = ({ children }) => {
         marchex
         clicky
         remarketing
+      }
+      allSanityBadges{
+        edges {
+          node {
+            badge_img {
+              asset {
+                fluid {
+                  src
+                }
+              }
+            }
+            badge_name
+          }
+        }
       }
       sanityPages(slug: {current: {eq: $slug}}) {
             pagetitle
@@ -228,6 +243,8 @@ const Layout = ({ children }) => {
 
               <script>{`var clicky_site_ids = clicky_site_ids || []; clicky_site_ids.push(${data.sanityCompanyInfo.clicky});`}</script>
               <script async src="//static.getclicky.com/js"></script>
+              <script src="https://kit.fontawesome.com/4ab4233178.js" crossorigin="anonymous"></script>
+
     </Helmet>
     <div className="pagewrapper">
       <Header siteTitle={data.site.siteMetadata.title} />
@@ -239,6 +256,20 @@ const Layout = ({ children }) => {
                 </div>
               </div>
             <footer className="footer">
+              <div className="badgeBanner">
+                  <div className="columns">
+                  
+                    <div class="badges">
+
+                    {data.allSanityBadges.edges.map(({ node: badge }) => (
+                              <Image fluid={badge.badge_img.asset.fluid} key={badge.badge_name}/>
+                          ))}
+                        
+                    </div>
+
+                  
+                  </div>
+                </div>
               <div className="container">
                 <p>&copy; {data.sanityCompanyInfo.companyname} | Marketing by <a href="http://vitalstorm.com/" target="_blank" rel="noopener noreferrer">VitalStorm Marketing Inc.</a></p> 
               </div>

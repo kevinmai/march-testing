@@ -64,7 +64,9 @@ function printCoupon() {
     window.print();
 }
 }
-
+function changeActive(){
+  $(".form").toggleClass("expanded");
+}
 /* GET THE CURRENT URL */
 function getUrlVars(){
   var vars = [], hash;
@@ -121,10 +123,16 @@ const IndexPage = ( {data }) => (
               backgroundColor: data.sanityCompanyInfo.primarycolor.hex,
               opacity: "0.9"
           }}></div>
-          <h1 style={{ borderColor: data.sanityCompanyInfo.accentcolor.hex }}>{data.sanityPages.pagetitle}</h1>
           <p className="day">Call This <b style={{color: data.sanityCompanyInfo.accentcolor.hex}}>{today}</b> for </p>
           <p className="coupon">{data.sanityPages.coupon.title}</p>
           <p className="couponType">{data.sanityPages.coupon.type}</p>
+          <div className="schedulebtn-container">
+                        <span className="schedulebtn" 
+                            style={{
+                                backgroundColor: data.sanityCompanyInfo.accentcolor.hex,
+                            }}
+                        onClick={changeActive}>Schedule</span>
+                    </div>
           <p className="restrictions">*Restrictions may apply</p>
           <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
         </div>

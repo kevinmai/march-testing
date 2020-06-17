@@ -1,6 +1,6 @@
 import React from "react"
 import $ from "jquery"
-import { FaTimesCircle } from 'react-icons/fa'
+import { FaTimesCircle, FaEnvelope } from 'react-icons/fa'
 
 export default class ContactForm extends React.Component {
     
@@ -63,7 +63,7 @@ export default class ContactForm extends React.Component {
         <div className="ajax-button">
             <button id="mail-submit" type="submit" name="mail-submit">Send Request</button> 
         </div>
-        <p className="form-message"></p>
+        <p className="form-message"><FaEnvelope /> </p>
       </form>
       </div>
     )

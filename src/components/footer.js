@@ -25,7 +25,6 @@ const Footer = () => {
           };`}
               </script>
               <script src="https://s3.amazonaws.com/vs.static-files/vs_lp_conv_bundle.js"  async defer onload="SETUP_VS_LP();"></script>
-
       </footer>
   )
 }

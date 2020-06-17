@@ -7,4 +7,51 @@
             text-align: center;
         }
     }
+    .pageContent{
+        .row{
+            padding-bottom: 0px;
+        }
+        &.bottomContent{
+            padding-bottom: 80px;
+        }
+    }
+    .reviewRow{
+        .review{
+            padding: 40px 30px;
+            margin-bottom: 30px;
+            background-color: #fff;
+
+            svg{
+                margin: 5px 2px;
+                transform: scale(1.0);
+            }
+            .author{
+                font-weight: 600;
+                font-size: 1.1em;
+            }
+        }
+    }
+    .review{
+        .reviewText{
+            margin-bottom: 1em;
+        }
+        .review-meta{
+            display:flex;
+            .right-column{
+                margin-left: 15px;
+                .review-logo{
+                    margin-top: 10px;
+                    display:block;
+                }
+                .stars{
+                    i{
+
+                    }
+                }
+                .author{
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
 }

@@ -10,6 +10,7 @@
     .header-inner{
         width: 70%;
         justify-content: center;
+        flex-direction: column;
         @include tablet-landscape{
             width: 100%;
         }
@@ -55,6 +56,81 @@
                 }
             }
         }
+        .usp_section{
+            padding: 2em 1em;
+            @include tablet-landscape{
+                padding: 4em 4em;
+            }
+            @include phone-only{
+                padding: 4em 1.5em 1em;
+            }
+            .three-columns{
+                display:flex;
+                justify-content: space-between;
+                position: relative;
+                @include desktop{
+                    flex-wrap:wrap;
+                }
+                .column{
+                    padding: 0em 2em 2em;
+                    margin: 0 1em;
+                    position: relative;
+                    width: 33%;
+                    color: #353535;
+                    display:flex;
+                    flex-direction: column;
+                    background-color: rgba(255,255,255,0.1);
+                    @include desktop{
+                        width: 100%;
+                        flex: 100%;
+                        margin-bottom: 1em;
+                    }
+                    @include tablet-portrait{
+                        padding: 1.5em 1.5em 1.5em;
+                    }
+                    
+                    h2{
+                        text-transform: uppercase;
+                        font-size: 1.2em;
+                        max-width: 300px;
+                        line-height: 1.5em;
+                        margin-top: -1.2em;
+                        @include tablet-portrait{
+                            font-size: 1.2em;
+                            margin-bottom: 0;
+                        }
+                    }
+                    p{
+    
+                    }
+                    svg{
+                        position: relative;
+                        top: 30px;
+                        // left: -50px;
+                        align-self: flex-end;
+                        @include big-desktop{
+                            font-size: 2.5em !important;
+                            right: -0.5em;
+                        }
+                        @include desktop{
+                            top: 0.5em;
+                            right: -0.5em;
+                            font-size: 2em !important;
+                        }
+                        @include tablet-landscape{
+                            top: 0;
+                            right: 0.5em;
+                        }
+                    }
+                }
+                .column1{
+                }
+                .column2{
+                }
+                .column3{
+                }
+            }
+        }
     }
     .rightSection{
         h2{
@@ -73,7 +149,7 @@
         .innerWrapper {
             position: fixed;
             top:0;
-            z-index: 99;
+            z-index: 999;
             width: 30%;
             .companyPhone{
                 text-align: right;
@@ -157,6 +233,12 @@
                     right: 0;
                     transition: all ease 0.3s;
                     cursor: pointer;
+                    border: 0;
+                    text-transform: uppercase;
+                    color: #fff;
+                    font-weight: 600;
+                    width: 200px;
+                    margin: 0 auto;
                     &:hover{
                         background-color: #fff !important;
                         color: #353535;
@@ -166,6 +248,10 @@
             }
 
         }
+    }
+    footer{
+        width: 70%;
+        
     }
 }
 

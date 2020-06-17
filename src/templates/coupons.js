@@ -105,7 +105,9 @@ function getUrlVars(){
         }
     }
 
-
+    function changeActive(){
+        $(".form").toggleClass("expanded");
+      }
 
 const CouponsPage = ({ data }) => (
     <Layout>
@@ -126,10 +128,16 @@ const CouponsPage = ({ data }) => (
                         backgroundColor: data.sanityCompanyInfo.primarycolor.hex,
                         opacity: "0.9"
                     }}></div>
-                    <h1 style={{ borderColor: data.sanityCompanyInfo.accentcolor.hex }}>{data.sanityPages.pagetitle}</h1>
                     <p>Call This <b style={{color: data.sanityCompanyInfo.accentcolor.hex}}>{today}</b> for </p>
                     <p className="coupon">{data.sanityPages.coupon.title}</p>
                     <p className="couponType">{data.sanityPages.coupon.type}</p>
+                    <div className="schedulebtn-container">
+                    <span className="schedulebtn" 
+                        style={{
+                            backgroundColor: data.sanityCompanyInfo.accentcolor.hex,
+                        }}
+                    onClick={changeActive}>Schedule</span>
+                    </div>
                     <p className="restrictions">*Restrictions may apply</p>
                     <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
                 </div>
