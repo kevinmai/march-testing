@@ -14,6 +14,8 @@
 @mixin big-desktop {
   @media (max-width: 1800px) { @content; }
 }
+$transition: 0.1s ease all;
+
 
 .form {
     position: absolute;
@@ -23,11 +25,13 @@
     transition: all ease 0.3s;
     z-index: 1001;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
-    display:none;
     top: 10%;
     left: 50%;
     transform: translate(-50%, -20%);
     border-radius: 20px;
+    opacity:0;
+    visibility: hidden;
+
     @include desktop{
         width: 90%; 
         height: auto;
@@ -202,7 +206,8 @@
 
     &.expanded {
         transition: all ease 0.3s;
-        display:block;
+        visibility: visible;
+        opacity: 1;
 
         @include tablet-portrait() {
             left: 0;
@@ -231,5 +236,15 @@ body.formExpanded{
         display: block;
         z-index: 1000;
         background-color: rgba(0,0,0,0.3);
+        transition: $transition;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+body{
+    &:before{
+        opacity: 0;
+        visibility: hidden;
+        transition: $transition;
     }
 }
