@@ -19,6 +19,18 @@ export const query = graphql`
             slug {
                 current
             }
+            usp1{
+                uspTitle
+                uspText
+            }
+            usp2{
+                uspTitle
+                uspText
+            }
+            usp3{
+                uspTitle
+                uspText
+            }
             _rawFirstcopy
             _rawServices
             _rawSecondcopy
