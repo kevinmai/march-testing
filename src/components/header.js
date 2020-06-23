@@ -8,6 +8,7 @@ import $ from "jquery"
 
 function changeActive(){
   $(".form").toggleClass("expanded");
+  $('body').toggleClass('formExpanded');
 }
 
 export default () => (

@@ -2,8 +2,8 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import Layout from "../components/layout"
 import BlockContent from '../components/block-content'
+import { FaPrint, FaStar, FaUserShield, FaRegClock, FaShieldAlt } from "react-icons/fa"
 import BackgroundImage from 'gatsby-background-image'
-import { FaPrint } from "react-icons/fa"
 import Form from "../components/form"
 import Helmet from 'react-helmet'
 import $ from 'jquery'
@@ -67,6 +67,7 @@ function printCoupon() {
   }
   function changeActive(){
     $(".form").toggleClass("expanded");
+    $('body').toggleClass('formExpanded');
   }
   function getUrlVars(){
     var vars = [], hash;
@@ -130,13 +131,33 @@ export default ({ data }) => (
                                 backgroundColor: data.sanityCompanyInfo.accentcolor.hex,
                             }}
                         onClick={changeActive}>Schedule</span>
+                    <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
+
                     </div>
                     <p className="restrictions">*Restrictions may apply</p>
-                    <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
                 </div>
 
             </div>
         </BackgroundImage>
+        <div className="usp_section" style={{backgroundColor: '#ededed'}}>
+            <div className="three-columns">
+                <div className="column column1">
+                    <FaUserShield style={{fontSize: '4em', color: data.sanityCompanyInfo.primarycolor.hex}}/>
+                    <h2>{data.sanityPages.usp1.uspTitle}</h2>
+                    <p>{data.sanityPages.usp1.uspText}</p>
+                </div>
+                <div className="column column2">
+                    <FaRegClock style={{fontSize: '4em', color: data.sanityCompanyInfo.primarycolor.hex }}/>
+                    <h2>{data.sanityPages.usp2.uspTitle}</h2>
+                    <p>{data.sanityPages.usp2.uspText}</p>
+                </div>
+                <div className="column column3">
+                    <FaShieldAlt style={{fontSize: '4em', color: data.sanityCompanyInfo.primarycolor.hex}}/>
+                    <h2>{data.sanityPages.usp3.uspTitle}</h2>
+                    <p>{data.sanityPages.usp3.uspText}</p>
+                </div>
+            </div>
+        </div>
         <div className="container pageContent thispage">
             <div className="row">
                 <BlockContent blocks={data.sanityPages._rawFirstcopy} />

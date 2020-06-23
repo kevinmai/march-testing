@@ -145,6 +145,7 @@ const serializers = {
 
   function changeActive(){
     $(".form").toggleClass("expanded");
+    $('body').toggleClass('formExpanded');
   }
 
 
@@ -178,6 +179,8 @@ export default ({ data }) => (
                                 backgroundColor: data.sanityCompanyInfo.accentcolor.hex,
                             }}
                         onClick={changeActive}>Schedule</span>
+                    <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
+
                     </div>
                     <p className="restrictions">*Restrictions may apply</p>
 
@@ -186,14 +189,13 @@ export default ({ data }) => (
                         // data.sanityPages.coupon.printable  && <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span> }
                     }
 
-                    <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
                 </div>
 
             </div>
         </BackgroundImage>
 
         <div className="ourServicesPage">
-            <div className="usp_section" style={{backgroundColor: '#ccc'}}>
+            <div className="usp_section" style={{backgroundColor: '#ededed'}}>
                     <div className="three-columns">
                         <div className="column column1">
                             <FaUserShield style={{fontSize: '4em', color: data.sanityCompanyInfo.primarycolor.hex}}/>
@@ -226,9 +228,11 @@ export default ({ data }) => (
                     </BackgroundImage>
                 </div>
                 <div className="rightSection" style={{ backgroundColor: data.sanityCompanyInfo.primarycolor.hex }}>
-                    <span className="rightSectionTitle"><h2>Our Services</h2></span>
+                <span className="rightSectionTitle"><h2>Customer Reviews</h2></span>
                     <hr style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }} />
+                    <FaStar style={{ color: '#fcba03' }} /><FaStar style={{ color: '#fcba03' }} /><FaStar style={{ color: '#fcba03' }} /><FaStar style={{ color: '#fcba03' }} /><FaStar style={{ color: '#fcba03' }} />
                     <BlockContent blocks={data.sanityPages._rawServices} />
+                    <a className="reviews" href="/reviews" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View More Reviews</a>
                 </div>
             </div>
             <div className="container pageContent">

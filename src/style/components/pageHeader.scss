@@ -111,10 +111,11 @@
             }
         }
         .printCoupon{
-            padding: 15px 25px;
-            position: absolute;
-            right:0;
-            bottom:0;
+            padding: 7.9px 25px;
+            // position: absolute;
+            // right:0;
+            // bottom:0;
+            margin-left: 1em;
             cursor:pointer;
             transition: background-color ease 0.3s;
             @include tablet-portrait(){
@@ -182,5 +183,8 @@
     .servicePage *{
         color: #333333 !important;
 
+    }
+    .usp_section{
+        display:none !important;
     }
 }

@@ -2,10 +2,9 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Image from "gatsby-image"
 import Layout from "../components/layout"
-import { FaStar } from "react-icons/fa"
+import { FaPrint, FaStar, FaUserShield, FaRegClock, FaShieldAlt } from "react-icons/fa"
 import BlockContent from '../components/block-content'
 import BackgroundImage from 'gatsby-background-image'
-import { FaPrint } from "react-icons/fa"
 import Form from "../components/form"
 import Helmet from 'react-helmet'
 import $ from 'jquery'
@@ -17,6 +16,18 @@ export const query = graphql`
             pagetitle
             slug {
                 current
+            }
+            usp1{
+                uspTitle
+                uspText
+            }
+            usp2{
+                uspTitle
+                uspText
+            }
+            usp3{
+                uspTitle
+                uspText
             }
             _rawFirstcopy
             _rawServices
@@ -117,8 +128,7 @@ function getUrlVars(){
     }
     function changeActive(){
         $(".form").toggleClass("expanded");
-        $("html, body").animate({ scrollTop: 0 }, "slow");
-        return false;
+        $('body').toggleClass('formExpanded');
       }
 
 export default ({ data }) => (
@@ -156,6 +166,25 @@ export default ({ data }) => (
 
             </div>
         </BackgroundImage>
+        <div className="usp_section" style={{backgroundColor: '#ededed'}}>
+            <div className="three-columns">
+                <div className="column column1">
+                    <FaUserShield style={{fontSize: '4em', color: data.sanityCompanyInfo.primarycolor.hex}}/>
+                    <h2>{data.sanityPages.usp1.uspTitle}</h2>
+                    <p>{data.sanityPages.usp1.uspText}</p>
+                </div>
+                <div className="column column2">
+                    <FaRegClock style={{fontSize: '4em', color: data.sanityCompanyInfo.primarycolor.hex }}/>
+                    <h2>{data.sanityPages.usp2.uspTitle}</h2>
+                    <p>{data.sanityPages.usp2.uspText}</p>
+                </div>
+                <div className="column column3">
+                    <FaShieldAlt style={{fontSize: '4em', color: data.sanityCompanyInfo.primarycolor.hex}}/>
+                    <h2>{data.sanityPages.usp3.uspTitle}</h2>
+                    <p>{data.sanityPages.usp3.uspText}</p>
+                </div>
+            </div>
+        </div>
         <div className="reviewsPage">
             <div className="container pageContent">
                 <div className="row">

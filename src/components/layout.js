@@ -104,8 +104,9 @@ const Layout = ({ children }) => {
   `)
 
 
-  function changeActive() {
+  function changeActive(){
     $(".form").toggleClass("expanded");
+    $('body').toggleClass('formExpanded');
   }  
 
   return (
@@ -259,7 +260,7 @@ const Layout = ({ children }) => {
               <div className="badgeBanner">
                   <div className="columns">
                   
-                    <div class="badges">
+                    <div className="badges">
 
                     {data.allSanityBadges.edges.map(({ node: badge }) => (
                               <Image fluid={badge.badge_img.asset.fluid} key={badge.badge_name}/>
