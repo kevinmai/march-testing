@@ -149,7 +149,7 @@ export default ({ data }) => (
 
                     </div>
                 </BackgroundImage>
-                    <div className="usp_section" style={{backgroundColor: '#ccc'}}>
+                    <div className="usp_section" style={{backgroundColor: '#ededed'}}>
                         <div className="three-columns">
                             <div className="column column1">
                                 <FaUserShield style={{fontSize: '4em', color: data.sanityCompanyInfo.primarycolor.hex}}/>
