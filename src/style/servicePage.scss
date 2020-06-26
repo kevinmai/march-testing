@@ -1,20 +1,13 @@
 .servicePage {
 
-    .phone,
     .schedule {
         display: none;
     }
 
-    .phone {
-        @include tablet-landscape {
-            display: block;
-        }
-    }
-
     .header-inner {
         width: 70%;
-        justify-content: center;
-        flex-direction: column;
+        justify-content: space-between;
+        // flex-direction: column;
 
         @include tablet-landscape {
             width: 100%;
@@ -327,7 +320,9 @@
 
     footer {
         width: 70%;
-
+        @include tablet-portrait{
+            width: 100%;
+        }
     }
 }
 

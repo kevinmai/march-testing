@@ -8,15 +8,57 @@
     .couponsRow{
         .coupon{
             transition: opacity 0.3s ease;
-            cursor: pointer;
-            &:hover{
-                opacity: 0.7;
-                transition: opacity 0.3s ease;
-            }
+            // cursor: pointer;
+            // &:hover{
+            //     opacity: 0.7;
+            //     transition: opacity 0.3s ease;
+            // }
         }
     }
 }
 
+.couponsRow{
+    ul{
+        display:flex;
+        flex-wrap: wrap;
+        margin-right: 1.45rem;
+        li{
+            list-style: none;
+            flex: 0 0 45%;
+            padding: 50px 30px;
+            text-align: center;
+            margin: 10px 5px;
+            color: #fff;
+            position: relative;
+            @include tablet-portrait(){
+                flex: 0 0 100%;
+            }
+            .couponTitle{
+                color: #fff;
+                font-weight: 700;
+                font-size: 2.4em;
+                line-height: 125%;
+                @include tablet-portrait(){
+                    font-size: 2em;
+                }
+            }
+            .couponType{
+                color: #fff;
+                font-weight: 500;
+                font-size: 1.4em;
+                @include tablet-portrait(){
+                    font-size: 1.2em;
+                }
+            }
+            .restrictions{
+                font-size: 0.6em;
+                position: absolute;
+                bottom:10px;
+                left:10px;
+            }
+        }
+    }
+}
 @media print{
     *{
         //display:block !important;

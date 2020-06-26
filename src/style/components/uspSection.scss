@@ -1,0 +1,64 @@
+.usp_section{
+    padding: 2em 5em;
+    @include tablet-landscape{
+        padding: 4em 4em;
+    }
+    @include phone-only{
+        padding: 4em 1.5em 1em;
+    }
+    .three-columns{
+        display:flex;
+        justify-content: space-between;
+        position: relative;
+        @include tablet-landscape{
+            flex-wrap:wrap;
+        }
+        .column{
+            padding: 0em 2em 2em;
+            margin: 0 1em;
+            position: relative;
+            width: 33%;
+            color: #353535;
+            display:flex;
+            flex-direction: column;
+            background-color: rgba(255,255,255,0.5);
+            @include tablet-landscape{
+                width: 100%;
+                margin-bottom: 1em;
+            }
+            @include tablet-portrait{
+                padding: 1.5em 1.5em 1.5em;
+            }
+            
+            h2{
+                text-transform: uppercase;
+                font-size: 1.2em;
+                max-width: 300px;
+                line-height: 1.5em;
+                margin-top: -1.2em;
+                @include tablet-portrait{
+                    font-size: 1.2em;
+                    margin-bottom: 0;
+                }
+            }
+            p{
+
+            }
+            svg{
+                position: relative;
+                top: 30px;
+                // left: -50px;
+                align-self: flex-end;
+                @include tablet-portrait{
+                    top: 0;
+                }
+            }
+        }
+        .column1{
+        }
+        .column2{
+        }
+        .column3{
+        }
+    }
+}

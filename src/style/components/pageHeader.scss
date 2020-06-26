@@ -24,6 +24,11 @@
             margin-bottom: 2em;
             position: relative;
             text-align: center;
+            @include phone-only{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
             .schedulebtn{
                 color: #fff;
                 text-transform: uppercase;
@@ -32,6 +37,9 @@
                 transition: 0.2s ease all;
                 font-weight: 600;
                 font-size: 0.9em;
+                @include phone-only{
+                    width: 80%;
+                }
                 &:before{
                     content:'\f073';
                     font-family: "Font Awesome 5 Pro";
@@ -42,6 +50,42 @@
                     background-color: rgb(194, 194, 194) !important;
                     color: #000;
                     transition: 0.2s ease all;
+                }
+            }
+            .printCoupon{
+                padding: 7.9px 25px;
+                // position: absolute;
+                // right:0;
+                // bottom:0;
+                margin-left: 1em;
+                cursor:pointer;
+                transition: background-color ease 0.3s;
+                @include tablet-portrait(){
+                    left:0;
+                    text-align: center;
+                }
+                @include phone-only{
+                    // width: 100%;
+                    margin-left: 1em;
+                    // margin-top: 1em;
+                }
+                svg{
+                    fill: #fff;
+                    transition: fill ease 0.3s;
+                }
+                &:hover{
+                    background-color: #fff !important;
+                    transition: background-color ease 0.3s;
+                    svg{
+                        fill: #353535;
+                        transition: fill ease 0.3s;
+                    }               
+                }
+                .mobileCouponText{
+                    display:none;
+                    color: #fff;
+                    text-transform: uppercase;
+                    font-weight: 500;
                 }
             }
         }
@@ -110,40 +154,7 @@
                 position: relative;
             }
         }
-        .printCoupon{
-            padding: 7.9px 25px;
-            // position: absolute;
-            // right:0;
-            // bottom:0;
-            margin-left: 1em;
-            cursor:pointer;
-            transition: background-color ease 0.3s;
-            @include tablet-portrait(){
-                left:0;
-                text-align: center;
-            }
-            svg{
-                fill: #fff;
-                transition: fill ease 0.3s;
-            }
-            &:hover{
-                background-color: #fff !important;
-                transition: background-color ease 0.3s;
-                svg{
-                    fill: #353535;
-                    transition: fill ease 0.3s;
-                }               
-            }
-            .mobileCouponText{
-                display:none;
-                color: #fff;
-                text-transform: uppercase;
-                font-weight: 500;
-                @include tablet-portrait(){
-                    display:initial;
-                }
-            }
-        }
+        
     }
 }
 
@@ -185,6 +196,15 @@
 
     }
     .usp_section{
+        display:none !important;
+    }
+    .reviewRow{
+        display:none !important;
+    }
+    .servicePage .flexWrapper{
+        padding-top: 4em !important;
+    }
+    .serviceForm{
         display:none !important;
     }
 }

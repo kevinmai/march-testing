@@ -1,10 +1,12 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import Layout from "../components/layout"
+import uspSection from "../components/uspSection"
 import BlockContent from '../components/block-content'
-import { FaPrint, FaStar, FaUserShield, FaRegClock, FaShieldAlt } from "react-icons/fa"
+import { FaPrint, FaUserShield, FaRegClock, FaShieldAlt } from "react-icons/fa"
 import BackgroundImage from 'gatsby-background-image'
 import Form from "../components/form"
+import UspSection from "../components/uspSection"
 import Helmet from 'react-helmet'
 import $ from 'jquery'
 
@@ -151,27 +153,10 @@ export default ({ data }) => (
 
             </div>
         </BackgroundImage>
-        <div className="usp_section" style={{backgroundColor: '#ededed'}}>
-            <div className="three-columns">
-                <div className="column column1">
-                    <FaUserShield style={{fontSize: '4em', color: data.sanityCompanyInfo.primarycolor.hex}}/>
-                    <h2>{data.sanityPages.usp1.uspTitle}</h2>
-                    <p>{data.sanityPages.usp1.uspText}</p>
-                </div>
-                <div className="column column2">
-                    <FaRegClock style={{fontSize: '4em', color: data.sanityCompanyInfo.primarycolor.hex }}/>
-                    <h2>{data.sanityPages.usp2.uspTitle}</h2>
-                    <p>{data.sanityPages.usp2.uspText}</p>
-                </div>
-                <div className="column column3">
-                    <FaShieldAlt style={{fontSize: '4em', color: data.sanityCompanyInfo.primarycolor.hex}}/>
-                    <h2>{data.sanityPages.usp3.uspTitle}</h2>
-                    <p>{data.sanityPages.usp3.uspText}</p>
-                </div>
-            </div>
-        </div>
+        <UspSection/>
         <div className="container pageContent thispage">
             <div className="row">
+                <h1>{data.sanityPages.pagetitle}</h1>
                 <BlockContent blocks={data.sanityPages._rawFirstcopy} />
             </div>
         </div>    

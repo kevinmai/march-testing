@@ -38,6 +38,8 @@ $transition: 0.2s ease all;
 /**** COMPONENTS ****/
 @import './components/pageHeader.scss';
 @import './components/footer.scss';
+@import './components/header.scss';
+@import './components/uspSection.scss';
 /**** PAGES ****/
 @import './ourServices.scss';
 @import './servicePage.scss';
@@ -53,6 +55,10 @@ body{
     h1, h2, h3, h4, h5, h6{
         font-family: "Montserrat";
     }
+    h1{
+        font-size: 1.6em;
+        font-weight: 600;
+    }
     .pagewrapper{
         width:100%;
         overflow: hidden;
@@ -61,7 +67,7 @@ body{
     p{
         margin:0;
         font-size: 0.9em !important;
-        line-height: 155% !important;
+        line-height: 200% !important;
     }
     a{
         font-size: 0.9em !important;
@@ -96,96 +102,7 @@ body{
             width:360px;
         }
     }
-    header{
-        padding: 1em 0;
-        position: fixed;
-        left: 0;
-        right: 0;
-        z-index: 998;
-        background-color: #fff;
-        box-shadow: 0 0 5px 5px rgba(0,0,0,0.1);
-        .header-inner{
-            display:flex;
-            justify-content: space-around;
-            align-items: center;
-            @include small-phone(){
-                flex-direction: column;
-            }
-            .gatsby-image-wrapper{
-                width: auto;
-            }
-            .leftColumn{
-                text-align: center;
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: center;
-                .logo-subtitle{
-                    font-weight: bold;
-                    font-size: 0.9em;
-                }
-            }
-        }
-        .companyTagline{
-            text-align: center;
-            font-weight: 500;
-            // margin-bottom: 0.1em;
-            display:block;
-            font-style: italic;
-            padding: 0 0 1em;
-            @include tablet-portrait(){
-                display:none;
-            }
-        }
-        .headerbtn{
-            padding: 15px 30px;
-            color: #fff;
-            text-transform: uppercase;
-            text-decoration: none;
-            border:1px solid;
-            width: 160px;
-            @include tablet-portrait{
-                width: 200px;
-            }
-            @include small-phone{
-                width: 200px;
-            }
-            &.phone{
-                padding: 16px 30px;
-            }
-        }
-        .gatsby-image-wrapper{
-            transition: opacity .3s ease;
-            &:hover{
-                opacity: 0.7;
-                transition: opacity .3s ease;
-            }
-            img{
-                //width:150px !important;
-            }
-        }
-        .schedule{
-            transition: all ease 0.2s;
-            margin-right: 5px;
-            cursor:pointer;
-            &:hover{
-                background-color: #f9f9f9 !important;
-                color: #353535;
-                transition: all ease 0.2s;
-            }
-            @include tablet-portrait(){
-                display:none;
-            }
-        }
-        .phone{
-            transition: all ease 0.2s;
-            &:hover{
-                background-color: #f9f9f9 !important;
-                color: #353535;
-                transition: all ease 0.2s;
-            }
-        }
-    }
+    
     ul{
         li{
             color: #353535;
@@ -215,6 +132,9 @@ body{
             padding: 4.5em;
             @include tablet-portrait(){
                 width:100%;
+            }
+            @include phone-only(){
+                padding: 4em 2em;
             }
             
             position: relative;
@@ -257,47 +177,7 @@ body{
             }
         }
     }
-    .couponsRow{
-        ul{
-            display:flex;
-            flex-wrap: wrap;
-            li{
-                list-style: none;
-                flex: 0 0 45%;
-                padding: 50px 30px;
-                text-align: center;
-                margin: 10px 5px;
-                color: #fff;
-                position: relative;
-                @include tablet-portrait(){
-                    flex: 0 0 100%;
-                }
-                .couponTitle{
-                    color: #fff;
-                    font-weight: 700;
-                    font-size: 2.4em;
-                    line-height: 125%;
-                    @include tablet-portrait(){
-                        font-size: 2em;
-                    }
-                }
-                .couponType{
-                    color: #fff;
-                    font-weight: 500;
-                    font-size: 1.7em;
-                    @include tablet-portrait(){
-                        font-size: 1.2em;
-                    }
-                }
-                .restrictions{
-                    font-size: 0.6em;
-                    position: absolute;
-                    bottom:10px;
-                    left:10px;
-                }
-            }
-        }
-    }
+    
     .reviewRow{
         .review{
             padding: 40px 30px;
@@ -316,70 +196,7 @@ body{
         }
     }
 }
-.usp_section{
-    padding: 2em 5em;
-    @include tablet-landscape{
-        padding: 4em 4em;
-    }
-    @include phone-only{
-        padding: 4em 1.5em 1em;
-    }
-    .three-columns{
-        display:flex;
-        justify-content: space-between;
-        position: relative;
-        @include tablet-landscape{
-            flex-wrap:wrap;
-        }
-        .column{
-            padding: 0em 2em 2em;
-            margin: 0 1em;
-            position: relative;
-            width: 33%;
-            color: #353535;
-            display:flex;
-            flex-direction: column;
-            background-color: rgba(255,255,255,0.5);
-            @include tablet-landscape{
-                width: 100%;
-                margin-bottom: 1em;
-            }
-            @include tablet-portrait{
-                padding: 1.5em 1.5em 1.5em;
-            }
-            
-            h2{
-                text-transform: uppercase;
-                font-size: 1.2em;
-                max-width: 300px;
-                line-height: 1.5em;
-                margin-top: -1.2em;
-                @include tablet-portrait{
-                    font-size: 1.2em;
-                    margin-bottom: 0;
-                }
-            }
-            p{
 
-            }
-            svg{
-                position: relative;
-                top: 30px;
-                // left: -50px;
-                align-self: flex-end;
-                @include tablet-portrait{
-                    top: 0;
-                }
-            }
-        }
-        .column1{
-        }
-        .column2{
-        }
-        .column3{
-        }
-    }
-}
 .scheduleMobile{
     display:none;
     cursor:pointer;
@@ -387,12 +204,14 @@ body{
     bottom:0;
     left:0;
     right:0;
+    z-index: 99;
     @include tablet-portrait(){
-        display:block;
+        display:flex;
     }
     .innerSchedule{
         text-align: center;
         padding: 20px 0;
+        width: 50%;
         svg{
             fill:#fff;
         }
@@ -401,5 +220,12 @@ body{
             text-transform: uppercase;
             font-weight: 500;
         }
+    }
+    .innerPhone{
+        width: 50%;
+        text-align: center;
+        padding: 20px 0;
+        text-transform: uppercase;
+        color: #fff;
     }
 }

@@ -6,6 +6,7 @@ import { FaPrint, FaStar, FaUserShield, FaRegClock, FaShieldAlt } from "react-ic
 import BlockContent from '../components/block-content'
 import BackgroundImage from 'gatsby-background-image'
 import Form from "../components/form"
+import UspSection from "../components/uspSection"
 import Helmet from 'react-helmet'
 import $ from 'jquery'
 
@@ -150,15 +151,17 @@ export default ({ data }) => (
                         backgroundColor: data.sanityCompanyInfo.primarycolor.hex,
                         opacity: "0.9"
                     }}></div>
-                    <p className="date">Call This <b style={{color: data.sanityCompanyInfo.accentcolor.hex}}>{today}</b> for </p>
+                    <p className="date">Call This <b>{today}</b> for </p>
                     <p className="coupon">{data.sanityPages.coupon.title}</p>
                     <p className="couponType">{data.sanityPages.coupon.type}</p>
                     <div className="schedulebtn-container">
                         <span className="schedulebtn" 
-                        style={{
-                            backgroundColor: data.sanityCompanyInfo.accentcolor.hex,
-                        }}
-                        onClick={changeActive}>Schedule Now</span>
+                            style={{
+                                backgroundColor: data.sanityCompanyInfo.accentcolor.hex,
+                            }}
+                        onClick={changeActive}>Schedule</span>
+                    <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
+
                     </div>
                     {/* <p className="restrictions">*Restrictions may apply</p> */}
                     {/* <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span> */}
@@ -166,28 +169,11 @@ export default ({ data }) => (
 
             </div>
         </BackgroundImage>
-        <div className="usp_section" style={{backgroundColor: '#ededed'}}>
-            <div className="three-columns">
-                <div className="column column1">
-                    <FaUserShield style={{fontSize: '4em', color: data.sanityCompanyInfo.primarycolor.hex}}/>
-                    <h2>{data.sanityPages.usp1.uspTitle}</h2>
-                    <p>{data.sanityPages.usp1.uspText}</p>
-                </div>
-                <div className="column column2">
-                    <FaRegClock style={{fontSize: '4em', color: data.sanityCompanyInfo.primarycolor.hex }}/>
-                    <h2>{data.sanityPages.usp2.uspTitle}</h2>
-                    <p>{data.sanityPages.usp2.uspText}</p>
-                </div>
-                <div className="column column3">
-                    <FaShieldAlt style={{fontSize: '4em', color: data.sanityCompanyInfo.primarycolor.hex}}/>
-                    <h2>{data.sanityPages.usp3.uspTitle}</h2>
-                    <p>{data.sanityPages.usp3.uspText}</p>
-                </div>
-            </div>
-        </div>
+        <UspSection />
         <div className="reviewsPage">
             <div className="container pageContent">
                 <div className="row">
+                    <h1>{data.sanityPages.pagetitle}</h1>
                     <BlockContent blocks={data.sanityPages._rawFirstcopy} />
                 </div>
             </div>

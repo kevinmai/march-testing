@@ -46,6 +46,9 @@ $transition: 0.1s ease all;
         transform: translate(0%, -5%);
         top: 2%;
     }
+    @include phone-only(){
+        height: 600px;
+    }
 
     
 
@@ -71,6 +74,7 @@ $transition: 0.1s ease all;
         display:flex;
         flex-direction: row;
         height: 100%;
+
         @include tablet-landscape(){
             flex-direction: column;
         }
@@ -93,6 +97,9 @@ $transition: 0.1s ease all;
             @include tablet-landscape(){
                 width: 100%;
                 border-radius: 20px 20px 0 0;
+            }
+            @include phone-only(){
+                padding: 2em 0;
             }
             .tagline{
                 font-size: 1.1em !important;
@@ -120,6 +127,8 @@ $transition: 0.1s ease all;
         .column2{
             width: 66%;
             padding: 6em;
+            overflow: scroll;
+
             @include desktop{
                 padding: 2em;
             }
@@ -131,6 +140,12 @@ $transition: 0.1s ease all;
                 width: 100%;
                 form{
                     width: 80%;
+                }
+            }
+            @include phone-only(){
+                padding-top: 12em;
+                form{
+                    width: 90%;
                 }
             }
         }
@@ -183,7 +198,6 @@ $transition: 0.1s ease all;
             width: 220px;
             margin: 0 auto;
             border: 0;
-            text-align: right;
             text-transform: uppercase;
             font-size: 0.9em;
             padding: 15px 30px;

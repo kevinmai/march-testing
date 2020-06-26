@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import Layout from "../components/layout"
+import UspSection from "../components/uspSection"
 import BlockContent from '../components/block-content'
 import BackgroundImage from 'gatsby-background-image'
 import { FaPrint, FaStar, FaUserShield, FaRegClock, FaShieldAlt } from "react-icons/fa"
@@ -136,7 +137,7 @@ const IndexPage = ( {data }) => (
               backgroundColor: data.sanityCompanyInfo.primarycolor.hex,
               opacity: "0.9"
           }}></div>
-          <p className="day">Call This <b style={{color: data.sanityCompanyInfo.accentcolor.hex}}>{today}</b> for </p>
+          <p className="day">Call This <b>{today}</b> for </p>
           <p className="coupon">{data.sanityPages.coupon.title}</p>
           <p className="couponType">{data.sanityPages.coupon.type}</p>
           <div className="schedulebtn-container">
@@ -147,27 +148,10 @@ const IndexPage = ( {data }) => (
         </div>
       </div>
     </BackgroundImage>
-    <div className="usp_section" style={{backgroundColor: '#ededed'}}>
-      <div className="three-columns">
-          <div className="column column1">
-              <FaUserShield style={{fontSize: '4em', color: data.sanityCompanyInfo.primarycolor.hex}}/>
-              <h2>{data.sanityPages.usp1.uspTitle}</h2>
-              <p>{data.sanityPages.usp1.uspText}</p>
-          </div>
-          <div className="column column2">
-              <FaRegClock style={{fontSize: '4em', color: data.sanityCompanyInfo.primarycolor.hex }}/>
-              <h2>{data.sanityPages.usp2.uspTitle}</h2>
-              <p>{data.sanityPages.usp2.uspText}</p>
-          </div>
-          <div className="column column3">
-              <FaShieldAlt style={{fontSize: '4em', color: data.sanityCompanyInfo.primarycolor.hex}}/>
-              <h2>{data.sanityPages.usp3.uspTitle}</h2>
-              <p>{data.sanityPages.usp3.uspText}</p>
-          </div>
-      </div>
-    </div>
+    <UspSection />
     <div className="container pageContent homepage">
       <div className="row">
+        <h1>{data.sanityPages.pagetitle}</h1>
         <PortableText blocks={data.sanityPages._rawFirstcopy} />
       </div>
     </div>

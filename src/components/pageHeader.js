@@ -1,6 +1,14 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { FaPrint } from "react-icons/fa"
+import BackgroundImage from 'gatsby-background-image'
+import $ from 'jquery'
+/* PRINT COUPON */
+function printCoupon() {
+    if(typeof window !== 'undefined'){
+      window.print();
+  }
+  }
 //import BackgroundImage from 'gatsby-background-image'
 
 const now = new Date();
@@ -58,16 +66,30 @@ export default () => (
 
 render={ data => (
     
-            <div className="pageHeader">
-                <div className="innerLeft">
-                    <h1>{data.sanityPages.pagetitle} in {data.sanityCompanyInfo.cities}</h1>
-                    <p className="day">Call This <b>{today}</b> for </p>
-                    <p className="coupon">{data.sanityPages.coupon.title} {data.sanityPages.coupon.type}</p>
-                    <p className="restrictions">*Restrictions may apply</p>
-                    <span className="printCoupon" style={{backgroundColor: "#" + data.sanityCompanyInfo.accentcolor.hex}}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
-                </div>
- 
-            </div>
+    <BackgroundImage
+    style={{
+      height: "100%",
+      backgroundPosition: "center"
+    }}
+    fluid={data.sanityPages.headerimage.asset.fluid}>
+
+    <div className="pageHeader">
+      <div className="innerLeft">
+        <div className="pgHeaderBackground" style={{
+            backgroundColor: data.sanityCompanyInfo.primarycolor.hex,
+            opacity: "0.9"
+        }}></div>
+        <p className="day">Call This <b style={{color: data.sanityCompanyInfo.accentcolor.hex}}>{today}</b> for </p>
+        <p className="coupon">{data.sanityPages.coupon.title}</p>
+        <p className="couponType">{data.sanityPages.coupon.type}</p>
+        <div className="schedulebtn-container">
+          <span className="schedulebtn" style={{backgroundColor: data.sanityCompanyInfo.accentcolor.hex}} onClick={changeActive}>Schedule</span>
+          <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
+        </div>
+        <p className="restrictions">*Restrictions may apply</p>
+      </div>
+    </div>
+  </BackgroundImage>
     
     )}
 />

@@ -13,7 +13,7 @@ import Helmet from 'react-helmet'
 import Image from "gatsby-image"
 //import Form from "./form"
 import "./layout.css"
-import { FaCalendarAlt } from 'react-icons/fa'
+import { FaCalendarAlt, FaPhone } from 'react-icons/fa'
 import $ from "jquery"
 import jQuery from 'jquery'
 
@@ -30,6 +30,7 @@ const Layout = ({ children }) => {
       }
       sanityCompanyInfo {
         companyname
+        phone
         logo{
           asset{
             fluid{
@@ -251,10 +252,13 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
           <div>
             <main>{children}</main>
-            <div className="scheduleMobile" onClick={changeActive} style={{backgroundColor: data.sanityCompanyInfo.secondarycolor.hex}}>
-                <div className="innerSchedule">
-                  <FaCalendarAlt /> <span>Schedule Service</span>
+            <div className="scheduleMobile" onClick={changeActive} >
+                <div className="innerSchedule" style={{backgroundColor: data.sanityCompanyInfo.secondarycolor.hex}}>
+                  <FaCalendarAlt /> <span>Schedule</span>
                 </div>
+                <a href={'tel:' + data.sanityCompanyInfo.phone } className="innerPhone" style={{backgroundColor: data.sanityCompanyInfo.accentcolor.hex}}>
+                  <FaPhone /> <span>Call now</span>
+                </a>
               </div>
             <footer className="footer">
               <div className="badgeBanner">

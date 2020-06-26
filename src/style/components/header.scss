@@ -1,0 +1,94 @@
+header{
+    padding: 1em 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 998;
+    background-color: #fff;
+    box-shadow: 0 0 5px 5px rgba(0,0,0,0.1);
+    .header-inner{
+        display:flex;
+        justify-content: space-between;
+        padding: 0 2em;
+        align-items: center;
+        @include small-phone(){
+            flex-direction: column;
+        }
+        .gatsby-image-wrapper{
+            width: auto;
+        }
+        .leftColumn{
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            .logo-subtitle{
+                font-weight: bold;
+                font-size: 0.9em;
+            }
+        }
+    }
+    .companyTagline{
+        text-align: center;
+        font-weight: 500;
+        // margin-bottom: 0.1em;
+        display:block;
+        font-style: italic;
+        padding: 0 0 1em;
+        @include tablet-portrait(){
+            display:none;
+        }
+    }
+    .headerbtn{
+        padding: 15px 30px;
+        color: #fff;
+        text-transform: uppercase;
+        text-decoration: none;
+        border:1px solid;
+        width: 160px;
+        @include tablet-portrait{
+            width: 200px;
+        }
+        @include small-phone{
+            width: 200px;
+        }
+        &.phone{
+            padding: 16px 30px;
+        }
+    }
+    .gatsby-image-wrapper{
+        transition: opacity .3s ease;
+        &:hover{
+            opacity: 0.7;
+            transition: opacity .3s ease;
+        }
+        img{
+            //width:150px !important;
+        }
+    }
+    .schedule{
+        transition: all ease 0.2s;
+        margin-right: 5px;
+        cursor:pointer;
+        &:hover{
+            background-color: #f9f9f9 !important;
+            color: #353535;
+            transition: all ease 0.2s;
+        }
+        @include tablet-portrait(){
+            display:none;
+        }
+    }
+    .phone{
+        transition: all ease 0.2s;
+        &:hover{
+            background-color: #f9f9f9 !important;
+            color: #353535;
+            transition: all ease 0.2s;
+        }
+        @include phone-only{
+            display:none;
+        }
+    }
+}
