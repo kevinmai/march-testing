@@ -37,6 +37,7 @@
                 transition: 0.2s ease all;
                 font-weight: 600;
                 font-size: 0.9em;
+                display:inline-block;
                 @include phone-only{
                     width: 80%;
                 }
@@ -60,6 +61,8 @@
                 margin-left: 1em;
                 cursor:pointer;
                 transition: background-color ease 0.3s;
+                display:inline-block;
+
                 @include tablet-portrait(){
                     left:0;
                     text-align: center;
