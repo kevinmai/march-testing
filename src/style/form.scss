@@ -49,6 +49,10 @@ $transition: 0.1s ease all;
     @include phone-only(){
         height: 400px;
     }
+    @supports (-webkit-overflow-scrolling: touch) {
+        /* CSS specific to iOS devices */ 
+        height: 450px;
+      }
 
     
 
