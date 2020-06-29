@@ -112,7 +112,11 @@ else if(city === undefined){
         $(".ourServices").attr('href', "/our-services/");
     }
 } 
-
+function printCoupon() {
+    if(typeof window !== 'undefined'){
+        window.print();
+    }
+  }
 // if(typeof window !== 'undefined'){
 //     $(".ourServices").attr('href', ourServices);
 // }
@@ -158,9 +162,9 @@ export default ({ data }) => (
                             <span className="coupon">{data.sanityPages.coupon.title}</span>
                             <span className="couponType">{data.sanityPages.coupon.type}</span>
                             <span className="bottomwrapper">
-                                {/* <span className="restrictions">*Restrictions may apply</span> */}
-                                {/* <span onClick={printCoupon} className="printCoupon" style={{ backgroundColor: data.sanityCompanyInfo.secondarycolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span> */}
-                                </span>
+                                <span className="restrictions">*Restrictions may apply</span>
+                                <span onClick={printCoupon} className="printCoupon" style={{ backgroundColor: data.sanityCompanyInfo.secondarycolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span> 
+                            </span>
                         </div>
                     </div>
                     <UspSection />
