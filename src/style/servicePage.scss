@@ -317,6 +317,58 @@
             }
         }
     }
+    .row.mobile{
+        display:none;
+        @include tablet-portrait(){
+            display:block;
+            padding: 3em;
+        }
+        .mobileCoupon{
+            display:flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items:center;
+            .date{
+                color:#fff;
+                margin-bottom: 1em;
+            }
+            .coupon{
+                font-weight: 700;
+                font-style: italic;
+                font-size: 3em;
+                line-height: 150%;
+                text-align: center;
+                color: #fff;
+            }
+            .couponType{
+                font-size: 1.5em;
+                font-weight: 700;
+                line-height: 150%;
+                text-align: center;
+                color: #fff;
+                margin-bottom: 1em;
+            }
+            .bottomwrapper{
+                width: 300px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .restrictions{
+                    color: #fff;
+                    font-size: 0.7em;
+                }
+                .printCoupon{
+                    padding: 0.6em 1em;
+                    svg{
+                        fill:#fff;
+                    }
+                    .mobileCouponText{
+                        display:none;
+                    }
+                }
+            }
+        }
+    }
 
     footer {
         width: 70%;

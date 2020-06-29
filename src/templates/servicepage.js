@@ -117,7 +117,9 @@ else if(city === undefined){
 //     $(".ourServices").attr('href', ourServices);
 // }
 
-
+const now = new Date();
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const today = days[now.getDay()];
 export default ({ data }) => (
 
 <div className="servicePage">
@@ -150,6 +152,17 @@ export default ({ data }) => (
 
                     </div>
                 </BackgroundImage>
+                <div className="row mobile" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>
+                        <div className="mobileCoupon">
+                            <span className="date">Call This <b>{today}</b> for </span>
+                            <span className="coupon">{data.sanityPages.coupon.title}</span>
+                            <span className="couponType">{data.sanityPages.coupon.type}</span>
+                            <span className="bottomwrapper">
+                                {/* <span className="restrictions">*Restrictions may apply</span> */}
+                                {/* <span onClick={printCoupon} className="printCoupon" style={{ backgroundColor: data.sanityCompanyInfo.secondarycolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span> */}
+                                </span>
+                        </div>
+                    </div>
                     <UspSection />
                     <div className="container pageContent">
                         <div className="row">
