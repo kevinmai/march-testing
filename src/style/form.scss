@@ -47,7 +47,7 @@ $transition: 0.1s ease all;
         top: 2%;
     }
     @include phone-only(){
-        height: 600px;
+        height: 400px;
     }
 
     
@@ -78,6 +78,7 @@ $transition: 0.1s ease all;
         @include tablet-landscape(){
             flex-direction: column;
         }
+        
 
         .column1{
             width: 33%;
@@ -99,8 +100,13 @@ $transition: 0.1s ease all;
                 border-radius: 20px 20px 0 0;
             }
             @include phone-only(){
-                padding: 2em 0;
+                padding: 1em 0;
+                height: 350px;
             }
+            @supports (-webkit-overflow-scrolling: touch) {
+                /* CSS specific to iOS devices */ 
+                height: 1000px;
+              }
             .tagline{
                 font-size: 1.1em !important;
                 font-style: italic;
@@ -116,6 +122,10 @@ $transition: 0.1s ease all;
                 font-size: 1.3em !important;
                 @include desktop{
                     font-size: 1em !important;
+                }
+                @include phone-only(){
+                    width: 100%;
+                    text-align: center;
                 }
                 svg{
                     transform: scale(0.8);
@@ -143,9 +153,17 @@ $transition: 0.1s ease all;
                 }
             }
             @include phone-only(){
-                padding-top: 12em;
+                // padding-top: 12em;
+                .innerColumn{
+                    padding-top: 22em;
+                }
                 form{
-                    width: 90%;
+                    width: 100%;
+                }
+                &:after{
+                    content: "";
+                    display: block;
+                    width: 100%;
                 }
             }
         }
