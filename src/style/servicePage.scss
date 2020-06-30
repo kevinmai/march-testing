@@ -392,7 +392,11 @@
         box-shadow: none !important;
         position: relative;
     }
-
+    body{
+        *{
+            background-color: #fff !important;
+        }
+    }
     .servicePage {
         .serviceRightSide {
             width: 100% !important;
