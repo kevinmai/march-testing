@@ -418,6 +418,9 @@
     }
     .serviceRightSide{
         background: none !important;
+        .innerWrapper{
+            background: none !important;
+        }
     }
     .serviceCoupon{
         display:flex !important;
