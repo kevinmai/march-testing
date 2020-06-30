@@ -390,6 +390,7 @@
     }
     header{
         box-shadow: none !important;
+        position: relative;
     }
 
     .servicePage {
@@ -412,16 +413,24 @@
             width: 100% !important;
         }
     }
+    .pageHeader{
+        display:none !important;
+    }
 
     .serviceCoupon{
         display:flex !important;
         flex-direction: column !important;
+        background:none !important;
 
         .date{
             display:none;
         }
 
         *{
+            color: #353535 !important;
+        }
+        .coupon{
+            background: none !important;
             color: #353535 !important;
         }
         .bottomwrapper{
@@ -435,7 +444,7 @@
             }
         }
     }
-    .mobileCoupon{
+    .mobile{
         display:none !important;
     }
 
