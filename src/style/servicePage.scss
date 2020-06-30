@@ -410,30 +410,30 @@
         }
     }
 
-    .serviceCoupon {
-        display: flex !important;
+    .serviceCoupon{
+        display:flex !important;
         flex-direction: column !important;
 
-        .date {
-            display: none;
+        .date{
+            display:none;
         }
 
-        * {
+        *{
             color: #353535 !important;
         }
-
-        .bottomwrapper {
+        .bottomwrapper{
             justify-content: center !important;
             width: 100% !important;
-
-            .restrictions {
+            .restrictions{
                 text-align: center;
             }
-
-            .printCoupon {
-                display: none !important;
+            .printCoupon{
+                display:none !important;
             }
         }
+    }
+    .mobileCoupon{
+        display:none !important;
     }
 
 }

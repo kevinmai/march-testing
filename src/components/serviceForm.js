@@ -64,43 +64,30 @@ state = {
 
     <StaticQuery query={
         graphql`
-    query formQuery($slug: String){
-        sanityPages(slug: {current: {eq: $slug}}){
-            coupon {
-                title
-                type
+            query serviceFormQuery($slug: String){
+                sanityPages(slug: {current: {eq: $slug}}){
+                    coupon {
+                        title
+                        type
+                    }
+                }
+                sanityCompanyInfo {
+                    phone
+                    primarycolor{
+                        hex
+                    }
+                    secondarycolor{
+                        hex
+                    }
+                    accentcolor{
+                        hex
+                    }
+                }
             }
-        }
-        sanityCompanyInfo {
-            phone
-            primarycolor{
-                hex
-            }
-            secondarycolor{
-                hex
-            }
-            accentcolor{
-                hex
-            }
-        }
-    }
-`}
+        `}
 
 render={data => (
     <>
-
-            <div className="serviceRightSide" style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor.hex }}>
-                <div className="innerWrapper" style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor.hex }}>
-                    
-                    <div className="serviceCoupon">
-                        <span className="date">Call This <b>{today}</b> for </span>
-                        <span className="coupon">{data.sanityPages.coupon.title}</span>
-                        <span className="couponType">{data.sanityPages.coupon.type}</span>
-                        <span className="bottomwrapper">
-                            <span className="restrictions">*Restrictions may apply</span>
-                            <span onClick={printCoupon} className="printCoupon" style={{ backgroundColor: data.sanityCompanyInfo.secondarycolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
-                            </span>
-                    </div>
                     <div className="serviceForm">
                         <h2>Schedule Service</h2>
                         <form id="form-metrics" onSubmit={this.handleSubmit} action="https://metrics.vitalstorm.com/email_form_submission/MGYyZmE4Zjc2N2UwNTY2NzNkMzEwYzYyMjU4NTFkNTk/" method="POST">
@@ -117,8 +104,6 @@ render={data => (
                             <p className="form-message"><FaEnvelope /> </p>
                             </form>
                     </div>
-                </div>
-            </div>
         </>
         )}
     />
