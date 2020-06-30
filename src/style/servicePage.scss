@@ -388,6 +388,9 @@
         margin: 0mm;
         /* this affects the margin in the printer settings */
     }
+    header{
+        box-shadow: none !important;
+    }
 
     .servicePage {
         .serviceRightSide {
