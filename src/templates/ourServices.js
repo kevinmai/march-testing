@@ -51,7 +51,6 @@ export const query = graphql`
             coupon {
                 title
                 type
-                printable
             }
             headerimage {
                 asset {
@@ -151,6 +150,7 @@ const serializers = {
 
 
 export default ({ data }) => (
+    
     <Layout>
         <Helmet>
             <title>{data.sanityCompanyInfo.companyname} | {data.sanityPages.pagetitle}</title>

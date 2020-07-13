@@ -55,6 +55,7 @@ export const query = graphql`
                 node{
                     title
                     type
+                    hidecoupon
                 }
             }
         }
@@ -170,13 +171,15 @@ const CouponsPage = ({ data }) => (
                 <div className="row couponsRow">
                     <ul>
                         {data.allSanityCoupon.edges.map(({ node: coupon }) => (
-                            <li className="coupon" key={coupon.title} style={{ backgroundColor: data.sanityCompanyInfo.primarycolor.hex }}>
-                                <span key={coupon.title} className="couponTitle">{coupon.title}</span>
-                                <br />
-                                <span key={coupon.type} className="couponType">{coupon.type}</span>
-                                <br />
-                                <span key={coupon.slug} className="restrictions">*Restrictions may apply. Call office for details.</span>
-                            </li>
+                        <>
+                        {coupon.hidecoupon === true && <li className="coupon" key={coupon.title} style={{ backgroundColor: data.sanityCompanyInfo.primarycolor.hex }}>
+                            {coupon.hidecoupon === true && <span key={coupon.title} className="couponTitle">{coupon.title}</span>}
+                            <br />
+                            {coupon.hidecoupon === true && <span key={coupon.type} className="couponType">{coupon.type}</span>}
+                            <br />
+                            {coupon.hidecoupon === true && <span key={coupon.slug} className="restrictions">*Restrictions may apply. Call office for details.</span>}
+                        </li>}
+                        </>
                         ))}
                     </ul>
                 </div>
