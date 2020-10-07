@@ -1,5 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { data } from "jquery"
 
 const Footer = () => {
   const { site } = useStaticQuery(
@@ -7,6 +8,7 @@ const Footer = () => {
     query{
         sanityCompanyInfo {
             companyname
+            licenses
         }
       }
     `
@@ -16,6 +18,7 @@ const Footer = () => {
     <footer className="footer">
         <div className="container">
           <p>&copy; {site.sanityCompanyInfo.companyname} | Marketing by <a href="http://vitalstorm.com/" target="_blank" rel="noopener noreferrer">VitalStorm Marketing Inc.</a></p> 
+          
         </div>
         <script type="text/javascript">
           {`var SETUP_VS_LP = function(){

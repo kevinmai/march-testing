@@ -78,7 +78,6 @@ export const query = graphql`
             accentcolor{
                 hex
             }
-            cities
         }
     }
 `
@@ -171,7 +170,7 @@ export default ({ data }) => (
                         opacity: "0.9"
                     }}></div>
 
-                    <p className="date">Call This <b>{today}</b> for </p>
+                    <p className="date">Schedule This <b>{today}</b> for </p>
                     <p className="coupon">{data.sanityPages.coupon.title}</p>
                     <p className="couponType">{data.sanityPages.coupon.type}</p>
                     <div className="schedulebtn-container">

@@ -1,8 +1,8 @@
 import React from "react"
 import $ from "jquery"
-import { FaTimesCircle, FaEnvelope } from 'react-icons/fa'
+import { FaTimesCircle, FaEnvelope, FaPhone } from 'react-icons/fa'
 import { StaticQuery, graphql } from "gatsby"
-import { FaPhone } from 'react-icons/fa'
+
 import Image from "gatsby-image"
 
 
@@ -83,7 +83,6 @@ export default class ContactForm extends React.Component {
                   accentcolor{
                       hex
                   }
-                  cities
               }
               }
             `}

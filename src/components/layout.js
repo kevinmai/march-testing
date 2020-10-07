@@ -31,6 +31,7 @@ const Layout = ({ children }) => {
       sanityCompanyInfo {
         companyname
         phone
+        licenses
         logo{
           asset{
             fluid{
@@ -271,11 +272,16 @@ const Layout = ({ children }) => {
                           ))}
                         
                     </div>
-
+                    
                   
                   </div>
                 </div>
               <div className="container">
+              <div className="licenses">
+                  {data.sanityCompanyInfo.licenses.map(( license  => 
+                    <div>{license}</div>
+                  ))}
+              </div>
                 <p>&copy; {data.sanityCompanyInfo.companyname} | Marketing by <a href="http://vitalstorm.com/" target="_blank" rel="noopener noreferrer">VitalStorm Marketing Inc.</a></p> 
               </div>
           </footer>

@@ -143,7 +143,7 @@ const CouponsPage = ({ data }) => (
                         backgroundColor: data.sanityCompanyInfo.primarycolor.hex,
                         opacity: "0.9"
                     }}></div>
-                    <p>Call This <b>{today}</b> for </p>
+                    <p>Schedule This <b>{today}</b> for </p>
                     <p className="coupon">{data.sanityPages.coupon.title}</p>
                     <p className="couponType">{data.sanityPages.coupon.type}</p>
                     <div className="schedulebtn-container">

@@ -54,8 +54,6 @@ export const query = graphql`
                     }
                 }
             }
-            metatags
-            metadescription
     }
         sanityCompanyInfo {
             companyname
@@ -68,7 +66,6 @@ export const query = graphql`
             accentcolor{
                 hex
             }
-            cities
         }
     }
 `
@@ -129,8 +126,6 @@ export default ({ data }) => (
 <div className="servicePage">
         <Helmet>
             <title>{data.sanityCompanyInfo.companyname} | {data.sanityPages.pagetitle}</title>
-            <meta name="keywords" content={ data.sanityPages.metatags }  />
-            <meta name="description" content={data.sanityPages.metadescription} />
         </Helmet>
     <Layout>
             <div className="flexWrapper">
@@ -139,7 +134,7 @@ export default ({ data }) => (
                     <div className="innerWrapper" style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor.hex }}>
                     
                     <div className="serviceCoupon">
-                        <span className="date">Call This <b>{today}</b> for </span>
+                        <span className="date">Schedule This <b>{today}</b> for </span>
                         <span className="coupon">{data.sanityPages.coupon.title}</span>
                         <span className="couponType">{data.sanityPages.coupon.type}</span>
                         <span className="bottomwrapper">
@@ -172,7 +167,7 @@ export default ({ data }) => (
                 </BackgroundImage>
                 <div className="row mobile" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>
                         <div className="mobileCoupon">
-                            <span className="date">Call This <b>{today}</b> for </span>
+                            <span className="date">Schedule This <b>{today}</b> for </span>
                             <span className="coupon">{data.sanityPages.coupon.title}</span>
                             <span className="couponType">{data.sanityPages.coupon.type}</span>
                             <span className="bottomwrapper">
