@@ -204,7 +204,7 @@ const Layout = ({ children }) => {
                     var city = getUrlVars()["city"];
                         $("p").each(function(){
                             var text = $(this).text();
-                            text = text.replace("companyname", "${data.sanityCompanyInfo.companyname}").replace("city", city);
+                            text = text.replace("[companyname]", "${data.sanityCompanyInfo.companyname}").replace("city", city);
                             $(this).text(text); 
                         });
                     });
