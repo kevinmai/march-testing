@@ -117,6 +117,26 @@ if(city === null) {
 } else if(city !== undefined){
     city = " in " + city;
 } 
+
+var city = getUrlVars()["city"];
+  const ourServices = "/our-services?city=" + city;
+  
+    if (city === undefined) {
+        city = "";
+        if (typeof window !== 'undefined') {
+          $(".reviews").attr('href', "/our-services/");
+      }
+    } else if (city === "") {
+        city = "";
+        if (typeof window !== 'undefined') {
+          $(".reviews").attr('href', "/our-services/");
+      }
+    } else if (city !== undefined) {
+        city = " in " + city;
+        if (typeof window !== 'undefined') {
+            $(".reviews").attr('href', ourServices);
+        }
+    }
  
 
 
