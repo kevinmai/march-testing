@@ -119,22 +119,22 @@ if(city === null) {
 } 
 
 var city = getUrlVars()["city"];
-  const ourServices = "/our-services?city=" + city;
+  const reviews = "/reviews?city=" + city;
   
     if (city === undefined) {
         city = "";
         if (typeof window !== 'undefined') {
-          $(".reviews").attr('href', "/our-services/");
+          $(".reviews").attr('href', "/reviews/");
       }
     } else if (city === "") {
         city = "";
         if (typeof window !== 'undefined') {
-          $(".reviews").attr('href', "/our-services/");
+          $(".reviews").attr('href', "/reviews/");
       }
     } else if (city !== undefined) {
         city = " in " + city;
         if (typeof window !== 'undefined') {
-            $(".reviews").attr('href', ourServices);
+            $(".reviews").attr('href', reviews);
         }
     }
  
