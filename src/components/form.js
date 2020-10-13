@@ -88,6 +88,7 @@ export default class ContactForm extends React.Component {
             `}
                  render={data => (
                    <>
+                   <div className="popupForm">
                    <div className="form">
                       <div className="two_columns">
                         <div className="column1">
@@ -121,6 +122,7 @@ export default class ContactForm extends React.Component {
                             </div>
                         </div>
                       </div>
+                    </div>
                     </div>
                     </>
                   )}  

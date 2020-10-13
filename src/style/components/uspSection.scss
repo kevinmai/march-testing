@@ -44,11 +44,12 @@
             p{
 
             }
-            svg{
+            i{
                 position: relative;
                 top: 30px;
                 // left: -50px;
                 align-self: flex-end;
+                font-size: 2em;
                 @include tablet-portrait{
                     top: 0;
                 }
