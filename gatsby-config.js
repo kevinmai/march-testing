@@ -23,7 +23,6 @@ module.exports = {
         dataset: 'production', 
         overlayDrafts: true,
         watchMode: true,
-        token: 'sktnCRevILcYrRD3kqsDwrmmyfs5i2wSUcLBQNCgtB56huJORRPPbgAc1IGozgfov356BMJDvZh1j76KRwG0J06WtRG6UVm9B85Rad5kRw7K16p8ETmjKMmlRrcR6EO2Bu1vzsDb42OlnkvTLe82rVXoeFkvvcaVuGClqz3T7NXnJzLArVnU'
       }
     },
     // {

@@ -24,14 +24,17 @@ export const query = graphql`
             usp1{
                 uspTitle
                 uspText
+                icon
             }
             usp2{
                 uspTitle
                 uspText
+                icon
             }
             usp3{
                 uspTitle
                 uspText
+                icon
             }
             _rawFirstcopy
             _rawServices
