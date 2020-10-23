@@ -8,7 +8,7 @@ import ServiceForm from "../components/serviceForm"
 import Form from "../components/form"
 import UspSection from "../components/uspSection"
 import $ from "jquery"
-import { FaPrint, FaStar, FaUserShield, FaRegClock, FaShieldAlt } from "react-icons/fa"
+import { FaPrint, FaPhone} from "react-icons/fa"
 
 
 export const query = graphql`
@@ -60,6 +60,7 @@ export const query = graphql`
     }
         sanityCompanyInfo {
             companyname
+            phone
             primarycolor{
                 hex
             }
@@ -135,7 +136,9 @@ export default ({ data }) => (
                 <Form />
                 <div className="serviceRightSide" style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor.hex }}>
                     <div className="innerWrapper" style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor.hex }}>
-                    
+                    <div className="companyPhone">
+                        <a style={{backgroundColor: data.sanityCompanyInfo.secondarycolor.hex }}href={ "tel:" + data.sanityCompanyInfo.phone }><FaPhone /> <span id="number_rewrite">{data.sanityCompanyInfo.phone}</span> </a>
+                    </div>
                     <div className="serviceCoupon">
                         <span className="date">Schedule This <b>{today}</b> for </span>
                         <span className="coupon">{data.sanityPages.coupon.title}</span>

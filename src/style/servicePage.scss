@@ -1,12 +1,12 @@
 .servicePage {
 
-    .schedule {
-        display: none;
+    .phone, .schedule, .companyTagline{
+        display:none;
     }
 
     .header-inner {
         width: 70%;
-        justify-content: space-between;
+        justify-content: center;
         // flex-direction: column;
 
         @include tablet-landscape {
