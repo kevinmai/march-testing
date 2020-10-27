@@ -128,12 +128,20 @@ if(typeof window !== 'undefined'){
         city= getUrlVars()['city'];
     });
     var city = getUrlVars()["city"];
-        $("p").each(function(){
-            var text = $(this).text();
-            text = text.replace("[city]", city);
-            $(this).html(text); 
+    if(city !== 'undefined'){
+      $("p").each(function(){
+          var text = $(this).text();
+          text = text.replace("[city]", city);
+          $(this).html(text); 
         });
-    });
+    }  else {
+      $("p").each(function(){
+        var text = $(this).text();
+        text = text.replace("[city]", "");
+        $(this).html(text); 
+        });
+    }
+});
 }
 
   return (
