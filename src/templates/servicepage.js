@@ -109,9 +109,9 @@ if(city === null) {
     }
 } 
 else if(city !== "undefined"){
-    city = " in " + city;
+    city = "";
     if(typeof window !== 'undefined'){
-        $(".ourServices").attr('href', ourServices);
+        $(".ourServices").attr('href', "/our-services/");
     }
 } 
 else if(city === undefined){
