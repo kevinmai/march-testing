@@ -108,6 +108,12 @@ if(city === null) {
         $(".ourServices").attr('href', ourServices);
     }
 } 
+else if(city !== "undefined"){
+    city = " in " + city;
+    if(typeof window !== 'undefined'){
+        $(".ourServices").attr('href', ourServices);
+    }
+} 
 else if(city === undefined){
     if(typeof window !== 'undefined'){
         $(".ourServices").attr('href', "/our-services/");
