@@ -56,7 +56,6 @@ const Layout = ({ children }) => {
       }
         analytics
         marchex
-        clicky
         remarketing
       }
       allSanityBadges{
@@ -248,8 +247,6 @@ if(typeof window !== 'undefined'){
               `}</script>
               <script type="text/javascript" src="https://rw1.calls.net/euinc/number-changer.js"></script>
 
-              <script>{`var clicky_site_ids = clicky_site_ids || []; clicky_site_ids.push(${data.sanityCompanyInfo.clicky});`}</script>
-              <script async src="//static.getclicky.com/js"></script>
               <script src="https://kit.fontawesome.com/4ab4233178.js" crossorigin="anonymous"></script>
 
     </Helmet>
