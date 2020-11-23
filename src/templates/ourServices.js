@@ -145,10 +145,15 @@ var city = getUrlVars()["city"];
 
 /***** ADD CITY TO URLS IN PAGE *****/
 function addCity(){
-    if(typeof window !== 'undefined' && city !== undefined){
+    if(typeof window !== 'undefined' && city !== undefined && city !== 'undefined'){
         $('div.pageContent a').attr('href', function(i, href){
             city= getUrlVars()['city'];
             return href + "?city=" +  city; 
+        });
+    } else{
+        $('div.pageContent a').attr('href', function(i, href){
+            city= getUrlVars()['city'];
+            return href + ""; 
         });
     }  
 }
