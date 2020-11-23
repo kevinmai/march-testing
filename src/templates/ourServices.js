@@ -144,19 +144,19 @@ var city = getUrlVars()["city"];
 
 
 /***** ADD CITY TO URLS IN PAGE *****/
-function addCity(){
-    if(typeof window !== 'undefined' && city !== undefined && city !== 'undefined'){
-        $('div.pageContent a').attr('href', function(i, href){
-            city= getUrlVars()['city'];
-            return href + "?city=" +  city; 
-        });
-    } else if(typeof window !== 'undefined' && city == undefined  && city == 'undefined'){
-        $('div.pageContent a').attr('href', function(i, href){
-            city= getUrlVars()['city'];
-            return href + ""; 
-        });
-    }  
-}
+// function addCity(){
+//     if(typeof window !== 'undefined' && city !== undefined && city !== 'undefined'){
+//         $('div.pageContent a').attr('href', function(i, href){
+//             city= getUrlVars()['city'];
+//             return href + "?city=" +  city; 
+//         });
+//     } else if(typeof window !== 'undefined' && city == undefined  && city == 'undefined'){
+//         $('div.pageContent a').attr('href', function(i, href){
+//             city= getUrlVars()['city'];
+//             return href + ""; 
+//         });
+//     }  
+// }
 
 
 /***** FUNCTION FOR BLOCK CONTENT LINKS *****/
