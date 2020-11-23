@@ -239,8 +239,6 @@ export default ({ data }) => (
         </div>
             <div className="container pageContent" >
                 <div className="row firstCopy">
-                        <h1>{data.sanityPages.pagetitle}</h1>
-
                         <PortableText blocks={data.sanityPages._rawFirstcopy} serializers={serializers} onClick={addCity()} />
                 </div>
             </div>
