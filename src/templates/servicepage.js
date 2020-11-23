@@ -172,7 +172,7 @@ export default ({ data }) => (
                                 opacity: "0.7"
                         }}>
                         </div>
-                            <h1>{data.sanityPages.pagetitle} Services {city}</h1>
+                            <h1>{data.sanityPages.pagetitle} Services</h1>
                             <hr style={{ backgroundColor:  data.sanityCompanyInfo.accentcolor.hex }} />
 
                     </div>
