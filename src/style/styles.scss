@@ -59,10 +59,7 @@ body{
         font-size: 1.6em;
         font-weight: 600;
     }
-    h2{
-        font-size: 1.4em;
-        font-weight: 500;
-    }
+    
     .pagewrapper{
         width:100%;
         overflow: hidden;
@@ -120,6 +117,11 @@ body{
     .pageContent{
         .row{
             padding: 60px 0; 
+        }
+        h2{
+            font-size: 1.4em;
+            font-weight: 500;
+            margin-top: 1em !important;
         }
 
     }
