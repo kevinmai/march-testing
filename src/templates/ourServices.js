@@ -252,9 +252,8 @@ export default ({ data }) => (
                 <div className="rightSection" style={{ backgroundColor: data.sanityCompanyInfo.primarycolor.hex }}>
                 <span className="rightSectionTitle"><h2>Customer Reviews</h2></span>
                     <hr style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }} />
-                    <FaStar style={{ color: '#fcba03' }} /><FaStar style={{ color: '#fcba03' }} /><FaStar style={{ color: '#fcba03' }} /><FaStar style={{ color: '#fcba03' }} /><FaStar style={{ color: '#fcba03' }} />
                     <BlockContent blocks={data.sanityPages._rawServices} />
-                    <a className="reviews" href="/reviews" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>View More Reviews</a>
+                    <a className="reviews" href="/reviews" style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}>See our Reviews</a>
                 </div>
             </div>
             <div className="container pageContent">
