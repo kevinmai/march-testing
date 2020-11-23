@@ -158,7 +158,7 @@ const CouponsPage = ({ data }) => (
                     <span className="printCoupon" onClick={printCoupon} style={{ backgroundColor: data.sanityCompanyInfo.accentcolor.hex }}><FaPrint /> <span className="mobileCouponText">Claim Offer</span></span>
 
                     </div>
-                    <p className="restrictions">*Restrictions may apply</p>
+                    <p className="restrictions">*Restrictions may apply.</p>
                 </div>
 
             </div>
