@@ -138,6 +138,7 @@ if(typeof window !== 'undefined'){
         var text = $(this).text();
         text = text.replace("[city]", "");
         $(this).html(text); 
+        $('div.pageContent a').attr('href', "");
         });
     }
 });
