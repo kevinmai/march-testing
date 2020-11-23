@@ -33,7 +33,7 @@ export default class ContactForm extends React.Component {
       honeypot: "",
       tel: "",
       message: "",
-      // vsref: "",
+      vsref: "",
       gclid: "",
       submitted: false,
       formAction: 'https://metrics.vitalstorm.com/email_form_submission/0875cb26-0eb8-4d3d-890b-46ced9db821f/'
