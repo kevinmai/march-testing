@@ -150,7 +150,7 @@ function addCity(){
             city= getUrlVars()['city'];
             return href + "?city=" +  city; 
         });
-    } else{
+    } else if(typeof window !== 'undefined'){
         $('div.pageContent a').attr('href', function(i, href){
             city= getUrlVars()['city'];
             return href + ""; 
