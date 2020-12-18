@@ -14,6 +14,9 @@ import Image from "gatsby-image"
 import "./layout.css"
 import { FaCalendarAlt, FaPhone } from 'react-icons/fa'
 import $ from "jquery"
+import ConversionLoggingInit from '../util/conversionLogging.js';
+
+ConversionLoggingInit.init({env: 'prod'});
 
 
 const Layout = ({ children }) => {

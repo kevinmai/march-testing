@@ -34,7 +34,9 @@
     "react-fontawesome": "^1.7.1",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.9.0",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "js-cookie": "^2.2.0",
+    "uuid-js": "^0.7.5"
   },
   "devDependencies": {
     "prettier": "^1.19.1"
