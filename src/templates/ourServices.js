@@ -37,7 +37,7 @@ export const query = graphql`
             }
             _rawFirstcopy(resolveReferences: { maxDepth: 10 })
             firstcopy {
-            sanityChildren {
+            children {
                 marks
                 text
                 _type
